@@ -32,6 +32,7 @@ UPath('/usr/lib/python2.7/site-packages')
 UPath('uripath.py')
 """
 import os.path
+import sys
 
 # if you need to make this module OS-specific (rather than for URIs)
 # set these variables after importing the uripath module:-
@@ -76,12 +77,19 @@ class _UPath(object):
     def __truediv__(self, other):
         return self._appendpath(other)
 
+    def __rtruediv__(self, other):
+        return self._prependpath(other)
+
     def __rdiv__(self, other):
         return self._prependpath(other)
 
-    def __cmp__(self, other):
+    def __eq__(self, other):
         other = _otherpath(other)
-        return cmp(self.normalised, other)
+        return self.normalised == other
+
+    def __lt__(self, other):
+        other = _otherpath(other)
+        return self.normalised < other
 
     def __hash__(self):
         return hash(self.normalised)
@@ -162,8 +170,10 @@ del AbsoluteUPath, RelativeUPath
 def _otherpath(other):
     if isUPath(other):
         other = other.normalised
-    elif isinstance(other, unicode):
+    elif sys.version_info.major < 3 and isinstance(other, unicode):
         other = other.encode('utf-8')
+    elif sys.version_info.major >= 3 and isinstance(other, bytes):
+        other = other.decode('utf-8')
     elif not isinstance(other, str):
         raise RuntimeError('bad arg [%s] type %s' % (other, type(other)))
     return other

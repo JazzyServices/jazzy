@@ -391,7 +391,7 @@ class Test_UPath_Unicode(UPathTestCase):
         'Test a unicode path.'
         u = u'utf\u20128'
         p = uripath.UPath(u)
-        I.assertUPath(p, 'utf\xe2\x80\x928', 1)
+        I.assertUPath(p, b'utf\xe2\x80\x928', 1)
         I.assertTrue(p == u'utf\u20128')
 
     def test_unicode_2(I):
@@ -405,7 +405,7 @@ class Test_UPath_Unicode(UPathTestCase):
         top = uripath.UPath('/tmp/xxa55')
         u = u'utf\u20128'
         p = top / u
-        I.assertUPath(p, '/tmp/xxa55/utf\xe2\x80\x928', 4)
+        I.assertUPath(p, b'/tmp/xxa55/utf\xe2\x80\x928', 4)
         I.assertTrue(p[-1] == u'utf\u20128')
 
 
