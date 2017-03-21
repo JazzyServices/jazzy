@@ -10,3 +10,6 @@ DbC.py:
 
 base41.py:
     a 2byte-to-3char encoding scheme that produces strings that are safe to use as filenames, and in URLs.
+
+`crc16_8005.py`:
+    a 16-bit CRC
