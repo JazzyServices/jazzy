@@ -1,0 +1,33 @@
+/* jazzy.css
+** Cascaded Style Sheet for Jazzy Services
+**
+** :copyright: Jazzy Services Limited 2017
+** :license: BSD, see ../LICENSE
+*/
+
+body {
+  font-family: 'Lucida Grande', Geneva, Verdana, Helvetica, sans-serif;
+  font-size: 100%;
+  background-color: white;
+  color: #000;
+}
+
+/* css classes that need writing */
+.py {
+  font-family: 'Lucida Console', monospace;
+  font-weight: bold;
+}
+.subject {
+}
+.definition {
+  font-family: 'Lucida Console', monospace;
+  font-weight: bold;
+  font-size: 120%;
+}
+.param {
+  font-style: italic;
+}
+.example {
+  background-color: #efc;
+  font-style: italic;
+}

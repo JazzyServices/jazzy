@@ -154,6 +154,74 @@ class Test_b41encode(unittest.TestCase):
             sut = base41.b41encode(datum)
             I.assertEqual(sut, expected)
 
+
+class Test_b41string(unittest.TestCase):
+
+    def test_sanity(I):
+        'Test the encoder with a standard byte string.'
+        datum = b'John'
+        sut = base41.b41string(datum)
+        I.assertEqual(sut, 'Omk2Uo')
+
+    def test_sanity_lo_trailing(I):
+        'Test the encoder with a low trailing byte.'
+        datum = b'John!'
+        sut = base41.b41string(datum)
+        I.assertEqual(sut, 'Omk2UoQ')
+
+    def test_sanity_hi_trailing(I):
+        'Test the encoder with a high trailing byte.'
+        datum = b'John)'
+        sut = base41.b41string(datum)
+        I.assertEqual(sut, 'Omk2Uo01')
+
+    def test_minimum(I):
+        'Test the encoder with nulls.'
+        N = 100
+        datum = N * [0, 0]
+        sut = base41.b41string(datum)
+        expected = N * '000'
+        I.assertEqual(sut, expected)
+
+    def test_minimum_trailing(I):
+        'Test the encoder with an odd number of nulls.'
+        datum = [0,0,0]
+        sut = base41.b41string(datum)
+        I.assertEqual(sut, '0000')
+
+    def test_maximum(I):
+        'Test the encoder with 0xff.'
+        N = 100
+        datum = N * [0xff,0xff]
+        sut = base41.b41string(datum)
+        expected = N * 'AXV'
+        I.assertEqual(sut, expected)
+
+    def test_maximum_trailing(I):
+        'Test the encoder with an odd number of 0xff.'
+        datum = [0xff,0xff,0xff]
+        sut = base41.b41string(datum)
+        expected = 'AXV96'
+        I.assertEqual(sut, expected)
+
+    def test_pair_boundaries(I):
+        'Test the encoder on base41 boundaries.'
+        data = [
+            ([  0,   0], '000'),
+            ([  0,  40], 'X00'),
+            ([  0,  41], '010'),
+            ([  6, 104], '0X0'),
+            ([  6, 144], 'XX0'),
+            ([  6, 145], '001'),
+            ([249, 134], '00V'),
+            ([255, 238], '0XV'),
+            ([255, 255], 'AXV'),
+        ]
+        for datum, expected in data:
+            sut = base41.b41string(datum)
+            I.assertEqual(sut, expected)
+
+
 #   _
 # _| |________________________________________________________________________
 

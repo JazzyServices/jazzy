@@ -40,9 +40,11 @@ License file: ./LICENSE
 #   _________
 # _| helpers |________________________________________________________________
 
+def out_tostring(src):
+    return ''.join(chr(i) for i in src)
+
 if bytes == str:
-    def out_tobytes(src):
-        return ''.join(chr(i) for i in src)
+    out_tobytes = out_tostring
     def in_tobytes(src):
         return (ord(i) for i in src)
 else:
@@ -112,6 +114,10 @@ class B41Encoder(object):
 def b41encode(src):
     'Encode a byte source using base41 encoding.'
     return out_tobytes(byt for byt in B41Encoder(src))
+
+def b41string(src):
+    'Encode a byte source using base41 encoding.'
+    return out_tostring(byt for byt in B41Encoder(src))
 
 class B41U16Encoder(object):
     'Iterator to encode a source of UINT16s to the Base41 Alphabet.'

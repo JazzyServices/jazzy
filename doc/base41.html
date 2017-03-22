@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>base41</title>
+  <link rel="stylesheet" href="jazzy.css" type="text/css">
+</head>
+
+<body>
+<h1>base41 &mdash; Safe Data Encoding</h1>
+
+<p>
+  <span class="py">base41</span>
+  encodes binary data into ASCII characters that are safe to use as filenames,
+  as directory names, in URLs, <i>etc</i>.
+</p>
+
+<h2>Functions in this module</h2>
+
+<dl>
+
+  <dt class="subject" id="b41string">
+    <span class="definition">b41string</span>(
+    <span class="param">src</span>
+    )
+  </dt>
+  <dd class="description">
+    <div>
+    Encode a byte source to base41.
+    Returning a string of ASCII characters.
+    </div>
+    <pre class="example">
+&gt;&gt;&gt; base41.b41string(b'\xde\xad\xbe\xef')
+'oUQ73M'
+    </pre>
+  </dd>
+
+  <dt class="subject" id="b41encode">
+    <span class="definition">b41encode</span>(
+    <span class="param">src</span>
+    )
+  </dt>
+  <dd class="description">
+    <div>
+    Encode a byte source to base41.
+    Returning a string of ASCII bytes.
+    </div>
+    <pre class="example">
+&gt;&gt;&gt; base41.b41encode(b'\xde\xad\xbe\xef')
+b'oUQ73M'
+    </pre>
+    <!--div>The reason that the return type is
+        <span class="py">bytes</span>
+        rather than
+        <span class="py">str</span>
+        (not that that matters in Python2!)
+        is that ASCII is still bytes.
+        But bytes that happen to fall in the range
+        <span class="py">x00-x7F</span>.
+        Also, the
+        <span class="py">b41decode</span>
+        function takes
+        <span class="py">bytes</span>
+        as its source, so the symmetry between encode and decode is maintained
+        if both consume and produce bytes.
+    </div-->
+  </dd>
+
+  <dt class="subject" id="b41decode">
+    <span class="definition">b41decode</span>(
+    <span class="param">src</span>
+    )
+  </dt>
+  <dd class="description">
+    <div>
+      Decode a base41-encoded byte source.
+      Returning a string of bytes.
+    </div>
+    <pre class="example">
+&gt;&gt;&gt; base41.b41decode(b'oUQ73M')
+b'\xde\xad\xbe\xef'
+    </pre>
+
+    <div>
+      Bytes outside of the range
+      <span class="py">x21-x7e</span>
+      are ignored as "whitespace".
+    </div>
+    <pre class="example">
+&gt;&gt;&gt; base41.b41decode(b'   oUQ\t73\x7fM\n')
+b'\xde\xad\xbe\xef'
+    </pre>
+
+    <div>
+    Furthermore, any (non-whitespace)
+    byte whose value <i>modulo 48</i> is greater than 40
+    is ignored as "punctuation".
+    The list of base41 punctuation characters is therefore:
+    <span class="py">)*+,-./YZ[\]^_</span>
+    </div>
+    <pre class="example">
+&gt;&gt;&gt; base41.b41decode(b'ZZo__[U]Q-7+3.MYY')
+b'\xde\xad\xbe\xef'
+    </pre>
+
+    <div>
+      The corollary to this is that any (non-whitespace)
+      byte whose value <i>modulo 48</i> is less than 41 is decoded.
+      (This is a deliberate design feature of base41 decoding)
+    </div>
+    <pre class="example">
+&gt;&gt;&gt; base41.b41decode(b'?%!gc}')
+b'\xde\xad\xbe\xef'
+    </pre>
+  </dd>
+
+</dl>
+
+<h2>Classes in this module</h2>
+
+<dl>
+
+  <dt class="subject" id="B41Encoder">
+    <span class="definition">B41Encoder</span>(
+    <span class="param">src</span>
+    )
+  </dt>
+  <dd class="description">
+    <div>
+      An iterator that encodes a byte source to base41.
+    </div>
+    <pre class="example">
+&gt;&gt;&gt; for byt in base41.B41Encoder(b'\xde\xad\xbe\xef'):
+    print(chr(byt), end='/')
+
+o/U/Q/7/3/M/
+    </pre>
+  </dd>
+
+  <dt class="subject" id="B41Decoder">
+    <span class="definition">B41Decoder</span>(
+    <span class="param">src</span>
+    )
+  </dt>
+  <dd class="description">
+    <div>
+      An iterator that decodes a base41-encoded byte source.
+    </div>
+    <pre class="example">
+&gt;&gt;&gt; for byt in base41.B41Decoder(b'o/U/Q/7/3/M/'):
+    print('{:02x}'.format(byt)), end='')
+
+deadbeef
+    </pre>
+    <div>
+      The same rules regarding "whitespace"
+      (bytes <span class="py">x00-x20, x7f-xff</span>)
+      and "punctuation"
+      (bytes <span class="py">x29-x2f, x59-x5f</span>)
+      apply to this class as they do to
+      <span class="py">b41decode</span>.
+    </div>
+  </dd>
+
+</dl>
+
+</body>
+
+</html>
