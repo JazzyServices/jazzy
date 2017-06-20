@@ -1,0 +1,11 @@
+text {
+    font-family:DejaVu Sans, Helvetica, sans-serif;
+    text-anchor:middle;
+    stroke:none;
+}
+.dash {
+    stroke-dasharray:3,2;
+    stroke-dashoffset:-1;
+    fill:none;
+    stroke:gray;
+}

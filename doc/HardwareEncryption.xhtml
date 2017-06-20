@@ -1,0 +1,637 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>A Simple Hardware Encryption Scheme</title>
+    <link href="DSE.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<h2> Background &ndash; The Vigenere Cypher </h2>
+<pre>
+ABCDEFGHIJKLMNOPQRSTUVWXYZ
+BCDEFGHIJKLMNOPQRSTUVWXYZA
+CDEFGHIJKLMNOPQRSTUVWXYZAB
+DEFGHIJKLMNOPQRSTUVWXYZABC
+EFGHIJKLMNOPQRSTUVWXYZABCD
+FGHIJKLMNOPQRSTUVWXYZABCDE
+GHIJKLMNOPQRSTUVWXYZABCDEF
+HIJKLMNOPQRSTUVWXYZABCDEFG
+IJKLMNOPQRSTUVWXYZABCDEFGH
+JKLMNOPQRSTUVWXYZABCDEFGHI
+KLMNOPQRSTUVWXYZABCDEFGHIJ
+LMNOPQRSTUVWXYZABCDEFGHIJK
+MNOPQRSTUVWXYZABCDEFGHIJKL
+NOPQRSTUVWXYZABCDEFGHIJKLM
+OPQRSTUVWXYZABCDEFGHIJKLMN
+PQRSTUVWXYZABCDEFGHIJKLMNO
+QRSTUVWXYZABCDEFGHIJKLMNOP
+RSTUVWXYZABCDEFGHIJKLMNOPQ
+STUVWXYZABCDEFGHIJKLMNOPQR
+TUVWXYZABCDEFGHIJKLMNOPQRS
+UVWXYZABCDEFGHIJKLMNOPQRST
+VWXYZABCDEFGHIJKLMNOPQRSTU
+WXYZABCDEFGHIJKLMNOPQRSTUV
+XYZABCDEFGHIJKLMNOPQRSTUVW
+YZABCDEFGHIJKLMNOPQRSTUVWX
+ZABCDEFGHIJKLMNOPQRSTUVWXY
+</pre>
+
+<h2> Improving the Cypher </h2>
+<p>
+The cypher can be improved if the rows were a <em>permutation</em> of the
+alphabet rather than just a shift.
+So what we need is a way of generating permutations of an alphabet.
+And not just sequential permutations, but the nth permutation.
+</p>
+
+<h2> Generating Permutations </h2>
+<p> We start with a simple switch with two inputs and two outputs.</p>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink"
+>
+    <title>DSE2</title>
+    <text y="16" font-size="10pt">
+        <tspan x="20">I</tspan><tspan font-size="smaller">1</tspan>
+        <tspan x="80">I</tspan><tspan font-size="smaller">2</tspan>
+    </text>
+    <g stroke="gray" fill="none">
+        <path d="M20,30h60v60h-60z" />
+    </g>
+    <g class="dash">
+        <path d="M20,20v10l60,60v10" />
+        <path d="M80,20v10l-60,60v10" />
+    </g>
+    <text y="116" font-size="10pt">
+        <tspan x="20">O</tspan><tspan font-size="smaller">1</tspan>
+        <tspan x="80">O</tspan><tspan font-size="smaller">2</tspan>
+    </text>
+</svg>
+<p> An alphabet of 2 characters has two permutations, so we can use one switch.  </p>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink"
+>
+    <title>DSE2</title>
+    <!-- left-hand -->
+    <g fill="none">
+        <path d="M20,30h60 M20,90h60" stroke="gray" stroke-width="1" />
+        <path d="M20,20v80 M80,20v80" stroke="black" stroke-width="2" />
+    </g>
+    <text y="16" font-size="10pt">
+        <tspan x="20">A</tspan>
+        <tspan x="80">B</tspan>
+    </text>
+    <text y="116" fill="red" font-size="10pt">
+        <tspan x="20">A</tspan>
+        <tspan x="80">B</tspan>
+    </text>
+    <!-- right-hand -->
+    <g fill="none">
+        <path d="M120,30h60v60h-60z" stroke="gray" />
+        <path d="M120,20v10l60,60v10 M180,20v10l-60,60v10" stroke="black" stroke-width="2" />
+    </g>
+    <text y="16" font-size="10pt">
+        <tspan x="120">A</tspan>
+        <tspan x="180">B</tspan>
+    </text>
+    <text y="116" fill="red" font-size="10pt">
+        <tspan x="120">B</tspan>
+        <tspan x="180">A</tspan>
+    </text>
+</svg>
+
+<p> An alphabet of 3 characters has 6 permutations </p>
+<pre>
+0 ABC
+1 ACB
+2 BAC
+3 BCA
+4 CAB
+5 CBA
+</pre>
+<p> We start by arranging 2 switches in a diagonal "bank"</p>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink"
+>
+    <title>DSE3</title>
+    <!-- paths -->
+    <g class="dash">
+        <path d="M20,20v80 M50,20v80 M80,20v80" />
+    </g>
+    <!-- switches -->
+    <g fill="none" stroke="gray" stroke-width="1">
+        <path d="M80,30v30h-60v30h30v-60z" />
+    </g>
+    <!-- numbers -->
+    <g font-size="8pt" fill="blue">
+        <text x= "35" y="78">1</text>
+        <text x= "65" y="48">2</text>
+    </g>
+    <!-- top alphabet -->
+    <text y="16">
+        <tspan x="20">A</tspan>
+        <tspan x="50">B</tspan>
+        <tspan x="80">C</tspan>
+    </text>
+</svg>
+<p>By flipping zero, one or two switches we can get 3 of the 6 permutations.</p>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink"
+>
+    <style>
+    </style>
+    <title>DSE3</title>
+    <!-- switches -->
+    <g fill="none" stroke="gray" stroke-width="1">
+        <path d="M80,30v30h-60v30h30v-60z" />
+        <path d="M180,30v30h-60v30h30v-60z" />
+        <path d="M280,30v30h-60v30h30v-60z" />
+    </g>
+    <!-- numbers -->
+    <g font-size="8pt" fill="blue">
+        <text x= "35" y="78">1</text>
+        <text x= "65" y="48">2</text>
+        <text x="135" y="78">1</text>
+        <text x="165" y="48">2</text>
+        <text x="235" y="78">1</text>
+        <text x="265" y="48">2</text>
+    </g>
+    <!-- top alphabet -->
+    <text y="16">
+        <tspan x="20">A</tspan>
+        <tspan x="50">B</tspan>
+        <tspan x="80">C</tspan>
+        <tspan x="120">A</tspan>
+        <tspan x="150">B</tspan>
+        <tspan x="180">C</tspan>
+        <tspan x="220">A</tspan>
+        <tspan x="250">B</tspan>
+        <tspan x="280">C</tspan>
+    </text>
+    <!-- paths -->
+    <g fill="none" stroke="black" stroke-width="2">
+        <path d="M20,20v80 M50,20v80 M80,20v80" />
+        <path d="M120,20v40l30,30v10
+                 M150,20v40l-30,30v10
+                 M180,20v80" />
+        <path d="M220,20v40l30,30v10
+                 M250,20v10l30,30v40
+                 M280,20v10l-60,60v10" />
+    </g>
+    <!-- lookup table -->
+    <text y="116" fill="red">
+        <tspan x="20">A</tspan>
+        <tspan x="50">B</tspan>
+        <tspan x="80">C</tspan>
+        <tspan x="120">B</tspan>
+        <tspan x="150">A</tspan>
+        <tspan x="180">C</tspan>
+        <tspan x="220">C</tspan>
+        <tspan x="250">A</tspan>
+        <tspan x="280">B</tspan>
+    </text>
+</svg>
+<p>
+To get the 3 remaining permutations,
+we need to swap the last two characters in each configuration.</p>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink"
+height="340"
+>
+    <title>DSE3</title>
+    <defs>
+        <g id="sw">
+            <text y="16" font-size="10pt">
+                <tspan x="20">A</tspan>
+                <tspan x="50">B</tspan>
+                <tspan x="80">C</tspan>
+            </text>
+            <path d="M 80,30v30h-60v30h30v-60z M80,100v30h-30v-30z"
+               fill="none"
+               stroke="gray"
+               stroke-width="1" />
+            <g font-size="8pt" fill="blue">
+                <text x= "35" y= "78">1</text>
+                <text x= "65" y= "48">2</text>
+                <text x= "65" y="118">1</text>
+            </g>
+        </g>
+    </defs>
+    <!-- bare switches -->
+    <use xlink:href="#sw" />
+    <use xlink:href="#sw" x="100" />
+    <use xlink:href="#sw" x="200" />
+    <use xlink:href="#sw"         y="170" />
+    <use xlink:href="#sw" x="100" y="170" />
+    <use xlink:href="#sw" x="200" y="170" />
+    <!-- paths -->
+    <g fill="none" stroke="black" stroke-width="2">
+        <path d="M20,20v120 M50,20v120 M80,20v120" />
+        <path d="M120,20v40l30,30v50
+                 M150,20v40l-30,30v50
+                 M180,20v120" />
+        <path d="M220,20v40l30,30v50
+                 M250,20v10l30,30v80
+                 M280,20v10l-60,60v50" />
+        <path d="M20,190v120
+                 M50,190v80l30,30v10
+                 M80,190v80l-30,30v10" />
+        <path d="M120,190v40l30,30v10l30,30v10
+                 M150,190v40l-30,30v50
+                 M180,190v80l-30,30v10" />
+        <path d="M220,190v40l30,30v10l30,30v10
+                 M250,190v10l30,30v40l-30,30v10
+                 M280,190v10l-60,60v50" />
+    </g>
+    <!-- lookup table -->
+    <text y="156" font-size="10pt" fill="red">
+        <tspan x="20">A</tspan>
+        <tspan x="50">B</tspan>
+        <tspan x="80">C</tspan>
+        <tspan x="120">B</tspan>
+        <tspan x="150">A</tspan>
+        <tspan x="180">C</tspan>
+        <tspan x="220">C</tspan>
+        <tspan x="250">A</tspan>
+        <tspan x="280">B</tspan>
+    </text>
+    <text y="326" font-size="10pt" fill="red">
+        <tspan x="20">A</tspan>
+        <tspan x="50">C</tspan>
+        <tspan x="80">B</tspan>
+        <tspan x="120">B</tspan>
+        <tspan x="150">C</tspan>
+        <tspan x="180">A</tspan>
+        <tspan x="220">C</tspan>
+        <tspan x="250">B</tspan>
+        <tspan x="280">A</tspan>
+    </text>
+</svg>
+
+<p> What we have is two diagonal "banks" of switches.
+If a switch is crossed, all the switches to its left must be crossed.
+We number the switches in each bank from the left starting at 1.
+A configuration can be identified using the number of crossed switches in each bank.
+</p>
+<pre>
+0 0.0 ABC
+1 0.1 ACB
+2 1.0 BAC
+3 1.1 BCA
+4 2.0 CAB
+5 2.1 CBA
+</pre>
+
+<p>For an alphabet of 4 characters...</p>
+<pre>
+ 0 0.0.0 ABCD
+ 1 0.0.1 ABDC
+ 2 0.1.0 ACBD
+ 3 0.1.1 ACDB
+ 4 0.2.0 ADBC
+ 5 0.2.1 ADCB
+ 6 1.0.0 BACD
+ 7 1.0.1 BADC
+ 8 1.1.0 BCAD
+ 9 1.1.1 BCDA
+10 1.2.0 BDAC
+11 1.2.0 BDCA
+12 2.0.0 CABD
+13 2.0.1 CADB
+14 2.1.0 CBAD
+15 2.1.1 CBDA
+16 2.2.0 CDAB
+17 2.2.1 CDBA
+18 3.0.0 DABC
+19 3.0.1 DACB
+20 3.1.0 DBAC
+21 3.1.1 DBCA
+22 3.2.0 DCAB
+23 3.2.1 DCBA
+</pre>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink"
+>
+    <title>DSE4</title>
+    <defs>
+        <g id="upper">
+            <text y="16" font-size="10pt" >
+                <tspan x="20">A</tspan>
+                <tspan x="40">B</tspan>
+                <tspan x="60">C</tspan>
+                <tspan x="80">D</tspan>
+            </text>
+            <g fill="none" stroke="gray" >
+                <path d="M80,30v20h-40v40h-20v-20h40v-40z"/>
+                <path d="M80,75v20h-40v20h20v-40z"/>
+                <path d="M80,120v20h-20v-20z"/>
+            </g>
+            <g font-size="8pt" fill="blue" >
+                <text x="70" y= "43"> 3 </text>
+                <text x="50" y= "63"> 2 </text>
+                <text x="30" y= "83"> 1 </text>
+                <text x="70" y= "88"> 2 </text>
+                <text x="50" y="108"> 1 </text>
+                <text x="70" y="133"> 1 </text>
+            </g>
+        </g>
+        <g id="upper-dash" stroke-dasharray="3,2" stroke-dashoffset="-1" fill="none" stroke="gray">
+            <path d="M20,20v50 m0,20v60
+                     M40,20v30 m0,40v5 m0,20v35
+                     M60,20v10 m0,40v5 m0,40v5 m0,20v10
+                     M80,20v10 m0,20v25 m0,20v25 m0,20v10" />
+        </g>
+    </defs>
+    <use xlink:href="#upper" />
+    <use xlink:href="#upper-dash" />
+</svg>
+
+<p>by now, you should get the idea.
+We can extend this to an alphabet of any size. 10, 16, 26, 256.
+So, give me a number from zero to 23.
+</p>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink"
+height="170"
+>
+    <title>DSE4 Example 2.0.1</title>
+    <defs>
+        <path id="x" fill="none" stroke="gray" d="M0,0l20,20 M20,0l-20,20 " />
+    </defs>
+    <use xlink:href="#upper" />
+    <use xlink:href="#upper-dash" />
+    <use xlink:href="#x" x="20" y="70" />
+    <use xlink:href="#x" x="40" y="50" />
+    <use xlink:href="#x" x="60" y="120" />
+    <!-- -->
+    <use xlink:href="#upper" x="100" />
+    <path fill="none" stroke-width="2" stroke="black"
+        d="M120,20v50l20,20v60
+           M140,20v30l20,20v50l20,20v10
+           M160,20v30l-40,40v60
+           M180,20v100l-20,20v10"/>
+    <text y="166" font-size="10pt" fill="red">
+        <tspan x="120">C</tspan>
+        <tspan x="140">A</tspan>
+        <tspan x="160">D</tspan>
+        <tspan x="180">B</tspan>
+    </text>
+</svg>
+<p>
+This gives us a permutation, which is basically a look-up table for our plaintext.
+This lookup table would be used only for the FIRST letter of the plain text;
+we would then generate another permutation for the second letter and so on.
+</p>
+
+<h2>Vulnerability</h2>
+<p>However, this scheme is vulnerable to a chosen-plaintext attack.
+The first letter of the permutation is solely dependant on the first bank.
+</p>
+
+<h2>Strengthening</h2>
+<p>We can strengthen the cypher by applying a second set of banks.
+This time we will flip the banks over so that the letters go through the banks
+"backwards".
+We don't have to do this, but it does make the geometry a little simpler.
+Now, every permutation has n-factorial ways of being arrived at; so even if you recovered the permutation, it is impossible to know <em>anything</em> about the key.
+</p>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink"
+height="290"
+>
+    <title>DSE4 Double-Encryption Example 2.0.1 + 0.2.1</title>
+    <defs>
+        <path id="x" fill="none" stroke="gray" d="M0,0l20,20 M20,0l-20,20 " />
+        <g id="lower">
+            <g fill="none" stroke="gray">
+                <path d="M80,200v20h-40v40h-20v-20h40v-40z"/>
+                <path d="M60,175v20h-40v20h20v-40z"/>
+                <path d="M40,150v20h-20v-20z"/>
+            </g>
+            <g font-size="8pt" fill="blue">
+                <text x="30" y="163"> 1 </text>
+                <text x="50" y="188"> 1 </text>
+                <text x="30" y="208"> 2 </text>
+                <text x="70" y="213"> 1 </text>
+                <text x="50" y="233"> 2 </text>
+                <text x="30" y="253"> 3 </text>
+            </g>
+        </g>
+        <g id="lower-dash" stroke-dasharray="3,2" stroke-dashoffset="-1" fill="none" stroke="gray">
+            <path d="M20,170v25 m0,20v25 m0,20v10
+                     M40,170v 5 m0,40v 5 m0,40v10
+                     M60,150v25 m0,20v 5 m0,40v30
+                     M80,150v50 m0,20v50" />
+        </g>
+    </defs>
+    <!-- -->
+    <use xlink:href="#upper" />
+    <use xlink:href="#upper-dash" />
+    <use xlink:href="#x" x="20" y="70" />
+    <use xlink:href="#x" x="40" y="50" />
+    <use xlink:href="#x" x="60" y="120" />
+    <use xlink:href="#lower" />
+    <use xlink:href="#lower-dash" />
+    <use xlink:href="#x" x="20" y="150" />
+    <use xlink:href="#x" x="20" y="195" />
+    <use xlink:href="#x" x="40" y="175" />
+    <!-- -->
+    <use xlink:href="#upper" x="100" />
+    <use xlink:href="#lower" x="100" />
+    <path fill="none" stroke-width="2" stroke="black"
+        d="M120,20v50l20,20v60 l-20,20v25l20,20v55
+           M140,20v30l20,20v50l20,20v10 v120
+           M160,20v30l-40,40v60 l20,20v5l20,20v75
+           M180,20v100l-20,20v10 v25l-40,40v55"/>
+    <text y="286" font-size="10pt" fill="red">
+        <tspan x="120">D</tspan>
+        <tspan x="140">A</tspan>
+        <tspan x="160">C</tspan>
+        <tspan x="180">B</tspan>
+    </text>
+</svg>
+
+<h2>Decryption</h2>
+<p> it is not good enough just to have fast, simple encryption we also need to
+have fast, simple decryption. It would be nice if we could just swap the upper
+and lower configurations. So let's see what happens.
+[[don't forget to draw a A -&gt; X table]]
+</p>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink"
+height="290"
+>
+    <title>DSE4 Encryption v Decryption (1)</title>
+    <defs>
+        <path id="x" fill="none" stroke="gray" d="M0,0l20,20 M20,0l-20,20 " />
+    </defs>
+    <!-- -->
+    <use xlink:href="#upper" />
+    <use xlink:href="#upper-dash" />
+    <use xlink:href="#x" x="20" y="70" />
+    <use xlink:href="#x" x="40" y="50" />
+    <use xlink:href="#x" x="60" y="120" />
+    <use xlink:href="#lower" />
+    <use xlink:href="#lower-dash" />
+    <use xlink:href="#x" x="20" y="150" />
+    <use xlink:href="#x" x="20" y="195" />
+    <use xlink:href="#x" x="40" y="175" />
+    <!-- -->
+    <use xlink:href="#upper" x="100" />
+    <use xlink:href="#upper-dash" x="100" />
+    <use xlink:href="#x" x="140" y="95" />
+    <use xlink:href="#x" x="160" y="75" />
+    <use xlink:href="#x" x="160" y="120" />
+    <use xlink:href="#lower" x="100" />
+    <use xlink:href="#lower-dash" x="100" />
+    <use xlink:href="#x" x="120" y="150" />
+    <use xlink:href="#x" x="140" y="220" />
+    <use xlink:href="#x" x="160" y="200" />
+    <!-- -->
+    <text y="286" font-size="10pt" fill="red">
+        <tspan x="20">D</tspan>
+        <tspan x="40">A</tspan>
+        <tspan x="60">C</tspan>
+        <tspan x="80">B</tspan>
+        <tspan x="120">D</tspan>
+        <tspan x="140">B</tspan>
+        <tspan x="160">A</tspan>
+        <tspan x="180">C</tspan>
+    </text>
+</svg>
+
+<p> The solution is to reverse the initial alphabet.  </p>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink"
+height="400"
+>
+    <title>DSE4</title>
+    <defs>
+        <g id="upper1">
+            <g fill="none">
+                <path d="M80,30v20h-40v40h-20v-20h40v-40z"/>
+                <path d="M80,75v20h-40v20h20v-40z"/>
+                <path d="M80,120v20h-20v-20z"/>
+            </g>
+            <g font-size="8pt"
+               font-family="DejaVu Sans, Helvetica, sans-serif"
+               text-anchor="middle"
+               stroke="none">
+                <text x="70" y= "43"> 3 </text>
+                <text x="50" y= "63"> 2 </text>
+                <text x="30" y= "83"> 1 </text>
+                <text x="70" y= "88"> 2 </text>
+                <text x="50" y="108"> 1 </text>
+                <text x="70" y="133"> 1 </text>
+            </g>
+        </g>
+        <g id="lower1">
+            <g fill="none">
+                <path d="M80,230v20h-40v40h-20v-20h40v-40z"/>
+                <path d="M60,205v20h-40v20h20v-40z"/>
+                <path d="M40,180v20h-20v-20z"/>
+            </g>
+            <g font-size="8pt"
+               font-family="DejaVu Sans, Helvetica, sans-serif"
+               text-anchor="middle"
+               stroke="none">
+                <text x="30" y="193"> 1 </text>
+                <text x="50" y="218"> 1 </text>
+                <text x="30" y="238"> 2 </text>
+                <text x="70" y="243"> 1 </text>
+                <text x="50" y="263"> 2 </text>
+                <text x="30" y="283"> 3 </text>
+            </g>
+        </g>
+        <g id="upper1-path">
+            <g fill="none" stroke-width="2">
+                <path d="M20,20V70l20,20v60"/>
+                <path d="M40,20V50l20,20v50l20,20v10"/>
+                <path d="M60,20V50l-40,40v60"/>
+                <path d="M80,20V120l-20,20v10"/>
+            </g>
+        </g>
+        <g id="lower1-path">
+            <g fill="none" stroke-width="2">
+                <path d="M20,170v10l20,20v5l20,20v75"/>
+                <path d="M40,170v10l-20,20v25l20,20v55"/>
+                <path d="M60,170v35l-40,40v55"/>
+                <path d="M80,170v130"/>
+            </g>
+        </g>
+    </defs>
+    <!-- Left-Hand Configuration -->
+    <text y="16"
+        font-size="10pt"
+        font-family="DejaVu Sans, Helvetica, sans-serif"
+        text-anchor="middle"
+        stroke="none">
+        <tspan x="20">D</tspan>
+        <tspan x="40">C</tspan>
+        <tspan x="60">B</tspan>
+        <tspan x="80">A</tspan>
+    </text>
+    <use xlink:href="#upper1" stroke="green"/>
+    <use xlink:href="#lower1" stroke="gray"/>
+    <use xlink:href="#upper1-path" stroke="gray"/>
+    <use xlink:href="#lower1-path" stroke="green"/>
+    <text y="166" font-size="10pt" font-family="DejaVu Sans, Helvetica, sans-serif" text-anchor="middle" fill="red">
+        <tspan x="20">B</tspan>
+        <tspan x="40">D</tspan>
+        <tspan x="60">A</tspan>
+        <tspan x="80">C</tspan>
+    </text>
+    <text y="316" font-size="10pt" font-family="DejaVu Sans, Helvetica, sans-serif" text-anchor="middle" fill="red">
+        <tspan x="20">A</tspan>
+        <tspan x="40">D</tspan>
+        <tspan x="60">B</tspan>
+        <tspan x="80">C</tspan>
+    </text>
+    <!-- Left-Hand Mapping -->
+    <text y="336" font-size="10pt" font-family="DejaVu Sans, Helvetica, sans-serif">
+        <tspan x="20" dy="0"> A &#x2192; A </tspan>
+        <tspan x="20" dy="16"> B &#x2192; D </tspan>
+        <tspan x="20" dy="16"> C &#x2192; B </tspan>
+        <tspan x="20" dy="16"> D &#x2192; C </tspan>
+    </text>
+    <!-- Right-Hand Configuration -->
+    <text y="16"
+        font-size="10pt"
+        font-family="DejaVu Sans, Helvetica, sans-serif"
+        text-anchor="middle"
+        stroke="none">
+        <tspan x="120">D</tspan>
+        <tspan x="140">C</tspan>
+        <tspan x="160">B</tspan>
+        <tspan x="180">A</tspan>
+    </text>
+    <use xlink:href="#upper1" x="100" stroke="blue"/>
+    <use xlink:href="#lower1" x="100" stroke="blue"/>
+    <use xlink:href="#upper1-path" transform="translate(100,150) rotate(180,50,85)" stroke="gray"/>
+    <use xlink:href="#lower1-path" transform="translate(100,-150) rotate(180,50,235)" stroke="green"/>
+    <g font-size="10pt" font-family="DejaVu Sans, Helvetica, sans-serif" text-anchor="middle" fill="red">
+        <text x="120" y="166"> D </text>
+        <text x="140" y="166"> A </text>
+        <text x="160" y="166"> B </text>
+        <text x="180" y="166"> C </text>
+    </g>
+    <g font-size="10pt" font-family="DejaVu Sans, Helvetica, sans-serif" text-anchor="middle" fill="red">
+        <text x="120" y="316"> A </text>
+        <text x="140" y="316"> C </text>
+        <text x="160" y="316"> D </text>
+        <text x="180" y="316"> B </text>
+    </g>
+    <!-- Right-Hand Mapping -->
+    <text y="336" font-size="10pt" font-family="DejaVu Sans, Helvetica, sans-serif">
+        <tspan x="120" dy= "0"> A &#x2192; A </tspan>
+        <tspan x="120" dy="16"> B &#x2192; C </tspan>
+        <tspan x="120" dy="16"> C &#x2192; D </tspan>
+        <tspan x="120" dy="16"> D &#x2192; B </tspan>
+    </text>
+</svg>
+
+<h2>A Simple Scheme</h2>
+<p>
+Pick two numbers between 0 and N!-1 these are the starting configurations.
+Pick two more numbers between 0 and N!-1 these are the steps.
+A little care is required when choosing the steps since if a number is a
+factor of N! then this reduces the number of steps you can have before we
+begin to repeat ourselves. Ideally the steps should be relatively prime to N!
+For each "letter" in the plaintext, obtain the permutation and look the letter
+up in the permutation - this is the cyphertext. Add the steps.
+</p>
+
+<h2>Any Questions?</h2>
+
+</body>
+</html>
