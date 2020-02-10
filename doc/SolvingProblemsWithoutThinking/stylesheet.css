@@ -1,0 +1,69 @@
+body {
+    font-family: "Book Antiqua", "Baskerville", Palatino, Georgia, serif;
+    max-width:557px;
+}
+.normal {
+    margin-top: 1ex;
+    margin-bottom: 1ex;
+}
+text.binary {
+    font-family: "Courier New", monospace;
+    font-size: 14pt;
+    font-weight: bold;
+    text-anchor: middle;
+}
+text.orchard {
+    font-size: 24pt;
+    text-anchor: middle;
+}
+.suguru {
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 14pt;
+    text-anchor: middle;
+}
+.futoshiki {
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 12pt;
+    text-anchor: middle;
+    alignment-baseline: central;
+}
+.keypad {
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 36pt;
+    text-anchor: middle;
+    alignment-baseline: central;
+}
+.base4 {
+    font-family: "Courier New", monospace;
+    font-weight: bold;
+}
+.cent {
+    text-align: center;
+}
+div.svgdiv {
+    max-width: 522px;
+    text-align: center;
+}
+div.indented {
+    margin-left:2em;
+}
+span.smallcaps {
+    font-variant: small-caps;
+}
+table {
+    margin-top: 1em;
+    margin-left: 2em;
+    margin-bottom: 1em;
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+th {
+    border: 1px solid black;
+    padding: 0.5em;
+}
+td {
+    border: 1px solid black;
+}
+ul {
+    margin-top: 0;
+}

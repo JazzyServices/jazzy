@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1 plus MathML 2.0 plus SVG 1.1//EN"
+    "http://www.w3.org/2002/04/xhtml-math-svg/xhtml-math-svg-flat.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" dir="ltr">
+<head>
+  <title>Puzzle 4</title>
+  <link rel="stylesheet" href="stylesheet.css" type="text/css" />
+</head>
+<body>
+
+<h1>Puzzle 4</h1>
+
+<div class="normal">
+    Starting at zero...
+    <ol>
+        <li>Continually add 3</li>
+        <li>If you have a number greater than 10, subtract 10.</li>
+        <li>If you get to exactly 10, stop.</li>
+    </ol>
+    If you have done it properly, you should have the sequence:
+    <div class="base4 indented">
+        0 3 6 9 2 5 8 1 4 7 10
+    </div>
+    Is this a puzzle?
+    It is so simple and mechanical that it is doesn&rsquo;t involve any brain power.
+    It is not <em>puzzling</em>.
+</div>
+
+<div class="normal">
+    This puzzle-solving technique is called a
+    <em>Sieve</em>.
+    It means, continually applying a simple set of steps
+    until you arrive at the right answer.
+</div>
+
+<h2>The Two-Bucket Problem</h2>
+
+<div class="normal">
+    You have a 4-gallon bucket and a 7-gallon bucket.
+    Measure exactly 2 gallons.
+</div>
+
+<div class="normal">
+    You could probably solve this one after a short while.
+    But what if you have a 33cl bottle and a 50cl bottle and you want exactly 25cl?
+    Both problems are trivially the same, they just require a <em>sieve</em>
+</div>
+
+<div class="normal">
+    Starting at zero...
+    <ol>
+        <li>Continually add 4 (that is, fill the 4-gallon bucket and tip it into the 7-gallon bucket)</li>
+        <li>If you have a number greater than 7, subtract 7 (that is, if you fill the 7-gallon bucket, tip it away and pour in the rest of the 4-gallon bucket)</li>
+        <li>If you get to exactly 2, stop.</li>
+    </ol>
+    To slow this down a bit ...
+    <ol>
+        <li>Start with two empty buckets. We will represent this as the sum: 0+0</li>
+        <li>Fill the smaller bucket. You now have 4+0</li>
+        <li>Tip it into the bigger bucket. You have 0+4</li>
+        <li>Fill the smaller bucket. You have 4+4</li>
+        <li>Tip as much as you can (3 gallons) into the bigger bucket. You have 1+7</li>
+        <li>Empty the bigger bucket. You have 1+0</li>
+        <li>Tip the remainder into the bigger bucket. You have 0+1</li>
+        <li>Fill the smaller bucket. You have 4+1</li>
+        <li>Tip it into the bigger bucket. You have 0+5</li>
+        <li>Fill the smaller bucket. You have 4+5</li>
+        <li>Tip as much as you can (2 gallons) into the bigger bucket. You have 2+7</li>
+        <li>Stop, because you have 2 gallons in the smaller bucket.</li>
+    </ol>
+    Now try it with the 33cl and 50cl bottles.
+    It will take a few more steps, but it is just continually adding 33 and subtracting 50 when we go above it.
+    Simple, and unpuzzling. And this is supposed to be a classic puzzle.
+</div>
+
+</body>
+</html>

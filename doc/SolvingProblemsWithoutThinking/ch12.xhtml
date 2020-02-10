@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1 plus MathML 2.0 plus SVG 1.1//EN"
+    "http://www.w3.org/2002/04/xhtml-math-svg/xhtml-math-svg-flat.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" dir="ltr">
+<head>
+  <title>Puzzle 12</title>
+  <link rel="stylesheet" href="stylesheet.css" type="text/css" />
+</head>
+<body>
+
+<h1>Puzzle 12</h1>
+
+<div class="normal">
+    In
+    <em>Peg Solitaire</em>,
+    the starting position has 32 pegs and one vacant hole
+    as in the diagram below.
+    There is only one type of move that can be made
+    which is for one peg to
+    <em>jump over</em>
+    a neighbouring peg into a vacant hole.
+    The peg that was jumped over is then removed from the board.
+    The task is to have one peg remaining;
+    and that peg must be in the centre of the board.
+</div>
+
+<div class="svgdiv">
+<svg:svg version="1.1"
+    xmlns:svg="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    width="140" height="140"
+    >
+    <svg:g fill="black" stroke="none">
+        <svg:circle cy="10" cx="50" r="8" />
+        <svg:circle cy="10" cx="70" r="8" />
+        <svg:circle cy="10" cx="90" r="8" />
+        <svg:circle cy="30" cx="50" r="8" />
+        <svg:circle cy="30" cx="70" r="8" />
+        <svg:circle cy="30" cx="90" r="8" />
+        <svg:circle cy="50" cx="10" r="8" />
+        <svg:circle cy="50" cx="30" r="8" />
+        <svg:circle cy="50" cx="50" r="8" />
+        <svg:circle cy="50" cx="70" r="8" />
+        <svg:circle cy="50" cx="90" r="8" />
+        <svg:circle cy="50" cx="110" r="8" />
+        <svg:circle cy="50" cx="130" r="8" />
+        <svg:circle cy="70" cx="10" r="8" />
+        <svg:circle cy="70" cx="30" r="8" />
+        <svg:circle cy="70" cx="50" r="8" />
+        <svg:circle cy="70" cx="90" r="8" />
+        <svg:circle cy="70" cx="110" r="8" />
+        <svg:circle cy="70" cx="130" r="8" />
+        <svg:circle cy="90" cx="10" r="8" />
+        <svg:circle cy="90" cx="30" r="8" />
+        <svg:circle cy="90" cx="50" r="8" />
+        <svg:circle cy="90" cx="70" r="8" />
+        <svg:circle cy="90" cx="90" r="8" />
+        <svg:circle cy="90" cx="110" r="8" />
+        <svg:circle cy="90" cx="130" r="8" />
+        <svg:circle cy="110" cx="50" r="8" />
+        <svg:circle cy="110" cx="70" r="8" />
+        <svg:circle cy="110" cx="90" r="8" />
+        <svg:circle cy="130" cx="50" r="8" />
+        <svg:circle cy="130" cx="70" r="8" />
+        <svg:circle cy="130" cx="90" r="8" />
+    </svg:g>
+    <svg:g fill="none" stroke="black" stroke-width="1">
+        <svg:circle cy="70" cx="70" r="8" />
+    </svg:g>
+</svg:svg>
+</div>
+
+<h2>Puzzle 12 step 1</h2>
+
+<div class="normal">
+    To be able to solve Peg Solitaire through trial and error
+    could take a very long time.
+    So firstly, we try to solve a simpler puzzle.
+</div>
+
+<div class="normal">
+    Make the correct jumps so that the three pegs in the box
+    are removed and the fourth peg returns to its original position.
+</div>
+
+<div class="svgdiv">
+<svg:svg version="1.1"
+    xmlns:svg="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    width="140" height="140"
+    >
+    <svg:g fill="black" stroke="none">
+        <svg:circle cy="90" cx="70" r="8" />
+        <svg:circle cy="90" cx="90" r="8" />
+        <svg:circle cy="90" cx="110" r="8" />
+        <svg:circle cy="110" cx="70" r="8" />
+    </svg:g>
+    <svg:g fill="none" stroke="black" stroke-width="1">
+        <svg:circle cy="10" cx="50" r="8" />
+        <svg:circle cy="10" cx="70" r="8" />
+        <svg:circle cy="10" cx="90" r="8" />
+        <svg:circle cy="30" cx="50" r="8" />
+        <svg:circle cy="30" cx="70" r="8" />
+        <svg:circle cy="30" cx="90" r="8" />
+        <svg:circle cy="50" cx="10" r="8" />
+        <svg:circle cy="50" cx="30" r="8" />
+        <svg:circle cy="50" cx="50" r="8" />
+        <svg:circle cy="50" cx="70" r="8" />
+        <svg:circle cy="50" cx="90" r="8" />
+        <svg:circle cy="50" cx="110" r="8" />
+        <svg:circle cy="50" cx="130" r="8" />
+        <svg:circle cy="70" cx="70" r="8" />
+        <svg:circle cy="70" cx="10" r="8" />
+        <svg:circle cy="70" cx="30" r="8" />
+        <svg:circle cy="70" cx="50" r="8" />
+        <svg:circle cy="70" cx="90" r="8" />
+        <svg:circle cy="70" cx="110" r="8" />
+        <svg:circle cy="70" cx="130" r="8" />
+        <svg:circle cy="90" cx="10" r="8" />
+        <svg:circle cy="90" cx="30" r="8" />
+        <svg:circle cy="90" cx="50" r="8" />
+        <svg:circle cy="90" cx="130" r="8" />
+        <svg:circle cy="110" cx="50" r="8" />
+        <svg:circle cy="110" cx="90" r="8" />
+        <svg:circle cy="130" cx="50" r="8" />
+        <svg:circle cy="130" cx="70" r="8" />
+        <svg:circle cy="130" cx="90" r="8" />
+        <svg:path d="M60,80 h60 v20 h-60 z"
+        />
+    </svg:g>
+</svg:svg>
+</div>
+
+<h2>Puzzle 12 step 2</h2>
+
+<div class="normal">
+    First remove the three pegs in the small box
+    then the six pegs in the larger box.
+    The six pegs on the left should remain.
+</div>
+
+<div class="svgdiv">
+<svg:svg version="1.1"
+    xmlns:svg="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    width="140" height="140"
+    >
+    <svg:g fill="black" stroke="none">
+        <svg:circle cy="50" cx="10" r="8" />
+        <svg:circle cy="50" cx="30" r="8" />
+        <svg:circle cy="70" cx="10" r="8" />
+        <svg:circle cy="70" cx="30" r="8" />
+        <svg:circle cy="90" cx="10" r="8" />
+        <svg:circle cy="90" cx="30" r="8" />
+        <svg:circle cy="90" cx="70" r="8" />
+        <svg:circle cy="90" cx="90" r="8" />
+        <svg:circle cy="90" cx="110" r="8" />
+        <svg:circle cy="110" cx="50" r="8" />
+        <svg:circle cy="110" cx="70" r="8" />
+        <svg:circle cy="110" cx="90" r="8" />
+        <svg:circle cy="130" cx="50" r="8" />
+        <svg:circle cy="130" cx="70" r="8" />
+        <svg:circle cy="130" cx="90" r="8" />
+    </svg:g>
+    <svg:g fill="none" stroke="black" stroke-width="1">
+        <svg:circle cy="10" cx="50" r="8" />
+        <svg:circle cy="10" cx="70" r="8" />
+        <svg:circle cy="10" cx="90" r="8" />
+        <svg:circle cy="30" cx="50" r="8" />
+        <svg:circle cy="30" cx="70" r="8" />
+        <svg:circle cy="30" cx="90" r="8" />
+        <svg:circle cy="50" cx="50" r="8" />
+        <svg:circle cy="50" cx="70" r="8" />
+        <svg:circle cy="50" cx="90" r="8" />
+        <svg:circle cy="50" cx="110" r="8" />
+        <svg:circle cy="50" cx="130" r="8" />
+        <svg:circle cy="70" cx="70" r="8" />
+        <svg:circle cy="70" cx="50" r="8" />
+        <svg:circle cy="70" cx="90" r="8" />
+        <svg:circle cy="70" cx="110" r="8" />
+        <svg:circle cy="70" cx="130" r="8" />
+        <svg:circle cy="90" cx="50" r="8" />
+        <svg:circle cy="90" cx="130" r="8" />
+        <svg:path d="M60,80 h60 v20 h-60 z" />
+        <svg:path d="M40,100 h60 v40 h-60 z" />
+    </svg:g>
+</svg:svg>
+</div>
+
+<h2>Puzzle 12 step 3</h2>
+
+<div class="normal">
+    Remove the pegs from the L-shaped box.
+    You should be left with the two pegs outside the box
+    from which you should be able to
+    finish with one peg in the centre.
+</div>
+
+<div class="svgdiv">
+<svg:svg version="1.1"
+    xmlns:svg="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    width="140" height="140"
+    >
+    <svg:g fill="black" stroke="none">
+        <svg:circle cy="50" cx="70" r="8" />
+        <svg:circle cy="50" cx="90" r="8" />
+        <svg:circle cy="50" cx="110" r="8" />
+        <svg:circle cy="50" cx="130" r="8" />
+        <svg:circle cy="70" cx="90" r="8" />
+        <svg:circle cy="70" cx="110" r="8" />
+        <svg:circle cy="70" cx="130" r="8" />
+        <svg:circle cy="90" cx="130" r="8" />
+    </svg:g>
+    <svg:g fill="none" stroke="black" stroke-width="1">
+        <svg:circle cy="10" cx="50" r="8" />
+        <svg:circle cy="10" cx="70" r="8" />
+        <svg:circle cy="10" cx="90" r="8" />
+        <svg:circle cy="30" cx="50" r="8" />
+        <svg:circle cy="30" cx="70" r="8" />
+        <svg:circle cy="30" cx="90" r="8" />
+        <svg:circle cy="50" cx="10" r="8" />
+        <svg:circle cy="50" cx="30" r="8" />
+        <svg:circle cy="50" cx="50" r="8" />
+        <svg:circle cy="70" cx="10" r="8" />
+        <svg:circle cy="70" cx="30" r="8" />
+        <svg:circle cy="70" cx="50" r="8" />
+        <svg:circle cy="70" cx="70" r="8" />
+        <svg:circle cy="90" cx="10" r="8" />
+        <svg:circle cy="90" cx="30" r="8" />
+        <svg:circle cy="90" cx="50" r="8" />
+        <svg:circle cy="90" cx="70" r="8" />
+        <svg:circle cy="90" cx="90" r="8" />
+        <svg:circle cy="90" cx="110" r="8" />
+        <svg:circle cy="110" cx="50" r="8" />
+        <svg:circle cy="110" cx="70" r="8" />
+        <svg:circle cy="110" cx="90" r="8" />
+        <svg:circle cy="130" cx="50" r="8" />
+        <svg:circle cy="130" cx="70" r="8" />
+        <svg:circle cy="130" cx="90" r="8" />
+        <svg:path d="M60,40 h80 v60 h-20 v-40 h-60 z" />
+    </svg:g>
+</svg:svg>
+</div>
+
+<h2>Puzzle 12 step 4</h2>
+
+<div class="normal">
+    First remove the boxes of three pegs,
+    then the boxes of six pegs (clockwise from the bottom),
+    then the L-shape.
+    You should be left with two pegs from which you should be able to
+    complete the puzzle.
+</div>
+
+<div class="svgdiv">
+<svg:svg version="1.1"
+    xmlns:svg="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    width="140" height="140"
+    >
+    <svg:g fill="black" stroke="none">
+        <svg:circle cy="10" cx="50" r="8" />
+        <svg:circle cy="10" cx="70" r="8" />
+        <svg:circle cy="10" cx="90" r="8" />
+        <svg:circle cy="30" cx="50" r="8" />
+        <svg:circle cy="30" cx="70" r="8" />
+        <svg:circle cy="30" cx="90" r="8" />
+        <svg:circle cy="50" cx="10" r="8" />
+        <svg:circle cy="50" cx="30" r="8" />
+        <svg:circle cy="50" cx="50" r="8" />
+        <svg:circle cy="50" cx="70" r="8" />
+        <svg:circle cy="50" cx="90" r="8" />
+        <svg:circle cy="50" cx="110" r="8" />
+        <svg:circle cy="50" cx="130" r="8" />
+        <svg:circle cy="70" cx="10" r="8" />
+        <svg:circle cy="70" cx="30" r="8" />
+        <svg:circle cy="70" cx="50" r="8" />
+        <svg:circle cy="70" cx="90" r="8" />
+        <svg:circle cy="70" cx="110" r="8" />
+        <svg:circle cy="70" cx="130" r="8" />
+        <svg:circle cy="90" cx="10" r="8" />
+        <svg:circle cy="90" cx="30" r="8" />
+        <svg:circle cy="90" cx="50" r="8" />
+        <svg:circle cy="90" cx="70" r="8" />
+        <svg:circle cy="90" cx="90" r="8" />
+        <svg:circle cy="90" cx="110" r="8" />
+        <svg:circle cy="90" cx="130" r="8" />
+        <svg:circle cy="110" cx="50" r="8" />
+        <svg:circle cy="110" cx="70" r="8" />
+        <svg:circle cy="110" cx="90" r="8" />
+        <svg:circle cy="130" cx="50" r="8" />
+        <svg:circle cy="130" cx="70" r="8" />
+        <svg:circle cy="130" cx="90" r="8" />
+    </svg:g>
+    <svg:g fill="none" stroke="black" stroke-width="1">
+        <svg:circle cy="70" cx="70" r="8" />
+        <svg:path d="M0,40 h40 v60 h-40 z" />
+        <svg:path d="M40,0 h60 v40 h-60 z" />
+        <svg:path d="M40,40 h20 v60 h-20 z" />
+        <svg:path d="M60,40 h80 v60 h-20 v-40 h-60 z" />
+        <svg:path d="M60,80 h60 v20 h-60 z" />
+        <svg:path d="M40,100 h60 v40 h-60 z" />
+    </svg:g>
+</svg:svg>
+</div>
+
+</body>
+</html>

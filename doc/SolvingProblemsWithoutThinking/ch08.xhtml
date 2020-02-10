@@ -1,0 +1,646 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1 plus MathML 2.0 plus SVG 1.1//EN"
+    "http://www.w3.org/2002/04/xhtml-math-svg/xhtml-math-svg-flat.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" dir="ltr">
+<head>
+  <title>Puzzle 8</title>
+  <link rel="stylesheet" href="stylesheet.css" type="text/css" />
+</head>
+<body>
+
+<h1>Puzzle 8</h1>
+
+<div class="normal">
+    One puzzle that is a variant of the Latin Square puzzle is the
+    <em>futoshiki</em>.
+    Every row and every column must contain the numbers 1 to 5.
+    The unique feature of the futoshiki is the
+    &ldquo;less than&rdquo;
+    and
+    &ldquo;greater than&rdquo;
+    signs that indicate the relationship between two adjacent cells.
+    We solve this puzzle in the same way as other Latin Square puzzles,
+    we <em>eliminate the impossible</em> by marking in a cell the numbers that
+    <em>can&rsquo;t</em>
+    go there.
+</div>
+
+<div class="svgdiv">
+<svg:svg version="1.1"
+    xmlns:svg="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    width="146" height="146"
+    viewBox="-1 -1 146 146"
+    >
+    <svg:path fill="none" stroke="black" stroke-width="1"
+    d="
+        M0,0 h16v16h-16z m32,0 h16v16h-16z m32,0 h16v16h-16z m32,0 h16v16h-16z m32,0 h16v16h-16z
+        M0,32 h16v16h-16z m32,0 h16v16h-16z m32,0 h16v16h-16z m32,0 h16v16h-16z m32,0 h16v16h-16z
+        M0,64 h16v16h-16z m32,0 h16v16h-16z m32,0 h16v16h-16z m32,0 h16v16h-16z m32,0 h16v16h-16z
+        M0,96 h16v16h-16z m32,0 h16v16h-16z m32,0 h16v16h-16z m32,0 h16v16h-16z m32,0 h16v16h-16z
+        M0,128 h16v16h-16z m32,0 h16v16h-16z m32,0 h16v16h-16z m32,0 h16v16h-16z m32,0 h16v16h-16z
+        M4,28   l4,-8 4,8
+        M20,132 l8,4 -8,4
+        M28,68  l-8,4 8,4
+        M36,52  l4,8 4,-8
+        M60,68  l-8,4 8,4
+        M60,132 l-8,4 8,4
+        M68,84  l4,8 4,-8
+        M68,124 l4,-8 4,8
+        M92,100 l-8,4 8,4
+        M100,20 l4,8 4,-8
+        M116,4  l8,4 -8,4
+        M124,36 l-8,4 8,4
+        M124,100l-8,4 8,4
+        M132,124l4,-8 4,8
+    "/>
+    <svg:text class="futoshiki" x="72"  y="72" >4</svg:text>
+    <svg:text class="futoshiki" x="136" y="8"  >2</svg:text>
+</svg:svg>
+</div>
+
+<div class="normal">
+    We use the same notation as we did for
+    <a href="ch07.xhtml">puzzle 7</a>
+    <ul>
+        <li>If the cell can&rsquo;t contain a 1, make a mark in the top-left quadrant.</li>
+        <li>If the cell can&rsquo;t contain a 2, make a mark in the top-right quadrant.</li>
+        <li>If the cell can&rsquo;t contain a 3, make a mark in the bottom-left quadrant.</li>
+        <li>If the cell can&rsquo;t contain a 4, make a mark in the bottom-right quadrant.</li>
+        <li>If the cell can&rsquo;t contain a 5, make a mark in the middle.</li>
+    </ul>
+</div>
+
+<h2>Puzzle 8 step 1</h2>
+
+<div class="normal">
+    Since two cells already have numbers,
+    we can mark the other cells in the same row and column.
+</div>
+
+<div class="svgdiv">
+<svg:svg version="1.1"
+    xmlns:svg="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    width="146" height="146"
+    viewBox="-1 -1 146 146"
+    >
+    <svg:path fill="none" stroke="black" stroke-width="1"
+    d="
+        M0,0 h16v16h-16z m32,0 h16v16h-16z m32,0 h16v16h-16z m32,0 h16v16h-16z m32,0 h16v16h-16z
+        M0,32 h16v16h-16z m32,0 h16v16h-16z m32,0 h16v16h-16z m32,0 h16v16h-16z m32,0 h16v16h-16z
+        M0,64 h16v16h-16z m32,0 h16v16h-16z m32,0 h16v16h-16z m32,0 h16v16h-16z m32,0 h16v16h-16z
+        M0,96 h16v16h-16z m32,0 h16v16h-16z m32,0 h16v16h-16z m32,0 h16v16h-16z m32,0 h16v16h-16z
+        M0,128 h16v16h-16z m32,0 h16v16h-16z m32,0 h16v16h-16z m32,0 h16v16h-16z m32,0 h16v16h-16z
+        M4,28   l4,-8 4,8
+        M20,132 l8,4 -8,4
+        M28,68  l-8,4 8,4
+        M36,52  l4,8 4,-8
+        M60,68  l-8,4 8,4
+        M60,132 l-8,4 8,4
+        M68,84  l4,8 4,-8
+        M68,124 l4,-8 4,8
+        M92,100 l-8,4 8,4
+        M100,20 l4,8 4,-8
+        M116,4  l8,4 -8,4
+        M124,36 l-8,4 8,4
+        M124,100l-8,4 8,4
+        M132,124l4,-8 4,8
+    "/>
+    <svg:path fill="black" stroke="none"
+     d="M11,3   h2v2h-2z
+        M11,75  h2v2h-2z
+        M43,3   h2v2h-2z
+        M43,75  h2v2h-2z
+        M75,3   h2v2h-2z
+        M75,11  h2v2h-2z
+        M75,43  h2v2h-2z
+        M75,107 h2v2h-2z
+        M75,139 h2v2h-2z
+        M107,3  h2v2h-2z
+        M107,75 h2v2h-2z
+        M139,35 h2v2h-2z
+        M139,67 h2v2h-2z
+        M139,75 h2v2h-2z
+        M139,99 h2v2h-2z
+        M139,131h2v2h-2z
+     "/>
+    <svg:text class="futoshiki" x="72"  y="72" >4</svg:text>
+    <svg:text class="futoshiki" x="136" y="8"  >2</svg:text>
+</svg:svg>
+</div>
+
+<h2>Puzzle 8 step 2</h2>
+
+<div class="normal">
+    We now turn our attention to the
+    &ldquo;less than&rdquo;
+    and
+    &ldquo;greater than&rdquo;
+    signs.
+    A sign indicates the relationship between two cells:
+    the greater cell and the lesser cell.
+    Each cell has a minimum possible number and a maximum possible number.
+    <ul>
+        <li>For an empty cell, the minimum is 1 and the maximum is 5.</li>
+        <li>For an numbered cell, the minimum and the maximum are that number.</li>
+        <li>For a marked cell, the minimum and maximum depend on which marks are in the cell.
+            For example,
+            <ul>
+                <li>If a cell has only a 1-mark. Its minimum is 2 but its maximum is still 5</li>
+                <li>If a cell has a 4-mark and a 5-mark. Its minimum is still 1 but its maximum is 3</li>
+                <li>If a cell has only a 3-mark. Its minimum is still 1 and its maximum is still 5</li>
+            </ul>
+        </li>
+    </ul>
+    We can eliminate impossibilities because:
+    <ul>
+        <li>The greater cell can&rsquo;t be any number
+        from 1 to the minimum of the lesser cell.</li>
+        <li>The lesser cell can&rsquo;t be any number
+        from maximum of the greater cell to 5.</li>
+    </ul>
+    For example:
+    <ul>
+        <li>If both cells are empty, the lesser can&rsquo;t be 5,
+        the greater can&rsquo;t be 1.</li>
+        <li>If the lesser cell has a 1-mark, its minimum is 2,
+        therefore the greater can&rsquo;t be 1 or 2.</li>
+        <li>If the greater cell has a 5-mark, its maximum is 4,
+        therefore the lesser can&rsquo;t be 4 or 5.</li>
+    </ul>
+    We eliminate all the impossibles for all pairs of cells either side of a sign
+    and should have the following marks:
+</div>
+
+<div class="svgdiv">
+<svg:svg version="1.1"
+    xmlns:svg="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    width="146" height="146"
+    viewBox="-1 -1 146 146"
+    >
+    <svg:path fill="none" stroke="black" stroke-width="1"
+    d="
+        M0,0 h16v16h-16z m32,0 h16v16h-16z m32,0 h16v16h-16z m32,0 h16v16h-16z m32,0 h16v16h-16z
+        M0,32 h16v16h-16z m32,0 h16v16h-16z m32,0 h16v16h-16z m32,0 h16v16h-16z m32,0 h16v16h-16z
+        M0,64 h16v16h-16z m32,0 h16v16h-16z m32,0 h16v16h-16z m32,0 h16v16h-16z m32,0 h16v16h-16z
+        M0,96 h16v16h-16z m32,0 h16v16h-16z m32,0 h16v16h-16z m32,0 h16v16h-16z m32,0 h16v16h-16z
+        M0,128 h16v16h-16z m32,0 h16v16h-16z m32,0 h16v16h-16z m32,0 h16v16h-16z m32,0 h16v16h-16z
+        M4,28   l4,-8 4,8
+        M20,132 l8,4 -8,4
+        M28,68  l-8,4 8,4
+        M36,52  l4,8 4,-8
+        M60,68  l-8,4 8,4
+        M60,132 l-8,4 8,4
+        M68,84  l4,8 4,-8
+        M68,124 l4,-8 4,8
+        M92,100 l-8,4 8,4
+        M100,20 l4,8 4,-8
+        M116,4  l8,4 -8,4
+        M124,36 l-8,4 8,4
+        M124,100l-8,4 8,4
+        M132,124l4,-8 4,8
+    "/>
+    <svg:path fill="black" stroke="none"
+    d="
+        M3,35   h2v2h-2z
+        M3,75   h2v2h-2z
+        M3,131  h2v2h-2z
+        M7,7    h2v2h-2z
+        M7,71   h2v2h-2z
+        M11,3   h2v2h-2z
+        M11,75  h2v2h-2z
+        M35,35  h2v2h-2z
+        M35,67  h2v2h-2z
+        M39,71  h2v2h-2z
+        M39,135 h2v2h-2z
+        M43,3   h2v2h-2z
+        M43,35  h2v2h-2z
+        M43,75  h2v2h-2z
+        M67,107 h2v2h-2z
+        M67,131 h2v2h-2z
+        M71,103 h2v2h-2z
+        M75,3   h2v2h-2z
+        M75,11  h2v2h-2z
+        M75,43  h2v2h-2z
+        M75,107 h2v2h-2z
+        M75,139 h2v2h-2z
+        M99,3   h2v2h-2z
+        M99,99  h2v2h-2z
+        M103,39 h2v2h-2z
+        M103,103h2v2h-2z
+        M107,3  h2v2h-2z
+        M107,75 h2v2h-2z
+        M107,107h2v2h-2z
+        M131,35 h2v2h-2z
+        M131,99 h2v2h-2z
+        M131,131h2v2h-2z
+        M131,139h2v2h-2z
+        M135,103h2v2h-2z
+        M139,35 h2v2h-2z
+        M139,67 h2v2h-2z
+        M139,75 h2v2h-2z
+        M139,99 h2v2h-2z
+        M139,131h2v2h-2z
+     "/>
+    <svg:text class="futoshiki" x="72"  y="72" >4</svg:text>
+    <svg:text class="futoshiki" x="136" y="8"  >2</svg:text>
+</svg:svg>
+</div>
+
+<h2>Puzzle 8 step 3</h2>
+
+<div class="normal">
+    The are no cells with four marks,
+    but there is a column in which all but one of the cells
+    has the same mark. See if you can find it before looking
+    at the grid below. When we insert the number into this cell
+    and mark the rest of the row we will discover a cell with four
+    marks. Continue inserting and marking and we should have a grid
+    like this
+    (don&rsquo;t forget to also apply the logic of the greater-than and less-than
+    signs that we applied in step 2):
+</div>
+
+<div class="svgdiv">
+<svg:svg version="1.1"
+    xmlns:svg="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    width="146" height="146"
+    viewBox="-1 -1 146 146"
+    >
+    <svg:path fill="none" stroke="black" stroke-width="1"
+    d="
+        M0,0 h16v16h-16z m32,0 h16v16h-16z m32,0 h16v16h-16z m32,0 h16v16h-16z m32,0 h16v16h-16z
+        M0,32 h16v16h-16z m32,0 h16v16h-16z m32,0 h16v16h-16z m32,0 h16v16h-16z m32,0 h16v16h-16z
+        M0,64 h16v16h-16z m32,0 h16v16h-16z m32,0 h16v16h-16z m32,0 h16v16h-16z m32,0 h16v16h-16z
+        M0,96 h16v16h-16z m32,0 h16v16h-16z m32,0 h16v16h-16z m32,0 h16v16h-16z m32,0 h16v16h-16z
+        M0,128 h16v16h-16z m32,0 h16v16h-16z m32,0 h16v16h-16z m32,0 h16v16h-16z m32,0 h16v16h-16z
+        M4,28   l4,-8 4,8
+        M20,132 l8,4 -8,4
+        M28,68  l-8,4 8,4
+        M36,52  l4,8 4,-8
+        M60,68  l-8,4 8,4
+        M60,132 l-8,4 8,4
+        M68,84  l4,8 4,-8
+        M68,124 l4,-8 4,8
+        M92,100 l-8,4 8,4
+        M100,20 l4,8 4,-8
+        M116,4  l8,4 -8,4
+        M124,36 l-8,4 8,4
+        M124,100l-8,4 8,4
+        M132,124l4,-8 4,8
+    "/>
+    <svg:path fill="black" stroke="none"
+    d="
+        M3,35   h2v2h-2z
+        M3,131  h2v2h-2z
+        M7,7    h2v2h-2z
+        M11,3   h2v2h-2z
+        M11,35  h2v2h-2z
+        M11,99  h2v2h-2z
+        M11,131 h2v2h-2z
+        M35,11  h2v2h-2z
+        M35,35  h2v2h-2z
+        M35,43  h2v2h-2z
+        M35,107 h2v2h-2z
+        M35,139 h2v2h-2z
+        M39,135 h2v2h-2z
+        M43,3   h2v2h-2z
+        M43,35  h2v2h-2z
+        M67,107 h2v2h-2z
+        M67,131 h2v2h-2z
+        M71,103 h2v2h-2z
+        M75,3   h2v2h-2z
+        M75,11  h2v2h-2z
+        M75,43  h2v2h-2z
+        M75,107 h2v2h-2z
+        M75,139 h2v2h-2z
+        M99,3   h2v2h-2z
+        M99,99  h2v2h-2z
+        M103,7  h2v2h-2z
+        M103,39 h2v2h-2z
+        M103,103h2v2h-2z
+        M103,135h2v2h-2z
+        M107,3  h2v2h-2z
+        M107,43 h2v2h-2z
+        M107,107h2v2h-2z
+        M131,35 h2v2h-2z
+        M131,99 h2v2h-2z
+        M131,131h2v2h-2z
+        M131,139h2v2h-2z
+        M135,103h2v2h-2z
+        M139,35 h2v2h-2z
+        M139,99 h2v2h-2z
+        M139,131h2v2h-2z
+     "/>
+    <svg:text class="futoshiki" x="8,40,72,104,136" y="72" >23451</svg:text>
+    <svg:text class="futoshiki" x="136" y="8"  >2</svg:text>
+</svg:svg>
+</div>
+
+<h2>Puzzle 8 step 4</h2>
+
+<div class="normal">
+    We now appear to be stuck.
+    There are no cells with four marks.
+    There are no rows or columns where all but one have the same mark.
+    But there is a row where all but
+    <em>two</em>
+    cells have the same
+    <em>two</em>
+    marks.
+    On the second row, the middle and inside-right cells do not have
+    a 1-mark and a 2-mark whereas the other three cells do have those marks.
+    This means that the middle and inside-right cells
+    <em>must</em>
+    be 1 and 2 (but we don&rsquo;t know which is which yet)
+    so they
+    <em>can&rsquo;t</em>
+    be 3, 4 or 5. We can, therefore, mark these cells as such.
+</div>
+
+<div class="svgdiv">
+<svg:svg version="1.1"
+    xmlns:svg="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    width="146" height="146"
+    viewBox="-1 -1 146 146"
+    >
+    <svg:path fill="none" stroke="black" stroke-width="1"
+    d="
+        M0,0 h16v16h-16z m32,0 h16v16h-16z m32,0 h16v16h-16z m32,0 h16v16h-16z m32,0 h16v16h-16z
+        M0,32 h16v16h-16z m32,0 h16v16h-16z m32,0 h16v16h-16z m32,0 h16v16h-16z m32,0 h16v16h-16z
+        M0,64 h16v16h-16z m32,0 h16v16h-16z m32,0 h16v16h-16z m32,0 h16v16h-16z m32,0 h16v16h-16z
+        M0,96 h16v16h-16z m32,0 h16v16h-16z m32,0 h16v16h-16z m32,0 h16v16h-16z m32,0 h16v16h-16z
+        M0,128 h16v16h-16z m32,0 h16v16h-16z m32,0 h16v16h-16z m32,0 h16v16h-16z m32,0 h16v16h-16z
+        M4,28   l4,-8 4,8
+        M20,132 l8,4 -8,4
+        M28,68  l-8,4 8,4
+        M36,52  l4,8 4,-8
+        M60,68  l-8,4 8,4
+        M60,132 l-8,4 8,4
+        M68,84  l4,8 4,-8
+        M68,124 l4,-8 4,8
+        M92,100 l-8,4 8,4
+        M100,20 l4,8 4,-8
+        M116,4  l8,4 -8,4
+        M124,36 l-8,4 8,4
+        M124,100l-8,4 8,4
+        M132,124l4,-8 4,8
+    "/>
+    <svg:path fill="black" stroke="none"
+    d="
+        M3,35   h2v2h-2z
+        M3,131  h2v2h-2z
+        M7,7    h2v2h-2z
+        M11,3   h2v2h-2z
+        M11,35  h2v2h-2z
+        M11,99  h2v2h-2z
+        M11,131 h2v2h-2z
+        M35,11  h2v2h-2z
+        M35,35  h2v2h-2z
+        M35,43  h2v2h-2z
+        M35,107 h2v2h-2z
+        M35,139 h2v2h-2z
+        M39,135 h2v2h-2z
+        M43,3   h2v2h-2z
+        M43,35  h2v2h-2z
+        M67,43  h2v2h-2z
+        M67,107 h2v2h-2z
+        M67,131 h2v2h-2z
+        M71,39  h2v2h-2z
+        M71,103 h2v2h-2z
+        M75,3   h2v2h-2z
+        M75,11  h2v2h-2z
+        M75,43  h2v2h-2z
+        M75,107 h2v2h-2z
+        M75,139 h2v2h-2z
+        M99,3   h2v2h-2z
+        M99,43  h2v2h-2z
+        M99,99  h2v2h-2z
+        M103,7  h2v2h-2z
+        M103,39 h2v2h-2z
+        M103,103h2v2h-2z
+        M103,135h2v2h-2z
+        M107,3  h2v2h-2z
+        M107,43 h2v2h-2z
+        M107,107h2v2h-2z
+        M131,35 h2v2h-2z
+        M131,99 h2v2h-2z
+        M131,131h2v2h-2z
+        M131,139h2v2h-2z
+        M135,103h2v2h-2z
+        M139,35 h2v2h-2z
+        M139,99 h2v2h-2z
+        M139,131h2v2h-2z
+     "/>
+    <svg:text class="futoshiki" x="8,40,72,104,136" y="72" >23451</svg:text>
+    <svg:text class="futoshiki" x="136" y="8"  >2</svg:text>
+</svg:svg>
+</div>
+
+<h2>Puzzle 8 step 5</h2>
+
+<div class="normal">
+    Now in the centre column, two of the cells have 3-, 4- and 5-marks
+    meaning they
+    <em>must</em>
+    be 1 and 2 (but we don&rsquo;t know which is which yet)
+    which means the other cells in the column
+    <em>can&rsquo;t</em>
+    be 1 or 2.
+    So mark accordingly.
+</div>
+
+<div class="svgdiv">
+<svg:svg version="1.1"
+    xmlns:svg="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    width="146" height="146"
+    viewBox="-1 -1 146 146"
+    >
+    <svg:path fill="none" stroke="black" stroke-width="1"
+    d="
+        M0,0 h16v16h-16z m32,0 h16v16h-16z m32,0 h16v16h-16z m32,0 h16v16h-16z m32,0 h16v16h-16z
+        M0,32 h16v16h-16z m32,0 h16v16h-16z m32,0 h16v16h-16z m32,0 h16v16h-16z m32,0 h16v16h-16z
+        M0,64 h16v16h-16z m32,0 h16v16h-16z m32,0 h16v16h-16z m32,0 h16v16h-16z m32,0 h16v16h-16z
+        M0,96 h16v16h-16z m32,0 h16v16h-16z m32,0 h16v16h-16z m32,0 h16v16h-16z m32,0 h16v16h-16z
+        M0,128 h16v16h-16z m32,0 h16v16h-16z m32,0 h16v16h-16z m32,0 h16v16h-16z m32,0 h16v16h-16z
+        M4,28   l4,-8 4,8
+        M20,132 l8,4 -8,4
+        M28,68  l-8,4 8,4
+        M36,52  l4,8 4,-8
+        M60,68  l-8,4 8,4
+        M60,132 l-8,4 8,4
+        M68,84  l4,8 4,-8
+        M68,124 l4,-8 4,8
+        M92,100 l-8,4 8,4
+        M100,20 l4,8 4,-8
+        M116,4  l8,4 -8,4
+        M124,36 l-8,4 8,4
+        M124,100l-8,4 8,4
+        M132,124l4,-8 4,8
+    "/>
+    <svg:path fill="black" stroke="none"
+    d="
+        M3,35   h2v2h-2z
+        M3,131  h2v2h-2z
+        M7,7    h2v2h-2z
+        M11,3   h2v2h-2z
+        M11,35  h2v2h-2z
+        M11,99  h2v2h-2z
+        M11,131 h2v2h-2z
+        M35,11  h2v2h-2z
+        M35,35  h2v2h-2z
+        M35,43  h2v2h-2z
+        M35,107 h2v2h-2z
+        M35,139 h2v2h-2z
+        M39,135 h2v2h-2z
+        M43,3   h2v2h-2z
+        M43,35  h2v2h-2z
+        M67,3   h2v2h-2z
+        M67,43  h2v2h-2z
+        M67,107 h2v2h-2z
+        M67,131 h2v2h-2z
+        M71,39  h2v2h-2z
+        M71,103 h2v2h-2z
+        M75,3   h2v2h-2z
+        M75,11  h2v2h-2z
+        M75,43  h2v2h-2z
+        M75,107 h2v2h-2z
+        M75,131 h2v2h-2z
+        M75,139 h2v2h-2z
+        M99,3   h2v2h-2z
+        M99,43  h2v2h-2z
+        M99,99  h2v2h-2z
+        M103,7  h2v2h-2z
+        M103,39 h2v2h-2z
+        M103,103h2v2h-2z
+        M103,135h2v2h-2z
+        M107,3  h2v2h-2z
+        M107,43 h2v2h-2z
+        M107,107h2v2h-2z
+        M131,35 h2v2h-2z
+        M131,99 h2v2h-2z
+        M131,131h2v2h-2z
+        M131,139h2v2h-2z
+        M135,103h2v2h-2z
+        M139,35 h2v2h-2z
+        M139,99 h2v2h-2z
+        M139,131h2v2h-2z
+     "/>
+    <svg:text class="futoshiki" x="8,40,72,104,136" y="72" >23451</svg:text>
+    <svg:text class="futoshiki" x="136" y="8"  >2</svg:text>
+</svg:svg>
+</div>
+
+<h2>Puzzle 8 step 6</h2>
+
+<div class="normal">
+    The logic we applied in step 4 can now be applied to the bottom row
+    (all but two cells have 1- and 2-marks
+    so the two cells without those marks must be 1 and 2
+    so they can&rsquo;t be 3, 4 or 5).
+</div>
+
+<div class="svgdiv">
+<svg:svg version="1.1"
+    xmlns:svg="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    width="146" height="146"
+    viewBox="-1 -1 146 146"
+    >
+    <svg:path fill="none" stroke="black" stroke-width="1"
+    d="
+        M0,0 h16v16h-16z m32,0 h16v16h-16z m32,0 h16v16h-16z m32,0 h16v16h-16z m32,0 h16v16h-16z
+        M0,32 h16v16h-16z m32,0 h16v16h-16z m32,0 h16v16h-16z m32,0 h16v16h-16z m32,0 h16v16h-16z
+        M0,64 h16v16h-16z m32,0 h16v16h-16z m32,0 h16v16h-16z m32,0 h16v16h-16z m32,0 h16v16h-16z
+        M0,96 h16v16h-16z m32,0 h16v16h-16z m32,0 h16v16h-16z m32,0 h16v16h-16z m32,0 h16v16h-16z
+        M0,128 h16v16h-16z m32,0 h16v16h-16z m32,0 h16v16h-16z m32,0 h16v16h-16z m32,0 h16v16h-16z
+        M4,28   l4,-8 4,8
+        M20,132 l8,4 -8,4
+        M28,68  l-8,4 8,4
+        M36,52  l4,8 4,-8
+        M60,68  l-8,4 8,4
+        M60,132 l-8,4 8,4
+        M68,84  l4,8 4,-8
+        M68,124 l4,-8 4,8
+        M92,100 l-8,4 8,4
+        M100,20 l4,8 4,-8
+        M116,4  l8,4 -8,4
+        M124,36 l-8,4 8,4
+        M124,100l-8,4 8,4
+        M132,124l4,-8 4,8
+    "/>
+    <svg:path fill="black" stroke="none"
+    d="
+        M3,35   h2v2h-2z
+        M3,131  h2v2h-2z
+        M7,7    h2v2h-2z
+        M11,3   h2v2h-2z
+        M11,35  h2v2h-2z
+        M11,99  h2v2h-2z
+        M11,131 h2v2h-2z
+        M35,11  h2v2h-2z
+        M35,35  h2v2h-2z
+        M35,43  h2v2h-2z
+        M35,107 h2v2h-2z
+        M35,139 h2v2h-2z
+        M39,135 h2v2h-2z
+        M43,3   h2v2h-2z
+        M43,35  h2v2h-2z
+        M43,139 h2v2h-2z
+        M67,3   h2v2h-2z
+        M67,43  h2v2h-2z
+        M67,107 h2v2h-2z
+        M67,131 h2v2h-2z
+        M71,39  h2v2h-2z
+        M71,103 h2v2h-2z
+        M75,3   h2v2h-2z
+        M75,11  h2v2h-2z
+        M75,43  h2v2h-2z
+        M75,107 h2v2h-2z
+        M75,131 h2v2h-2z
+        M75,139 h2v2h-2z
+        M99,3   h2v2h-2z
+        M99,43  h2v2h-2z
+        M99,99  h2v2h-2z
+        M99,139 h2v2h-2z
+        M103,7  h2v2h-2z
+        M103,39 h2v2h-2z
+        M103,103h2v2h-2z
+        M103,135h2v2h-2z
+        M107,3  h2v2h-2z
+        M107,43 h2v2h-2z
+        M107,107h2v2h-2z
+        M107,139h2v2h-2z
+        M131,35 h2v2h-2z
+        M131,99 h2v2h-2z
+        M131,131h2v2h-2z
+        M131,139h2v2h-2z
+        M135,103h2v2h-2z
+        M139,35 h2v2h-2z
+        M139,99 h2v2h-2z
+        M139,131h2v2h-2z
+     "/>
+    <svg:text class="futoshiki" x="8,40,72,104,136" y="72" >23451</svg:text>
+    <svg:text class="futoshiki" x="136" y="8"  >2</svg:text>
+</svg:svg>
+</div>
+
+<h2>Puzzle 8 step 7</h2>
+
+<div class="normal">
+    There is now a column in which all but one of the cells has the same mark.
+    And from this point we can finish the puzzle just by looking for two patterns:
+    <ol>
+        <li>A cell with four marks</li>
+        <li>A row or column where all-but-one cell have the same mark.</li>
+    </ol>
+</div>
+
+
+</body>
+</html>

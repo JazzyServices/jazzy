@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1 plus MathML 2.0 plus SVG 1.1//EN"
+    "http://www.w3.org/2002/04/xhtml-math-svg/xhtml-math-svg-flat.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" dir="ltr">
+<head>
+  <title>Puzzle 3</title>
+  <link rel="stylesheet" href="stylesheet.css" type="text/css" />
+</head>
+<body>
+
+<h1>Puzzle 3 part 1</h1>
+
+<div class="normal">
+    A farmer has a fox, a goose and a bag of corn (or beans in some versions) and needs to cross a river;
+    <ol>
+        <li>The farmer can only take one item across the river at a time.</li>
+        <li>The fox and the goose must not be left together unattended.</li>
+        <li>The goose and the corn must not be left together unattended.</li>
+    </ol>
+    how does the farmer cross the river?
+</div>
+
+<h2>Draw a (Different) Map</h2>
+
+<div class="normal">
+    We appear to have four items (the farmer, the fox, the goose and the corn)
+    each of which can be in two states (on the near side of the river or on the far side of the river).
+    So we could use binary notation, starting at
+    <span class="base4">0000</span>
+    and finishing at
+    <span class="base4">1111</span>.
+    But do we really need to model the farmer?
+    We are only really interested in the <i>transitions</i> between the states of the fox, the goose and the corn.
+    So this puzzle is similar to the
+    <a href="ch02.xhtml"> light-switch puzzle</a>.
+    So let's rewrite the rules as a light-switch puzzle, where the switches are labelled
+    &ldquo;fox&rdquo;,
+    &ldquo;goose&rdquo; and
+    &ldquo;corn&rdquo;.
+    <ol>
+        <li>You can only flick one switch at a time (either on or off)</li>
+        <li>You can&rsquo;t switch the fox on leaving goose and corn off.</li>
+        <li>You can&rsquo;t switch the corn on leaving goose and fox off.</li>
+        <li>If the fox and goose are on, you can&rsquo;t also turn the corn on.</li>
+        <li>If the corn and goose are on, you can&rsquo;t also turn the fox on.</li>
+    </ol>
+    The first 3 rules obviously obey the rules of the fox-goose-corn puzzle.
+    You can only take one item at a time and you can&rsquo;t leave the goose and corn or fox and goose together on the near
+    side of the river as you take the other item across.
+    But what about rules 4 and 5?
+    Well, if the fox and goose are already across the river (they are 
+    &ldquo;on&rdquo;),
+    the only way that the farmer can bring the corn across
+    (to switch it &ldquo;on&rdquo;)
+    is to be on the near side of the river to bring it across which would leave the fox and goose unattended on the far side.
+    So rule 4, <em>does</em> obey the rules of the fox-goose-corn puzzle.
+    And, similarly, so does rule 5.
+</div>
+
+<div class="normal">
+    So we have re-written the fox-goose-corn puzzle as a light-switch puzzle.
+    And since we previously rewrote <em>that</em> puzzle as the ant-on-the-box
+    puzzle, then we can rewrite this puzzle in the same way too.
+</div>
+
+</body>
+</html>

@@ -1,0 +1,76 @@
+start:  eee-www
+
+impossible.
+2 frogs to jump over:
+    e-eewww
+    e-weeww
+    ew-weew
+
+first steps
+    eee-www
+    ee-ewww
+    eewe-ww
+if next step is
+    eew-eww
+leads to impossible
+    e-weeww
+    eewwe-w
+
+how to get to impossibles
+    eee-www
+    ee-ewww e-eewww
+    eewe-ww eew-eww e-weeww
+
+    eeew-ww
+    ee-weww
+    e-eweww
+    ewe-eww
+    ewewe-w
+    ewew-ew
+    ew-weew
+
+solution
+    eee-www
+    ee-ewww
+    eewe-ww
+    eewew-w
+    eew-wew
+    e-wewew
+    -ewewew
+
+   oee-wwo e hop
+   oe-ewwo w jump
+   oewe-wo w hop
+   oewew-o e jump
+   oew-weo e jump
+   o-weweo .
+
+   oee-wwo w hop
+   oeew-wo e jump
+   oe-wewo e hop
+   o-ewewo w jump
+   owe-ewo w jump
+   owewe-o .
+
+two and four
+
+ee-wwww e hop
+e-ewwww w jump
+ewe-www w hop
+ewew-ww e jump, e jump
+-weweww w hop
+w-eweww w jump, w jump
+wwewe-w w hop
+wwewew- e jump, e jump
+ww-wewe w hop
+www-ewe w jump
+wwwwe-e e hop
+wwww-ee e hop
+
+2+2 with dead end
+   ee-ww
+   e-eww
+   ewe-w ew-ew
+   ewew-
+   ew-we
+   -wewe

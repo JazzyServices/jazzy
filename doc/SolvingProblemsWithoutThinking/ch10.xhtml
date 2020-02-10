@@ -1,0 +1,423 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1 plus MathML 2.0 plus SVG 1.1//EN"
+    "http://www.w3.org/2002/04/xhtml-math-svg/xhtml-math-svg-flat.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" dir="ltr">
+<head>
+  <title>Puzzle 10</title>
+  <link rel="stylesheet" href="stylesheet.css" type="text/css" />
+</head>
+<body>
+
+<h1>Puzzle 10</h1>
+
+<div class="normal">
+    There is a pond with seven lily pads in a line that allow frogs to
+    cross from one side of the pond to the other.
+</div>
+
+<div class="svgdiv">
+<svg:svg version="1.1"
+    xmlns:svg="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    width="144" height="20"
+    >
+    <svg:g fill="none" stroke="black" stroke-width="1">
+        <svg:circle cx="12"  cy="10" r="8" />
+        <svg:circle cx="32"  cy="10" r="8" />
+        <svg:circle cx="52"  cy="10" r="8" />
+        <svg:circle cx="72"  cy="10" r="8" />
+        <svg:circle cx="92"  cy="10" r="8" />
+        <svg:circle cx="112" cy="10" r="8" />
+        <svg:circle cx="132" cy="10" r="8" />
+    </svg:g>
+</svg:svg>
+</div>
+
+<div class="normal">
+    One day, three frogs approach from the West and want to cross to the East;
+    meanwhile three frogs approach from the East and want to cross to the West.
+</div>
+
+<div class="svgdiv">
+<svg:svg version="1.1"
+    xmlns:svg="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    width="144" height="20"
+    >
+    <svg:g fill="none" stroke="black" stroke-width="1">
+        <svg:circle cx="12"  cy="10" r="8" />
+        <svg:circle cx="32"  cy="10" r="8" />
+        <svg:circle cx="52"  cy="10" r="8" />
+        <svg:circle cx="72"  cy="10" r="8" />
+        <svg:circle cx="92"  cy="10" r="8" />
+        <svg:circle cx="112" cy="10" r="8" />
+        <svg:circle cx="132" cy="10" r="8" />
+    </svg:g>
+    <svg:text class="futoshiki" x="12,32,52,92,112,132" y="10">eeewww</svg:text>
+</svg:svg>
+</div>
+
+<div class="normal">
+    <ul>
+        <li>Only one frog can move at a time.</li>
+        <li>Only one frog per lily pad.</li>
+        <li>
+            A frog can either <em>hop</em> forward one lily pad
+            (if that lily pad is vacant), or <em>jump</em> over
+            one other frog onto a vacant lily pad.
+        </li>
+        <li>Frogs can only hop or jump forwards (and they can&rsquo;t turn round
+        and go the other way)</li>
+    </ul>
+    How can we get all the eastbound frogs &#x24d4; to the east
+    and all the westbound frogs &#x24e6; to the west,
+    so that the final positions look like this
+</div>
+
+<div class="svgdiv">
+<svg:svg version="1.1"
+    xmlns:svg="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    width="144" height="20"
+    >
+    <svg:g fill="none" stroke="black" stroke-width="1">
+        <svg:circle cx="12"  cy="10" r="8" />
+        <svg:circle cx="32"  cy="10" r="8" />
+        <svg:circle cx="52"  cy="10" r="8" />
+        <svg:circle cx="72"  cy="10" r="8" />
+        <svg:circle cx="92"  cy="10" r="8" />
+        <svg:circle cx="112" cy="10" r="8" />
+        <svg:circle cx="132" cy="10" r="8" />
+    </svg:g>
+    <svg:text class="futoshiki" x="12,32,52,92,112,132" y="10">wwweee</svg:text>
+</svg:svg>
+</div>
+
+<h2>Puzzle 10 step 1</h2>
+
+<div class="normal">
+    As always, our first step is to
+    <em>eliminate impossibles</em>.
+    In the frog-jumping puzzle the impossible is for a frog to jump
+    over two (or more) other frogs.
+    So the following situations (among others)
+    prevent us from reaching a solution because a westbound
+    frog needs to jump over two eastbound frogs to progress.
+</div>
+
+<div class="svgdiv">
+<svg:svg version="1.1"
+    xmlns:svg="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    width="144" height="60"
+    >
+    <svg:g fill="none" stroke="black" stroke-width="1">
+        <svg:circle cx="12"  cy="10" r="8" />
+        <svg:circle cx="32"  cy="10" r="8" />
+        <svg:circle cx="52"  cy="10" r="8" />
+        <svg:circle cx="72"  cy="10" r="8" />
+        <svg:circle cx="92"  cy="10" r="8" />
+        <svg:circle cx="112" cy="10" r="8" />
+        <svg:circle cx="132" cy="10" r="8" />
+    </svg:g>
+    <svg:text class="futoshiki" x="12,52,72,92,112,132" y="10">eeewww</svg:text>
+
+    <svg:g fill="none" stroke="black" stroke-width="1">
+        <svg:circle cx="12"  cy="30" r="8" />
+        <svg:circle cx="32"  cy="30" r="8" />
+        <svg:circle cx="52"  cy="30" r="8" />
+        <svg:circle cx="72"  cy="30" r="8" />
+        <svg:circle cx="92"  cy="30" r="8" />
+        <svg:circle cx="112" cy="30" r="8" />
+        <svg:circle cx="132" cy="30" r="8" />
+    </svg:g>
+    <svg:text class="futoshiki" x="12,52,72,92,112,132" y="30">eweeww</svg:text>
+
+    <svg:g fill="none" stroke="black" stroke-width="1">
+        <svg:circle cx="12"  cy="50" r="8" />
+        <svg:circle cx="32"  cy="50" r="8" />
+        <svg:circle cx="52"  cy="50" r="8" />
+        <svg:circle cx="72"  cy="50" r="8" />
+        <svg:circle cx="92"  cy="50" r="8" />
+        <svg:circle cx="112" cy="50" r="8" />
+        <svg:circle cx="132" cy="50" r="8" />
+    </svg:g>
+    <svg:text class="futoshiki" x="12,32,72,92,112,132" y="50">ewweew</svg:text>
+
+</svg:svg>
+</div>
+
+<div class="normal">
+    From this we can see that
+    a frog must not hop or jump so that it ends up immediately behind one
+    of its own group (unless it has cleared all of the frogs from the other
+    group). This situation is easy to avoid.
+    However, there may be situations where whatever we do will lead to an
+    impossibility.
+</div>
+
+<div class="svgdiv">
+<svg:svg version="1.1"
+    xmlns:svg="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    width="144" height="20"
+    >
+    <svg:g fill="none" stroke="black" stroke-width="1">
+        <svg:circle cx="12"  cy="10" r="8" />
+        <svg:circle cx="32"  cy="10" r="8" />
+        <svg:circle cx="52"  cy="10" r="8" />
+        <svg:circle cx="72"  cy="10" r="8" />
+        <svg:circle cx="92"  cy="10" r="8" />
+        <svg:circle cx="112" cy="10" r="8" />
+        <svg:circle cx="132" cy="10" r="8" />
+    </svg:g>
+    <svg:text class="futoshiki" x="12,32,52,92,112,132" y="10">eeweww</svg:text>
+</svg:svg>
+</div>
+
+<div class="normal">
+    In the situation above, if &#x24d4; jumps we get the impossible situation
+</div>
+
+<div class="svgdiv">
+<svg:svg version="1.1"
+    xmlns:svg="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    width="144" height="20"
+    >
+    <svg:g fill="none" stroke="black" stroke-width="1">
+        <svg:circle cx="12"  cy="10" r="8" />
+        <svg:circle cx="32"  cy="10" r="8" />
+        <svg:circle cx="52"  cy="10" r="8" />
+        <svg:circle cx="72"  cy="10" r="8" />
+        <svg:circle cx="92"  cy="10" r="8" />
+        <svg:circle cx="112" cy="10" r="8" />
+        <svg:circle cx="132" cy="10" r="8" />
+    </svg:g>
+    <svg:text class="futoshiki" x="12,52,72,92,112,132" y="10">eweeww</svg:text>
+</svg:svg>
+</div>
+
+<div class="normal">
+    and if &#x24e6; jumps we get a different impossible situation
+</div>
+
+<div class="svgdiv">
+<svg:svg version="1.1"
+    xmlns:svg="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    width="144" height="20"
+    >
+    <svg:g fill="none" stroke="black" stroke-width="1">
+        <svg:circle cx="12"  cy="10" r="8" />
+        <svg:circle cx="32"  cy="10" r="8" />
+        <svg:circle cx="52"  cy="10" r="8" />
+        <svg:circle cx="72"  cy="10" r="8" />
+        <svg:circle cx="92"  cy="10" r="8" />
+        <svg:circle cx="112" cy="10" r="8" />
+        <svg:circle cx="132" cy="10" r="8" />
+    </svg:g>
+    <svg:text class="futoshiki" x="12,32,52,72,92,132" y="10">eewwew</svg:text>
+</svg:svg>
+</div>
+
+<h2>Puzzle 10 step 2</h2>
+
+<div class="normal">
+    It may be too difficult to find all of these situations that inevitably
+    lead to an impossibility.
+    So how do we proceed?
+    A technique we can use is to
+    <em>solve a simpler puzzle!</em>
+    One way of doing this is to posit a situation from which we can
+    easily solve the original puzzle then try to reach this intermediate
+    situation from the starting position.
+    So, if we could get the frogs into the following positions, we
+    should be easily able to solve the puzzle.
+</div>
+
+<div class="svgdiv">
+<svg:svg version="1.1"
+    xmlns:svg="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    width="144" height="20"
+    >
+    <svg:g fill="none" stroke="black" stroke-width="1">
+        <svg:circle cx="12"  cy="10" r="8" />
+        <svg:circle cx="32"  cy="10" r="8" />
+        <svg:circle cx="52"  cy="10" r="8" />
+        <svg:circle cx="72"  cy="10" r="8" />
+        <svg:circle cx="92"  cy="10" r="8" />
+        <svg:circle cx="112" cy="10" r="8" />
+        <svg:circle cx="132" cy="10" r="8" />
+    </svg:g>
+    <svg:text class="futoshiki" x="32,52,72,92,112,132" y="10">ewewew</svg:text>
+</svg:svg>
+</div>
+
+<div class="normal">
+    Try to solve the puzzle from this position before you read the
+    rest of the chapter.
+    Use coins or playing cards to represent the two groups of
+    frogs and make sure you know where the vacant lily pad is at all times.
+</div>
+
+<h2>Puzzle 10 step 3</h2>
+
+<div class="normal">
+    A second way of making a simpler puzzle is to
+    <em>reduce the size of the puzzle.</em>
+    So let&rsquo;s try with only two eastbound and two westbound frogs.
+</div>
+
+<div class="svgdiv">
+<svg:svg version="1.1"
+    xmlns:svg="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    width="144" height="20"
+    >
+    <svg:g fill="none" stroke="black" stroke-width="1">
+        <svg:circle cx="12"  cy="10" r="8" />
+        <svg:circle cx="32"  cy="10" r="8" />
+        <svg:circle cx="52"  cy="10" r="8" />
+        <svg:circle cx="72"  cy="10" r="8" />
+        <svg:circle cx="92"  cy="10" r="8" />
+        <svg:circle cx="112" cy="10" r="8" />
+        <svg:circle cx="132" cy="10" r="8" />
+    </svg:g>
+    <svg:text class="futoshiki" x="32,52,92,112" y="10">eeww</svg:text>
+</svg:svg>
+</div>
+
+<div class="normal">
+    and let&rsquo;s try to reach either of the following intermediate positions.
+</div>
+
+<div class="svgdiv">
+<svg:svg version="1.1"
+    xmlns:svg="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    width="144" height="40"
+    >
+
+    <svg:g fill="none" stroke="black" stroke-width="1">
+        <svg:circle cx="12"  cy="10" r="8" />
+        <svg:circle cx="32"  cy="10" r="8" />
+        <svg:circle cx="52"  cy="10" r="8" />
+        <svg:circle cx="72"  cy="10" r="8" />
+        <svg:circle cx="92"  cy="10" r="8" />
+        <svg:circle cx="112" cy="10" r="8" />
+        <svg:circle cx="132" cy="10" r="8" />
+    </svg:g>
+    <svg:text class="futoshiki" x="52,72,92,112" y="10">wewe</svg:text>
+
+    <svg:g fill="none" stroke="black" stroke-width="1">
+        <svg:circle cx="12"  cy="30" r="8" />
+        <svg:circle cx="32"  cy="30" r="8" />
+        <svg:circle cx="52"  cy="30" r="8" />
+        <svg:circle cx="72"  cy="30" r="8" />
+        <svg:circle cx="92"  cy="30" r="8" />
+        <svg:circle cx="112" cy="30" r="8" />
+        <svg:circle cx="132" cy="30" r="8" />
+    </svg:g>
+    <svg:text class="futoshiki" x="32,52,72,92" y="30">wewe</svg:text>
+
+</svg:svg>
+</div>
+
+<div class="normal">
+    Again, try to solve this simpler puzzle before reading the rest
+    of the chapter.
+</div>
+
+<div class="normal">
+    If you moved &#x24d4; first (with a hop rather than a jump!)
+    then you should be easily able to reach the following position:
+</div>
+
+<div class="svgdiv">
+<svg:svg version="1.1"
+    xmlns:svg="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    width="144" height="40"
+    >
+    <svg:g fill="none" stroke="black" stroke-width="1">
+        <svg:circle cx="12"  cy="10" r="8" />
+        <svg:circle cx="32"  cy="10" r="8" />
+        <svg:circle cx="52"  cy="10" r="8" />
+        <svg:circle cx="72"  cy="10" r="8" />
+        <svg:circle cx="92"  cy="10" r="8" />
+        <svg:circle cx="112" cy="10" r="8" />
+        <svg:circle cx="132" cy="10" r="8" />
+    </svg:g>
+    <svg:text class="futoshiki" x="52,72,92,112" y="10">wewe</svg:text>
+</svg:svg>
+</div>
+
+<div class="normal">
+    And the steps to reach this positions would have been:
+    <ul>
+        <li>&#x24d4; hop</li>
+        <li>&#x24e6; jump, &#x24e6; hop </li>
+        <li>&#x24d4; jump, &#x24d4; jump </li>
+    </ul>
+</div>
+
+<h2>Puzzle 10 step 4</h2>
+
+<div class="normal">
+    Now, before finishing this puzzle,
+    let us imagine that another eastbound frog
+    and another westbound frog join the queue of frogs wishing to cross the pond
+</div>
+
+<div class="svgdiv">
+<svg:svg version="1.1"
+    xmlns:svg="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    width="144" height="40"
+    >
+    <svg:g fill="none" stroke="black" stroke-width="1">
+        <svg:circle cx="12"  cy="10" r="8" />
+        <svg:circle cx="32"  cy="10" r="8" />
+        <svg:circle cx="52"  cy="10" r="8" />
+        <svg:circle cx="72"  cy="10" r="8" />
+        <svg:circle cx="92"  cy="10" r="8" />
+        <svg:circle cx="112" cy="10" r="8" />
+        <svg:circle cx="132" cy="10" r="8" />
+    </svg:g>
+    <svg:text class="futoshiki" x="12,52,72,92,112,132" y="10">ewewew</svg:text>
+</svg:svg>
+</div>
+
+<div class="normal">
+    We are only one move away (an &#x24d4; hop) from the position in step 2.
+    A position from which we have already solved the puzzle.
+    So, to reach the position in step 2,
+    our sequence of moves would have been:
+    <ul>
+        <li>&#x24d4; hop</li>
+        <li>&#x24e6; jump, &#x24e6; hop </li>
+        <li>&#x24d4; jump, &#x24d4; jump, &#x24d4; hop</li>
+    </ul>
+</div>
+
+<div class="normal">
+    You should be able to see that it makes no difference if the two extra
+    frogs joined the queue at the beginning of step 3
+    or the beginning of step 4.
+</div>
+
+<div class="normal">
+    You should also notice that there is a pattern to the sequence of moves.
+    Each group makes a set of moves that always ends in a hop.
+    Before the hop there are zero or more jumps.
+    The number of jumps increases by one each time.
+    In fact, what we have found is a
+    <em>sieve</em>.
+    This will allow is to solve the jumping frogs puzzle with any number of
+    frogs.
+</div>
+
+</body>
+</html>

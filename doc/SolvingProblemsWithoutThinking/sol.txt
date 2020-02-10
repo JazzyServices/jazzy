@@ -1,0 +1,7 @@
+     o o o      10
+     o o o      30
+ o o o o o o o  50
+ o o o   o o o  70
+ o o o o o o o  90
+     o o o     110
+     o o o     130

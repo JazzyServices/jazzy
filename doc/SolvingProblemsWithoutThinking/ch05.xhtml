@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1 plus MathML 2.0 plus SVG 1.1//EN"
+    "http://www.w3.org/2002/04/xhtml-math-svg/xhtml-math-svg-flat.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" dir="ltr">
+<head>
+  <title>Puzzle 5</title>
+  <link rel="stylesheet" href="stylesheet.css" type="text/css" />
+</head>
+<body>
+
+<h1>Puzzle 5</h1>
+
+<div class="normal">
+    Once upon a time, a king had a walled garden.
+</div>
+
+<svg:svg version="1.1"
+    xmlns:svg="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    width="146" height="146"
+    viewBox="-1 -1 146 146"
+    >
+    <svg:path fill="none" stroke="black"  stroke-width="2"
+     d="M36,144 h-36 v-144 h72 v18 h36
+     M90,0 h54 v144 h-90 v-18 h-36 v-18
+     M18,54 v18 h18 v18 h36 v18 h36 v18 h18 v-18 h18
+     M0,90 h18
+     M0,18 h18 v18 h36
+     M36,36 v18
+     M54,72 v36
+     M36,108 v18
+     M90,90 v36
+     M72,126 v18
+     M36,18 h18 v-18
+     M54,54 h36 v18 h36 v18
+     M108,72 v18
+     M90,18 v18 h-18 v36
+     M144,18 h-18 v36 h-18
+     M108,36 h18
+     "/>
+</svg:svg>
+
+<div class="normal">
+    But he was fed up with walking into the dead ends,
+    so he told his gardener to plant flowers in the dead ends
+    so he wouldn't walk into them.
+    So the gardener filled in all the dead ends with flower beds (which we represent using a hashed square)...
+</div>
+
+<svg:svg version="1.1"
+    xmlns:svg="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    width="146" height="146"
+    viewBox="-1 -1 146 146"
+    >
+    <svg:defs>
+        <svg:pattern id="rdiags" patternUnits="userSpaceOnUse"
+            x="0" y="0" width="8" height="8" viewBox="0 0 8 8" >
+            <svg:path fill="none" stroke="black" stroke-width="1"
+             d="M -1,5 l6,-6 M 3,9 l6,-6" />
+        </svg:pattern>
+        <svg:path id="shaded" fill="url(#rdiags)" stroke="none"
+         d="M0,0 h18 v18 h-18 z" />
+    </svg:defs>
+
+    <svg:use x="0"   y="0"  xlink:href="#shaded" />
+    <svg:use x="36"  y="0"  xlink:href="#shaded" />
+    <svg:use x="54"  y="0"  xlink:href="#shaded" />
+    <svg:use x="126" y="0"  xlink:href="#shaded" />
+    <svg:use x="0"   y="18" xlink:href="#shaded" />
+    <svg:use x="72"  y="18" xlink:href="#shaded" />
+    <svg:use x="126" y="18" xlink:href="#shaded" />
+    <svg:use x="72"  y="36" xlink:href="#shaded" />
+    <svg:use x="108" y="36" xlink:href="#shaded" />
+    <svg:use x="72"  y="54" xlink:href="#shaded" />
+    <svg:use x="36"  y="72" xlink:href="#shaded" />
+    <svg:use x="108" y="72" xlink:href="#shaded" />
+    <svg:use x="54"  y="90" xlink:href="#shaded" />
+    <svg:use x="72"  y="90" xlink:href="#shaded" />
+    <svg:use x="18"  y="108" xlink:href="#shaded" />
+    <svg:use x="90"  y="108" xlink:href="#shaded" />
+    <svg:use x="108" y="108" xlink:href="#shaded" />
+    <svg:use x="126" y="108" xlink:href="#shaded" />
+    <svg:use x="54"  y="126" xlink:href="#shaded" />
+
+    <svg:path fill="none" stroke="black"  stroke-width="2"
+     d="M36,144 h-36 v-144 h72 v18 h36
+     M90,0 h54 v144 h-90 v-18 h-36 v-18
+     M18,54 v18 h18 v18 h36 v18 h36 v18 h18 v-18 h18
+     M0,90 h18
+     M0,18 h18 v18 h36
+     M36,36 v18
+     M54,72 v36
+     M36,108 v18
+     M90,90 v36
+     M72,126 v18
+     M36,18 h18 v-18
+     M54,54 h36 v18 h36 v18
+     M108,72 v18
+     M90,18 v18 h-18 v36
+     M144,18 h-18 v36 h-18
+     M108,36 h18
+     "/>
+</svg:svg>
+
+<div class="normal">
+    But the king declared,
+    &ldquo;There are still dead ends!&rdquo;
+    He had the gardener executed and hired a new gardener to finish the job.
+    The new gardener filled in the new dead ends, but also filled in any dead ends that were created in the process.
+</div>
+
+<svg:svg version="1.1"
+    xmlns:svg="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    width="146" height="146"
+    viewBox="-1 -1 146 146"
+    >
+    <svg:defs>
+        <svg:pattern id="rdiags" patternUnits="userSpaceOnUse"
+            x="0" y="0" width="8" height="8" viewBox="0 0 8 8" >
+            <svg:path fill="none" stroke="black" stroke-width="1"
+             d="M -1,5 l6,-6 M 3,9 l6,-6" />
+        </svg:pattern>
+        <svg:path id="shaded" fill="url(#rdiags)" stroke="none"
+         d="M0,0 h18 v18 h-18 z" />
+    </svg:defs>
+
+    <svg:path fill="url(#rdiags)" stroke="none"
+     d="M0,0 h72 v18 h18 v54 h-18 v-18 h-36 v-18 h-36 z
+        M126,0 h18 v54 h-38 v-18 h18 z
+        M36,72 h18 v18 h36 v18 h54 v36 h-90 v-18 h-36 v-18 h18 z
+        M108,72 h18 v18 h-18 z
+     " />
+
+    <svg:path fill="none" stroke="black"  stroke-width="2"
+     d="M36,144 h-36 v-144 h72 v18 h36
+     M90,0 h54 v144 h-90 v-18 h-36 v-18
+     M18,54 v18 h18 v18 h36 v18 h36 v18 h18 v-18 h18
+     M0,90 h18
+     M0,18 h18 v18 h36
+     M36,36 v18
+     M54,72 v36
+     M36,108 v18
+     M90,90 v36
+     M72,126 v18
+     M36,18 h18 v-18
+     M54,54 h36 v18 h36 v18
+     M108,72 v18
+     M90,18 v18 h-18 v36
+     M144,18 h-18 v36 h-18
+     M108,36 h18
+     "/>
+</svg:svg>
+
+<div class="normal">
+    Now the king could walk in the garden without walking into dead ends.
+</div>
+
+<h2>Lesson &ndash; the pleasure is in the doing</h2>
+
+<div class="normal">
+    What the gardener did was take a maze (the king's walled garden) and
+    <em>eliminated the impossible</em>,
+    that is, filled in all the dead ends,
+    and what remained was a clear path through the maze (the garden).
+</div>
+
+<div class="normal">
+    When solving a maze in a puzzle book,
+    the idea is not to try to do it as quickly as possible
+    and move on to the next puzzle.
+    Solving puzzles is a <i>pastime</i>, not a race.
+    When solving a puzzle, the pleasure comes from the repetitive,
+    almost meditative, way we apply the simple rules and arrive at the
+    solution.
+    Nowhere is this illustrated more clearly than in solving a maze.
+    Take a pencil, even a set of coloured pencils, and enjoy filling in
+    the dead ends. Take your time, take pleasure in the doing.
+    The fact that when all the dead ends are filled in you have
+    &ldquo;solved&rdquo;
+    the maze is secondary.
+    But when you have done that you can take extra pleasure in traversing
+    the maze along the clear path (or paths) you have created.
+</div>
+
+
+</body>
+</html>

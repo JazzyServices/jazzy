@@ -1,0 +1,548 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1 plus MathML 2.0 plus SVG 1.1//EN"
+    "http://www.w3.org/2002/04/xhtml-math-svg/xhtml-math-svg-flat.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" dir="ltr">
+<head>
+  <title>Puzzle 11</title>
+  <link rel="stylesheet" href="stylesheet.css" type="text/css" />
+</head>
+<body>
+
+<h1>Puzzle 11</h1>
+
+<div class="normal">
+    The puzzles we have seen so far have been solvable using our top
+    three
+    techniques:
+    <ol>
+        <li>eliminate the impossible</li>
+        <li>make a map</li>
+        <li>solve a simpler problem</li>
+    </ol>
+    There are many other puzzles, however, where we forced to use a
+    further
+    technique which we&rsquo;d rather avoid; that is
+    <em>trial and error</em>
+    (also known as
+    <em>backtracking</em>)
+</div>
+
+<h2>Puzzle 11 Part 1</h2>
+
+<div class="normal">
+    Place on a chess board eight queens so that
+    no two queens share the same row, column, or diagonal.
+</div>
+
+<div class="normal">
+    We don&rsquo;t need to have a chess board to hand to solve this puzzle;
+    and we
+    <em>can</em>
+    use our top techniques to help solve it.
+    (But we will, unless we are really lucky,
+    need to backtrack in order to find a solution.)
+    Firstly, we solve a simpler puzzle which is the
+    <em>8 rooks puzzle</em>
+    where no two rooks share the same row or column;
+    and we make a map of a single solution to this problem simply by
+    writing a
+    <em>permutation</em>
+    of the numbers 1 to 8.
+    So, for example,
+    <span class="base4">13572468</span>
+    is one solution to the 8 rooks puzzle where
+    on the first row there is a rook in the first column,
+    on the second row there is a rook in the third column,
+    on the third row there is a rook in the fifth column,
+    and so on.
+</div>
+
+<div class="normal">
+    There are 40320 solutions to the 8 rooks puzzle.
+    So what we could do to solve the 8 queens problem is go through
+    those 40320 solutions one by one and eliminate those where
+    there are two pieces on the same diagonal.
+    To determine whether two pieces are on the same diagonal:
+    <ul>
+        <li>take the difference between two numbers</li>
+        <li>and take the difference between their positions</li>
+    </ul>
+    If the two differences are the same then the two pieces are on a
+    diagonal.
+    So if two numbers differ by one then they can&rsquo;t be one position apart;
+    if two numbers differ by two then they can&rsquo;t be two positions apart;
+    and so on.
+    In the 8 rooks solution above
+    (<span class="base4">13572468</span>)
+    the numbers 1 and 8 (which differ by seven) are seven positions apart
+    which means they are on the same diagonal; so this permutation is not
+    a solution to the 8 queens problem.
+</div>
+
+<h2>Puzzle 11 Part 2</h2>
+
+<div class="normal">
+    Going through the complete set of 40320 permutations, however,
+    would be a very tedious way of finding a solution.
+    Another way would be to use a dot-notation similar to solving a
+    Latin Square puzzle.
+    We need eight cells to represent the rows.
+    The number within the cell represents the column that a queen occupies.
+</div>
+
+<div class="svgdiv">
+<svg:svg version="1.1"
+    xmlns:svg="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    width="144" height="20"
+    >
+    <svg:path fill="none" stroke="black" stroke-width="1"
+    d="
+        M1,1 h16 v16 h-16 z
+        M19,1 h16 v16 h-16 z
+        M37,1 h16 v16 h-16 z
+        M55,1 h16 v16 h-16 z
+        M73,1 h16 v16 h-16 z
+        M91,1 h16 v16 h-16 z
+        M109,1 h16 v16 h-16 z
+        M127,1 h16 v16 h-16 z
+    "/>
+</svg:svg>
+</div>
+
+<div class="normal">
+    We start by writing one of the numbers 1 to 8 in the first cell.
+</div>
+
+<div class="svgdiv">
+<svg:svg version="1.1"
+    xmlns:svg="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    width="144" height="20"
+    >
+    <svg:path fill="none" stroke="black" stroke-width="1"
+    d="
+        M1,1 h16 v16 h-16 z
+        M19,1 h16 v16 h-16 z
+        M37,1 h16 v16 h-16 z
+        M55,1 h16 v16 h-16 z
+        M73,1 h16 v16 h-16 z
+        M91,1 h16 v16 h-16 z
+        M109,1 h16 v16 h-16 z
+        M127,1 h16 v16 h-16 z
+    "/>
+    <svg:text class="futoshiki" x="9" y="9">3</svg:text>
+</svg:svg>
+</div>
+
+<div class="normal">
+    Now, like solving a Latin Square puzzle,
+    we can mark the other cells with the 3-mark.
+</div>
+
+<div class="svgdiv">
+<svg:svg version="1.1"
+    xmlns:svg="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    width="144" height="20"
+    >
+    <svg:path fill="none" stroke="black" stroke-width="1"
+    d="
+        M1,1 h16 v16 h-16 z
+        M19,1 h16 v16 h-16 z
+        M37,1 h16 v16 h-16 z
+        M55,1 h16 v16 h-16 z
+        M73,1 h16 v16 h-16 z
+        M91,1 h16 v16 h-16 z
+        M109,1 h16 v16 h-16 z
+        M127,1 h16 v16 h-16 z
+    "/>
+    <svg:text class="futoshiki" x="9" y="9">3</svg:text>
+    <svg:path fill="black" stroke="none"
+    d="
+        M30,4 h2v2h-2z
+        M48,4 h2v2h-2z
+        M66,4 h2v2h-2z
+        M84,4 h2v2h-2z
+        M102,4 h2v2h-2z
+        M120,4 h2v2h-2z
+        M138,4 h2v2h-2z
+    "/>
+</svg:svg>
+</div>
+
+<div class="normal">
+    We can also mark the second cell with a 2-mark and a 4-mark
+    because numbers that differ by one can not be in positions
+    that differ by one.
+    Similarly, we can mark the third cell with the 1-mark and the 5-mark;
+    the fourth cell with the 6-mark and so on.
+</div>
+
+<div class="svgdiv">
+<svg:svg version="1.1"
+    xmlns:svg="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    width="144" height="20"
+    >
+    <svg:path fill="none" stroke="black" stroke-width="1"
+    d="
+        M1,1 h16 v16 h-16 z
+        M19,1 h16 v16 h-16 z
+        M37,1 h16 v16 h-16 z
+        M55,1 h16 v16 h-16 z
+        M73,1 h16 v16 h-16 z
+        M91,1 h16 v16 h-16 z
+        M109,1 h16 v16 h-16 z
+        M127,1 h16 v16 h-16 z
+    "/>
+    <svg:text class="futoshiki" x="9" y="9">3</svg:text>
+    <svg:path fill="black" stroke="none"
+    d="
+        M22,8 h2v2h-2z
+        M26,4 h2v2h-2z
+        M30,4 h2v2h-2z
+        M40,4 h2v2h-2z
+        M44,8 h2v2h-2z
+        M48,4 h2v2h-2z
+        M66,4 h2v2h-2z
+        M66,8 h2v2h-2z
+        M76,12 h2v2h-2z
+        M84,4 h2v2h-2z
+        M102,4 h2v2h-2z
+        M98,12 h2v2h-2z
+        M120,4 h2v2h-2z
+        M138,4 h2v2h-2z
+    "/>
+</svg:svg>
+</div>
+
+<div class="normal">
+    Now choose a second number for the second cell;
+    and mark as appropriate.
+</div>
+
+<div class="svgdiv">
+<svg:svg version="1.1"
+    xmlns:svg="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    width="144" height="20"
+    >
+    <svg:path fill="none" stroke="black" stroke-width="1"
+    d="
+        M1,1 h16 v16 h-16 z
+        M19,1 h16 v16 h-16 z
+        M37,1 h16 v16 h-16 z
+        M55,1 h16 v16 h-16 z
+        M73,1 h16 v16 h-16 z
+        M91,1 h16 v16 h-16 z
+        M109,1 h16 v16 h-16 z
+        M127,1 h16 v16 h-16 z
+    "/>
+    <svg:text class="futoshiki" x="9,27" y="9">35</svg:text>
+    <svg:path fill="black" stroke="none"
+    d="
+        M40,4 h2v2h-2z
+        M40,8 h2v2h-2z
+        M44,8 h2v2h-2z
+        M48,4 h2v2h-2z
+        M48,8 h2v2h-2z
+        M58,12 h2v2h-2z
+        M62,8 h2v2h-2z
+        M66,4 h2v2h-2z
+        M66,8 h2v2h-2z
+        M76,12 h2v2h-2z
+        M80,4 h2v2h-2z
+        M80,8 h2v2h-2z
+        M80,12 h2v2h-2z
+        M84,4 h2v2h-2z
+        M94,4 h2v2h-2z
+        M98,8 h2v2h-2z
+        M98,12 h2v2h-2z
+        M102,4 h2v2h-2z
+        M116,8 h2v2h-2z
+        M120,4 h2v2h-2z
+        M134,8 h2v2h-2z
+        M138,4 h2v2h-2z
+    "/>
+</svg:svg>
+</div>
+
+<div class="normal">
+    and a third ...
+</div>
+
+<div class="svgdiv">
+<svg:svg version="1.1"
+    xmlns:svg="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    width="144" height="20"
+    >
+    <svg:path fill="none" stroke="black" stroke-width="1"
+    d="
+        M1,1 h16 v16 h-16 z
+        M19,1 h16 v16 h-16 z
+        M37,1 h16 v16 h-16 z
+        M55,1 h16 v16 h-16 z
+        M73,1 h16 v16 h-16 z
+        M91,1 h16 v16 h-16 z
+        M109,1 h16 v16 h-16 z
+        M127,1 h16 v16 h-16 z
+    "/>
+    <svg:text class="futoshiki" x="9,27,45" y="9">357</svg:text>
+    <svg:path fill="black" stroke="none"
+    d="
+        M58,12 h2v2h-2z
+        M62,8 h2v2h-2z
+        M62,12 h2v2h-2z
+        M66,4 h2v2h-2z
+        M66,8 h2v2h-2z
+        M76,12 h2v2h-2z
+        M80,4 h2v2h-2z
+        M80,8 h2v2h-2z
+        M80,12 h2v2h-2z
+        M84,4 h2v2h-2z
+        M94,4 h2v2h-2z
+        M94,8 h2v2h-2z
+        M94,12 h2v2h-2z
+        M98,8 h2v2h-2z
+        M98,12 h2v2h-2z
+        M102,4 h2v2h-2z
+        M112,12 h2v2h-2z
+        M116,8 h2v2h-2z
+        M120,4 h2v2h-2z
+        M131,12 h2v2h-2z
+        M134,4 h2v2h-2z
+        M134,8 h2v2h-2z
+        M138,4 h2v2h-2z
+    "/>
+</svg:svg>
+</div>
+
+<div class="normal">
+    Now we can analyse where we might want to place the other digits.
+    We have a lot of choice for the numbers 1, 2, 4 and 6
+    but there are only two places where we can place the digit 8.
+    So let&rsquo;s try the left-hand of the two choices first.
+</div>
+
+<div class="svgdiv">
+<svg:svg version="1.1"
+    xmlns:svg="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    width="144" height="20"
+    >
+    <svg:path fill="none" stroke="black" stroke-width="1"
+    d="
+        M1,1 h16 v16 h-16 z
+        M19,1 h16 v16 h-16 z
+        M37,1 h16 v16 h-16 z
+        M55,1 h16 v16 h-16 z
+        M73,1 h16 v16 h-16 z
+        M91,1 h16 v16 h-16 z
+        M109,1 h16 v16 h-16 z
+        M127,1 h16 v16 h-16 z
+    "/>
+    <svg:text class="futoshiki" x="9,27,45,117" y="9">3578</svg:text>
+    <svg:path fill="black" stroke="none"
+    d="
+        M58,12 h2v2h-2z
+        M62,8 h2v2h-2z
+        M62,12 h2v2h-2z
+        M66,4 h2v2h-2z
+        M66,8 h2v2h-2z
+        M76,12 h2v2h-2z
+        M80,4 h2v2h-2z
+        M80,8 h2v2h-2z
+        M80,12 h2v2h-2z
+        M84,4 h2v2h-2z
+        M84,8 h2v2h-2z
+        M94,4 h2v2h-2z
+        M94,8 h2v2h-2z
+        M94,12 h2v2h-2z
+        M98,8 h2v2h-2z
+        M98,12 h2v2h-2z
+        M102,4 h2v2h-2z
+        M130,12 h2v2h-2z
+        M134,4 h2v2h-2z
+        M134,8 h2v2h-2z
+        M134,12 h2v2h-2z
+        M138,4 h2v2h-2z
+    "/>
+</svg:svg>
+</div>
+
+<div class="normal">
+    Now we have the situation where
+    there are only two places where we can place the digit 2.
+    So let&rsquo;s try the left-hand of the two choices first.
+</div>
+
+<div class="svgdiv">
+<svg:svg version="1.1"
+    xmlns:svg="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    width="144" height="20"
+    >
+    <svg:path fill="none" stroke="black" stroke-width="1"
+    d="
+        M1,1 h16 v16 h-16 z
+        M19,1 h16 v16 h-16 z
+        M37,1 h16 v16 h-16 z
+        M55,1 h16 v16 h-16 z
+        M73,1 h16 v16 h-16 z
+        M91,1 h16 v16 h-16 z
+        M109,1 h16 v16 h-16 z
+        M127,1 h16 v16 h-16 z
+    "/>
+    <svg:text class="futoshiki" x="9,27,45,63,117" y="9">35728</svg:text>
+    <svg:path fill="black" stroke="none"
+    d="
+        M76,4 h2v2h-2z
+        M76,12 h2v2h-2z
+        M80,4 h2v2h-2z
+        M80,8 h2v2h-2z
+        M80,12 h2v2h-2z
+        M84,4 h2v2h-2z
+        M84,8 h2v2h-2z
+        M94,4 h2v2h-2z
+        M94,8 h2v2h-2z
+        M94,12 h2v2h-2z
+        M98,4 h2v2h-2z
+        M98,8 h2v2h-2z
+        M98,12 h2v2h-2z
+        M102,4 h2v2h-2z
+        M130,12 h2v2h-2z
+        M134,4 h2v2h-2z
+        M134,8 h2v2h-2z
+        M134,12 h2v2h-2z
+        M138,4 h2v2h-2z
+        M138,8 h2v2h-2z
+    "/>
+</svg:svg>
+</div>
+
+<div class="normal">
+    From here we can see immediately that there is only one
+    way to place the other three digits; but the 1 and the 4 will be
+    three positions apart so this is not a viable solution.
+    So we need to
+    <em>backtrack</em>...
+</div>
+
+<div class="svgdiv">
+<svg:svg version="1.1"
+    xmlns:svg="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    width="144" height="20"
+    >
+    <svg:path fill="none" stroke="black" stroke-width="1"
+    d="
+        M1,1 h16 v16 h-16 z
+        M19,1 h16 v16 h-16 z
+        M37,1 h16 v16 h-16 z
+        M55,1 h16 v16 h-16 z
+        M73,1 h16 v16 h-16 z
+        M91,1 h16 v16 h-16 z
+        M109,1 h16 v16 h-16 z
+        M127,1 h16 v16 h-16 z
+    "/>
+    <svg:text class="futoshiki" x="9,27,45,117" y="9">3578</svg:text>
+    <svg:path fill="black" stroke="none"
+    d="
+        M58,12 h2v2h-2z
+        M62,8 h2v2h-2z
+        M62,12 h2v2h-2z
+        M66,4 h2v2h-2z
+        M66,8 h2v2h-2z
+        M76,12 h2v2h-2z
+        M80,4 h2v2h-2z
+        M80,8 h2v2h-2z
+        M80,12 h2v2h-2z
+        M84,4 h2v2h-2z
+        M84,8 h2v2h-2z
+        M94,4 h2v2h-2z
+        M94,8 h2v2h-2z
+        M94,12 h2v2h-2z
+        M98,8 h2v2h-2z
+        M98,12 h2v2h-2z
+        M102,4 h2v2h-2z
+        M130,12 h2v2h-2z
+        M134,4 h2v2h-2z
+        M134,8 h2v2h-2z
+        M134,12 h2v2h-2z
+        M138,4 h2v2h-2z
+    "/>
+</svg:svg>
+</div>
+
+<div class="normal">
+    and try the 2 in the other position.
+</div>
+
+<div class="svgdiv">
+<svg:svg version="1.1"
+    xmlns:svg="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    width="144" height="20"
+    >
+    <svg:path fill="none" stroke="black" stroke-width="1"
+    d="
+        M1,1 h16 v16 h-16 z
+        M19,1 h16 v16 h-16 z
+        M37,1 h16 v16 h-16 z
+        M55,1 h16 v16 h-16 z
+        M73,1 h16 v16 h-16 z
+        M91,1 h16 v16 h-16 z
+        M109,1 h16 v16 h-16 z
+        M127,1 h16 v16 h-16 z
+    "/>
+    <svg:text class="futoshiki" x="9,27,45,99,117" y="9">35728</svg:text>
+    <svg:path fill="black" stroke="none"
+    d="
+        M58,8 h2v2h-2z
+        M58,12 h2v2h-2z
+        M62,4 h2v2h-2z
+        M62,8 h2v2h-2z
+        M62,12 h2v2h-2z
+        M66,4 h2v2h-2z
+        M66,8 h2v2h-2z
+        M76,4 h2v2h-2z
+        M76,12 h2v2h-2z
+        M80,4 h2v2h-2z
+        M80,8 h2v2h-2z
+        M80,12 h2v2h-2z
+        M84,4 h2v2h-2z
+        M84,8 h2v2h-2z
+        M130,8 h2v2h-2z
+        M130,12 h2v2h-2z
+        M134,4 h2v2h-2z
+        M134,8 h2v2h-2z
+        M134,12 h2v2h-2z
+        M138,4 h2v2h-2z
+    "/>
+</svg:svg>
+</div>
+
+<div class="normal">
+    This will actually lead to a real solution.
+    Perhaps luckily.
+    If we had started with a different three numbers we might have had to
+    backtrack more times.
+</div>
+
+<h2>Puzzle 11 Part 3</h2>
+
+<div class="normal">
+    If you ever need to solve the 8 queens problem in the future,
+    just remember this simple formula:
+    <span class="base4">25 &divide; 7</span>
+</div>
+
+<div class="normal">
+    This will give you, to seven decimal places, the number
+    <span class="base4">3.5714286</span>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,505 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1 plus MathML 2.0 plus SVG 1.1//EN"
+    "http://www.w3.org/2002/04/xhtml-math-svg/xhtml-math-svg-flat.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" dir="ltr">
+<head>
+  <title>Puzzle 9</title>
+  <link rel="stylesheet" href="stylesheet.css" type="text/css" />
+</head>
+<body>
+
+<h1>Puzzle 9</h1>
+
+<div class="normal">
+    The most widely known puzzle that is a variant of the Latin Square puzzle is the
+    <em>sudoku</em>.
+    Every row and every column must contain the numbers 1 to 9.
+    The unique feature of the sudoku is that the grid is divided into nine
+    <em>boxes</em> which also must contain the numbers 1 to 9.
+</div>
+
+<div class="normal">
+    We solve the sudoku in the same way as other Latin Square puzzles,
+    we <em>eliminate the impossible</em> by marking in a cell the numbers that
+    <em>can&rsquo;t</em>
+    go there.
+</div>
+
+<h2>Notation</h2>
+
+<div class="normal">
+    Take a look at the keypad on your phone.
+    You will see the numbers 1 to 9 arranged thus:
+</div>
+
+<div class="svgdiv">
+<svg:svg version="1.1"
+    xmlns:svg="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    width="146" height="146"
+    viewBox="-1 -1 146 146"
+    >
+    <svg:path fill="none" stroke="black" stroke-width="3"
+    d="
+        M0,0 h144 M0,0 v144
+        M0,48 h144 M48,0 v144
+        M0,96 h144 M96,0 v144
+        M0,144 h144 M144,0 v144
+    "/>
+    <svg:text class="keypad" x="24,72,120" y="24" >123</svg:text>
+    <svg:text class="keypad" x="24,72,120" y="72" >456</svg:text>
+    <svg:text class="keypad" x="24,72,120" y="120">789</svg:text>
+</svg:svg>
+</div>
+
+<div class="normal">
+    We will number the boxes of the grid in the same way.
+    So instead of saying
+    &ldquo;middle-right&rdquo;,
+    for example,
+    we will say
+    &ldquo;box 6&rdquo;.
+</div>
+
+<div class="normal">
+    We will also number the cells within a box by refering to the box number
+    then the cell number within the box.
+    So instead of saying
+    &ldquo;the top-middle cell of the middle-right box&rdquo;,
+    we will simply say
+    &ldquo;6.2&rdquo;.
+    (The 6 refers to the box, the 2 refers to the cell within that box).
+</div>
+
+<div class="normal">
+    Furthermore, we can refer to marks within a cell using three numbers,
+    so when we say, for example,
+    &ldquo;mark 6.2.3&rdquo;
+    it means make a mark in the top-right corner (3)
+    of the top-middle cell (2)
+    of the middle-right box (6).
+    Which, of course, means that that cell
+    can&rsquo;t be a 3.
+</div>
+
+<h2>Puzzle 9</h2>
+
+<div class="svgdiv">
+<svg:svg version="1.1"
+    xmlns:svg="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    width="146" height="146"
+    viewBox="-1 -1 146 146"
+    >
+    <svg:path fill="none" stroke="black" stroke-width="3"
+    d="
+        M0,0 h144 M0,0 v144
+        M0,48 h144 M48,0 v144
+        M0,96 h144 M96,0 v144
+        M0,144 h144 M144,0 v144
+    "/>
+    <svg:path fill="none" stroke="black" stroke-width="1"
+    d="
+        M0,16 h144 M16,0 v144
+        M0,32 h144 M32,0 v144
+        M0,64 h144 M64,0 v144
+        M0,80 h144 M80,0 v144
+        M0,112 h144 M112,0 v144
+        M0,128 h144 M128,0 v144
+    "/>
+    <svg:text class="futoshiki" x="8,24,88" y="8">123</svg:text>
+    <svg:text class="futoshiki" x="40,88" y="24" >34</svg:text>
+    <svg:text class="futoshiki" x="40,88,104,120" y="40" >4127</svg:text>
+    <svg:text class="futoshiki" x="40,120" y="56" >13</svg:text>
+    <svg:text class="futoshiki" x="8,24,40,120" y="72" >4325</svg:text>
+    <svg:text class="futoshiki" x="8,88,104,120" y="88" >9218</svg:text>
+    <svg:text class="futoshiki" x="24,40,56,72,104" y="104" >87124</svg:text>
+    <svg:text class="futoshiki" x="72,104" y="120" >53</svg:text>
+    <svg:text class="futoshiki" x="72,120,136" y="136" >621</svg:text>
+</svg:svg>
+</div>
+
+<h2>Puzzle 9 step 1</h2>
+
+<div class="normal">
+    One way of proceeding with a sudoku is to make all the marks first
+    then solve the whole grid by looking for the common latin square patterns:
+    <ol>
+        <li>A cell with all marks but one.</li>
+        <li>A box, row or column where all-but-one cells have the same mark.</li>
+    </ol>
+    But sudoku allows us to tackle a box at a time.
+    So let&rsquo;s start with box 5 and mark all the cells in this box.
+</div>
+
+<div class="svgdiv">
+<svg:svg version="1.1"
+    xmlns:svg="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    width="146" height="146"
+    viewBox="-1 -1 146 146"
+    >
+    <svg:path fill="none" stroke="black" stroke-width="3"
+    d="
+        M0,0 h144 M0,0 v144
+        M0,48 h144 M48,0 v144
+        M0,96 h144 M96,0 v144
+        M0,144 h144 M144,0 v144
+    "/>
+    <svg:path fill="none" stroke="black" stroke-width="1"
+    d="
+        M0,16 h144 M16,0 v144
+        M0,32 h144 M32,0 v144
+        M0,64 h144 M64,0 v144
+        M0,80 h144 M80,0 v144
+        M0,112 h144 M112,0 v144
+        M0,128 h144 M128,0 v144
+    "/>
+    <svg:text class="futoshiki" x="8,24,88" y="8">123</svg:text>
+    <svg:text class="futoshiki" x="40,88" y="24" >34</svg:text>
+    <svg:text class="futoshiki" x="40,88,104,120" y="40" >4127</svg:text>
+    <svg:text class="futoshiki" x="40,120" y="56" >13</svg:text>
+    <svg:text class="futoshiki" x="8,24,40,120" y="72" >4325</svg:text>
+    <svg:text class="futoshiki" x="8,88,104,120" y="88" >9218</svg:text>
+    <svg:text class="futoshiki" x="24,40,56,72,104" y="104" >87124</svg:text>
+    <svg:text class="futoshiki" x="72,104" y="120" >53</svg:text>
+    <svg:text class="futoshiki" x="72,120,136" y="136" >621</svg:text>
+    <svg:path fill="black" stroke="none"
+    d="
+        M51,51 h2v2h-2z
+        M51,67 h2v2h-2z
+        M51,71 h2v2h-2z
+        M51,83 h2v2h-2z
+        M55,51 h2v2h-2z
+        M55,67 h2v2h-2z
+        M55,71 h2v2h-2z
+        M55,83 h2v2h-2z
+        M55,91 h2v2h-2z
+        M59,51 h2v2h-2z
+        M59,67 h2v2h-2z
+        M59,91 h2v2h-2z
+        M67,51 h2v2h-2z
+        M67,71 h2v2h-2z
+        M67,83 h2v2h-2z
+        M71,51 h2v2h-2z
+        M71,55 h2v2h-2z
+        M71,67 h2v2h-2z
+        M71,71 h2v2h-2z
+        M71,83 h2v2h-2z
+        M71,87 h2v2h-2z
+        M71,91 h2v2h-2z
+        M75,51 h2v2h-2z
+        M75,55 h2v2h-2z
+        M75,67 h2v2h-2z
+        M75,71 h2v2h-2z
+        M75,87 h2v2h-2z
+        M75,91 h2v2h-2z
+        M83,51 h2v2h-2z
+        M83,55 h2v2h-2z
+        M83,67 h2v2h-2z
+        M83,71 h2v2h-2z
+        M87,51 h2v2h-2z
+        M87,67 h2v2h-2z
+        M87,71 h2v2h-2z
+        M91,51 h2v2h-2z
+        M91,67 h2v2h-2z
+    "/>
+</svg:svg>
+</div>
+
+<h2>Puzzle 9 step 2</h2>
+
+<div class="normal">
+    There are no cells with eight marks,
+    but all cells in the box, bar one, have the 1-mark.
+    So the remaining cell (cell 5) must be 1.
+</div>
+
+<div class="svgdiv">
+<svg:svg version="1.1"
+    xmlns:svg="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    width="146" height="146"
+    viewBox="-1 -1 146 146"
+    >
+    <svg:path fill="none" stroke="black" stroke-width="3"
+    d="
+        M0,0 h144 M0,0 v144
+        M0,48 h144 M48,0 v144
+        M0,96 h144 M96,0 v144
+        M0,144 h144 M144,0 v144
+    "/>
+    <svg:path fill="none" stroke="black" stroke-width="1"
+    d="
+        M0,16 h144 M16,0 v144
+        M0,32 h144 M32,0 v144
+        M0,64 h144 M64,0 v144
+        M0,80 h144 M80,0 v144
+        M0,112 h144 M112,0 v144
+        M0,128 h144 M128,0 v144
+    "/>
+    <svg:text class="futoshiki" x="8,24,88" y="8">123</svg:text>
+    <svg:text class="futoshiki" x="40,88" y="24" >34</svg:text>
+    <svg:text class="futoshiki" x="40,88,104,120" y="40" >4127</svg:text>
+    <svg:text class="futoshiki" x="40,120" y="56" >13</svg:text>
+    <svg:text class="futoshiki" x="8,24,40,72,120" y="72" >43215</svg:text>
+    <svg:text class="futoshiki" x="8,88,104,120" y="88" >9218</svg:text>
+    <svg:text class="futoshiki" x="24,40,56,72,104" y="104" >87124</svg:text>
+    <svg:text class="futoshiki" x="72,104" y="120" >53</svg:text>
+    <svg:text class="futoshiki" x="72,120,136" y="136" >621</svg:text>
+    <svg:path fill="black" stroke="none"
+    d="
+        M51,51 h2v2h-2z
+        M51,67 h2v2h-2z
+        M51,71 h2v2h-2z
+        M51,83 h2v2h-2z
+        M55,51 h2v2h-2z
+        M55,67 h2v2h-2z
+        M55,71 h2v2h-2z
+        M55,83 h2v2h-2z
+        M55,91 h2v2h-2z
+        M59,51 h2v2h-2z
+        M59,67 h2v2h-2z
+        M59,91 h2v2h-2z
+        M67,51 h2v2h-2z
+        M67,83 h2v2h-2z
+        M71,51 h2v2h-2z
+        M71,55 h2v2h-2z
+        M71,83 h2v2h-2z
+        M71,87 h2v2h-2z
+        M71,91 h2v2h-2z
+        M75,51 h2v2h-2z
+        M75,55 h2v2h-2z
+        M75,87 h2v2h-2z
+        M75,91 h2v2h-2z
+        M83,51 h2v2h-2z
+        M83,55 h2v2h-2z
+        M83,67 h2v2h-2z
+        M83,71 h2v2h-2z
+        M87,51 h2v2h-2z
+        M87,67 h2v2h-2z
+        M87,71 h2v2h-2z
+        M91,51 h2v2h-2z
+        M91,67 h2v2h-2z
+    "/>
+</svg:svg>
+</div>
+
+<h2>Puzzle 9 step 3</h2>
+
+<div class="normal">
+    Now we mark another box.
+    Let&rsquo;s try box 8.
+</div>
+
+<div class="svgdiv">
+<svg:svg version="1.1"
+    xmlns:svg="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    width="146" height="146"
+    viewBox="-1 -1 146 146"
+    >
+    <svg:path fill="none" stroke="black" stroke-width="3"
+    d="
+        M0,0 h144 M0,0 v144
+        M0,48 h144 M48,0 v144
+        M0,96 h144 M96,0 v144
+        M0,144 h144 M144,0 v144
+    "/>
+    <svg:path fill="none" stroke="black" stroke-width="1"
+    d="
+        M0,16 h144 M16,0 v144
+        M0,32 h144 M32,0 v144
+        M0,64 h144 M64,0 v144
+        M0,80 h144 M80,0 v144
+        M0,112 h144 M112,0 v144
+        M0,128 h144 M128,0 v144
+    "/>
+    <svg:text class="futoshiki" x="8,24,88" y="8">123</svg:text>
+    <svg:text class="futoshiki" x="40,88" y="24" >34</svg:text>
+    <svg:text class="futoshiki" x="40,88,104,120" y="40" >4127</svg:text>
+    <svg:text class="futoshiki" x="40,120" y="56" >13</svg:text>
+    <svg:text class="futoshiki" x="8,24,40,72,120" y="72" >43215</svg:text>
+    <svg:text class="futoshiki" x="8,88,104,120" y="88" >9218</svg:text>
+    <svg:text class="futoshiki" x="24,40,56,72,104" y="104" >87124</svg:text>
+    <svg:text class="futoshiki" x="72,104" y="120" >53</svg:text>
+    <svg:text class="futoshiki" x="72,120,136" y="136" >621</svg:text>
+    <svg:path fill="black" stroke="none"
+    d="
+        M51,51 h2v2h-2z
+        M51,67 h2v2h-2z
+        M51,71 h2v2h-2z
+        M51,83 h2v2h-2z
+        M51,115 h2v2h-2z
+        M51,131 h2v2h-2z
+        M55,51 h2v2h-2z
+        M55,67 h2v2h-2z
+        M55,71 h2v2h-2z
+        M55,83 h2v2h-2z
+        M55,91 h2v2h-2z
+        M55,115 h2v2h-2z
+        M55,119 h2v2h-2z
+        M55,131 h2v2h-2z
+        M55,135 h2v2h-2z
+        M59,51 h2v2h-2z
+        M59,67 h2v2h-2z
+        M59,91 h2v2h-2z
+        M59,115 h2v2h-2z
+        M59,119 h2v2h-2z
+        M59,135 h2v2h-2z
+        M67,51 h2v2h-2z
+        M67,83 h2v2h-2z
+        M71,51 h2v2h-2z
+        M71,55 h2v2h-2z
+        M71,83 h2v2h-2z
+        M71,87 h2v2h-2z
+        M71,91 h2v2h-2z
+        M75,51 h2v2h-2z
+        M75,55 h2v2h-2z
+        M75,87 h2v2h-2z
+        M75,91 h2v2h-2z
+        M83,51 h2v2h-2z
+        M83,55 h2v2h-2z
+        M83,67 h2v2h-2z
+        M83,71 h2v2h-2z
+        M83,99 h2v2h-2z
+        M83,103 h2v2h-2z
+        M83,107 h2v2h-2z
+        M83,115 h2v2h-2z
+        M83,119 h2v2h-2z
+        M83,131 h2v2h-2z
+        M83,135 h2v2h-2z
+        M87,51 h2v2h-2z
+        M87,67 h2v2h-2z
+        M87,71 h2v2h-2z
+        M87,99 h2v2h-2z
+        M87,103 h2v2h-2z
+        M87,107 h2v2h-2z
+        M87,115 h2v2h-2z
+        M87,119 h2v2h-2z
+        M87,131 h2v2h-2z
+        M87,135 h2v2h-2z
+        M91,51 h2v2h-2z
+        M91,67 h2v2h-2z
+        M91,99 h2v2h-2z
+        M91,103 h2v2h-2z
+        M91,115 h2v2h-2z
+        M91,119 h2v2h-2z
+        M91,131 h2v2h-2z
+        M91,135 h2v2h-2z
+    "/>
+</svg:svg>
+</div>
+
+<h2>Puzzle 9 step 4</h2>
+
+<div class="normal">
+    We can immediately see that 8.3 must be a 9,
+    and when we look for all-cells-but-one with the same mark
+    we can see that 8.7 must be a 3.
+    But notice, also, that we have completed marking a column,
+    so we can scan that column looking for
+    all-cells-but-one with the same mark.
+    In doing so we discover that 5.3 must be 5.
+</div>
+
+<div class="normal">
+    When we have entered these numbers
+    (and made the corresponding marks in both boxes)
+    we also discover that 8.4 is 4,
+    5.8 is 3
+    and 5.6 is 6.
+    This, in turn, reveals that 5.2 is 4 and 5.7 is 7.
+</div>
+
+<div class="normal">
+    Note that when we solve sudoku box-by-box we only mark the
+    boxes we have so far looked at; we don't need to mark the whole grid.
+</div>
+
+<div class="svgdiv">
+<svg:svg version="1.1"
+    xmlns:svg="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    width="146" height="146"
+    viewBox="-1 -1 146 146"
+    >
+    <svg:path fill="none" stroke="black" stroke-width="3"
+    d="
+        M0,0 h144 M0,0 v144
+        M0,48 h144 M48,0 v144
+        M0,96 h144 M96,0 v144
+        M0,144 h144 M144,0 v144
+    "/>
+    <svg:path fill="none" stroke="black" stroke-width="1"
+    d="
+        M0,16 h144 M16,0 v144
+        M0,32 h144 M32,0 v144
+        M0,64 h144 M64,0 v144
+        M0,80 h144 M80,0 v144
+        M0,112 h144 M112,0 v144
+        M0,128 h144 M128,0 v144
+    "/>
+    <svg:text class="futoshiki" x="8,24,88" y="8">123</svg:text>
+    <svg:text class="futoshiki" x="40,88" y="24" >34</svg:text>
+    <svg:text class="futoshiki" x="40,88,104,120" y="40" >4127</svg:text>
+    <svg:text class="futoshiki" x="40,72,88,120" y="56" >1453</svg:text>
+    <svg:text class="futoshiki" x="8,24,40,72,88,120" y="72" >432165</svg:text>
+    <svg:text class="futoshiki" x="8,56,72,88,104,120" y="88" >973218</svg:text>
+    <svg:text class="futoshiki" x="24,40,56,72,88,104" y="104" >871294</svg:text>
+    <svg:text class="futoshiki" x="56,72,104" y="120" >453</svg:text>
+    <svg:text class="futoshiki" x="56,72,120,136" y="136" >3621</svg:text>
+    <svg:path fill="black" stroke="none"
+    d="
+        M51,51 h2v2h-2z
+        M51,55 h2v2h-2z
+        M51,59 h2v2h-2z
+        M51,67 h2v2h-2z
+        M51,71 h2v2h-2z
+        M51,75 h2v2h-2z
+        M55,51 h2v2h-2z
+        M55,55 h2v2h-2z
+        M55,67 h2v2h-2z
+        M55,71 h2v2h-2z
+        M59,51 h2v2h-2z
+        M59,55 h2v2h-2z
+        M59,67 h2v2h-2z
+        M59,71 h2v2h-2z
+        M83,115 h2v2h-2z
+        M83,119 h2v2h-2z
+        M83,131 h2v2h-2z
+        M83,135 h2v2h-2z
+        M87,115 h2v2h-2z
+        M87,119 h2v2h-2z
+        M87,131 h2v2h-2z
+        M87,135 h2v2h-2z
+        M91,115 h2v2h-2z
+        M91,119 h2v2h-2z
+        M91,123 h2v2h-2z
+        M91,131 h2v2h-2z
+        M91,135 h2v2h-2z
+        M91,139 h2v2h-2z
+    "/>
+</svg:svg>
+</div>
+
+<h2>Puzzle 9 step 5</h2>
+
+<div class="normal">
+    We now choose another box to mark.
+    Whenever we insert a number we always make sure we add the corresponding marks.
+    When we have done all we can in a box we can either revisit boxes we have
+    already looked at (as we did in step 4, when we re-looked at box 5)
+    or we can save these revisits till later.
+    When we complete columns or rows, we can scan these looking for
+    all-cells-but-one with the same mark.
+</div>
+
+<div class="normal">
+    You should be able to complete puzzle 9 using the two common patterns.
+    But there are some sudoku that require a few more patterns in order to
+    solve them; we shall look at these in the next chapter.
+</div>
+
+</body>
+</html>

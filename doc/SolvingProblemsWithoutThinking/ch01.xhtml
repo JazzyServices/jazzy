@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1 plus MathML 2.0 plus SVG 1.1//EN"
+    "http://www.w3.org/2002/04/xhtml-math-svg/xhtml-math-svg-flat.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" dir="ltr">
+<head>
+  <title>Puzzle 1</title>
+  <link rel="stylesheet" href="stylesheet.css" type="text/css" />
+</head>
+<body>
+
+<h1>Puzzle 1 part 1</h1>
+
+<div class="normal">
+    An ant crawls along the edges of a box starting from point A and finishing at point B.
+    The ant can crawl along any solid edge, but not along those marked with a dotted line.
+</div>
+
+<svg:svg version="1.1"
+    xmlns:svg="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    width="144" height="144" >
+    <svg:path fill="none" stroke="black"  stroke-width="1"
+     d="M60,120 L60,40 L20,18 L20,80 L80,65 L80,20
+        M60,40 L120,34 L120,90 L80,65"/>
+    <svg:path fill="none" stroke="black" stroke-dasharray="2,2" stroke-width="1"
+     d="M20,80 L60,120 L120,90
+        M20,18 L80,20 L120,34"/>
+    <svg:text x="54" y="138" >A</svg:text>
+    <svg:text x="74" y="18" >B</svg:text>
+</svg:svg>
+
+<div class="normal">
+    This puzzle is so simple that it barely counts as a puzzle.
+</div>
+
+<h2 id="puzzle-1-part-2">Puzzle 1 part 2</h2>
+
+<div class="normal">
+    An ant crawls along the edges of a box starting from point A and finishing at point B
+    (see diagram below).
+    There are six directions in which the ant can move
+    as it travels from one corner to an adjacent corner.
+    (Clearly, at any one corner, the ant only has a choice of three of these six directions.)
+    <ul>
+        <li>Up</li>
+        <li>Down</li>
+        <li>Left</li>
+        <li>Right</li>
+        <li>Away (from the observer)</li>
+        <li>Toward (the observer)</li>
+    </ul>
+    If the following restrictions apply, how can the ant get from A to B.
+    <ul>
+        <li>In the <i>first</i> move the ant must move upwards from A (it is not allowed to move right nor away.)</li>
+        <li>In the <i>last</i> move the ant must move upwards toward B (is not allowed to move right nor away.)</li>
+        <li>The ant is not allowed to visit the same corner twice.</li>
+    </ul>
+</div>
+
+<svg:svg version="1.1"
+    xmlns:svg="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    width="144" height="144" >
+    <svg:path fill="none" stroke="black"  stroke-width="1"
+     d="M20,120 L20,40 L100,40 L100,120 z
+        M120,20 L120,60 L80,60 L80,20 z
+        M20,40 L80,20
+        M100,40 L120,20
+        M100,120 L120,60
+        M20,120 L80,60
+        "/>
+    <svg:text x="14" y="138" >A</svg:text>
+    <svg:text x="114" y="18" >B</svg:text>
+</svg:svg>
+
+<div class="normal">
+    This is slightly more challenging; but if we simply cross out the four lines that ant isn't allowed to move along
+    (two from A and two towards B),
+    then we can see that it is the trivial puzzle we saw in part 1
+    (drawn in a slightly different way).
+</div>
+
+<svg:svg version="1.1"
+    xmlns:svg="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    width="144" height="144" >
+    <svg:path fill="none" stroke="black"  stroke-width="1"
+     d="M20,120 L20,40 L100,40 L100,120
+        M120,20 L120,60 L80,60 L80,20
+        M20,40 L80,20
+        M100,120 L120,60
+        "/>
+    <svg:text x="14" y="138" >A</svg:text>
+    <svg:text x="114" y="18" >B</svg:text>
+</svg:svg>
+
+<h2>Lesson 1 &ndash; Eliminate the Impossible</h2>
+
+<div class="normal">
+    The technique we used to solve Puzzle 1 (part 2) is one of the most crucial techniques in all puzzle-solving:
+    <i>eliminate the impossible</i>. One we had done this, the solution became clear.
+</div>
+
+</body>
+</html>

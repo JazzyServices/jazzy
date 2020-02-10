@@ -1,0 +1,497 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1 plus MathML 2.0 plus SVG 1.1//EN"
+    "http://www.w3.org/2002/04/xhtml-math-svg/xhtml-math-svg-flat.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" dir="ltr">
+<head>
+  <title>Puzzle 6</title>
+  <link rel="stylesheet" href="stylesheet.css" type="text/css" />
+</head>
+<body>
+
+<h1>Puzzle 6</h1>
+
+<div class="normal">
+    On the edge of town,
+    on a brownfield site,
+    a new housing estate has been laid out consisting of sixteen
+    plots of land.
+    The Planning Committee have specified the following rules:
+    <ol>
+        <li>Only one building per plot</li>
+        <li>The building must be constructed in one of the four quadrants
+        of the plot
+            <ul>
+                <li>top left</li>
+                <li>top right</li>
+                <li>bottom left</li>
+                <li>bottom right</li>
+            </ul>
+        </li>
+        <li>In the other three quadrants of a plot, there must be gardens.</li>
+        <li>When a building has been constructed in a quadrant,
+        all plots due north, south, east and west of this plot
+        must have a garden in that particular quadrant
+        (that is, on any row of plots (north-south or east-west)
+         there mustn&rsquo;t be two plots having buildings in the same quadrant).</li>
+        <li>Furthermore, the corner plots must have buildings in their
+         inner quadrants</li>
+        <li>There must be a building on each plot.</li>
+    </ol>
+    The task of constructing the buildings has been given to the
+    Gung-Ho Construction Company
+    and the task of planting the gardens has been given to the
+    Meticulous Landscaping Company.
+    Unfortunately, before the Landscaping Company arrive, the
+    Construction Company already started work on two buildings
+    (marked with solid rectangles on the map below)
+</div>
+
+<svg:svg version="1.1"
+    xmlns:svg="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    width="144" height="144"
+    >
+    <svg:path fill="none" stroke="black" stroke-width="1"
+    d="
+       M2,0 v2 h-2
+       M6,0 v2 h132 v-2
+       M142,0 v2 h2
+       M144,6 h-2 v132 h2
+       M144,142 h-2 v2
+       M6,144 v-2 h132 v2
+       M0,142 h2 v2
+       M0,6 h2 v132 h-2
+       M6,6 h30 v30 h-30 z
+       M6,40 h30 v30 h-30 z
+       M6,74 h30 v30 h-30 z
+       M6,108 h30 v30 h-30 z
+       M40,6 h30 v30 h-30 z
+       M40,40 h30 v30 h-30 z
+       M40,74 h30 v30 h-30 z
+       M40,108 h30 v30 h-30 z
+       M74,6 h30 v30 h-30 z
+       M74,40 h30 v30 h-30 z
+       M74,74 h30 v30 h-30 z
+       M74,108 h30 v30 h-30 z
+       M108,6 h30 v30 h-30 z
+       M108,40 h30 v30 h-30 z
+       M108,74 h30 v30 h-30 z
+       M108,108 h30 v30 h-30 z
+     "/>
+    <svg:path fill="black" stroke="none" d="M42,76 h12 v12 h-12 z"/>
+    <svg:path fill="black" stroke="none" d="M90,56 h12 v12 h-12 z"/>
+</svg:svg>
+
+<div class="normal">
+    The CEO of the Meticulous Landscaping Company
+    is concerned that the Gung-Ho Construction Company are going to
+    construct buildings randomly and discover that it won&rsquo;t be possible
+    to have a building in each plot.
+    &ldquo;We will just knock some buildings down and build them in a
+    different quadrant until we have got it right.&rdquo; said Gung-Ho&rsquo;s
+    CEO.
+</div>
+
+<div class="normal">
+    The CEO of the Meticulous Landscaping Company
+    thought this was a bad idea, so suggested,
+    &ldquo;For each building constructed, let us plant the gardens
+    on the same plot, and in the same quadrant of the other plots
+    in the same north-south row and in the same east-west row.&rdquo;
+    So the Landscaping Company did that (marked with circles on the map
+    below).
+</div>
+
+<svg:svg version="1.1"
+    xmlns:svg="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    width="144" height="144"
+    >
+    <svg:path fill="none" stroke="black" stroke-width="1"
+    d="
+       M2,0 v2 h-2
+       M6,0 v2 h132 v-2
+       M142,0 v2 h2
+       M144,6 h-2 v132 h2
+       M144,142 h-2 v2
+       M6,144 v-2 h132 v2
+       M0,142 h2 v2
+       M0,6 h2 v132 h-2
+       M6,6 h30 v30 h-30 z
+       M6,40 h30 v30 h-30 z
+       M6,74 h30 v30 h-30 z
+       M6,108 h30 v30 h-30 z
+       M40,6 h30 v30 h-30 z
+       M40,40 h30 v30 h-30 z
+       M40,74 h30 v30 h-30 z
+       M40,108 h30 v30 h-30 z
+       M74,6 h30 v30 h-30 z
+       M74,40 h30 v30 h-30 z
+       M74,74 h30 v30 h-30 z
+       M74,108 h30 v30 h-30 z
+       M108,6 h30 v30 h-30 z
+       M108,40 h30 v30 h-30 z
+       M108,74 h30 v30 h-30 z
+       M108,108 h30 v30 h-30 z
+     "/>
+     <!-- buildings -->
+    <svg:path fill="black" stroke="none" d="M42,76 h12 v12 h-12 z"/>
+    <svg:path fill="black" stroke="none" d="M90,56 h12 v12 h-12 z"/>
+     <!-- gardens -->
+    <svg:circle cx="14" cy="82" r="6" fill="none" stroke="black" stroke-width="1"/>
+    <svg:circle cx="28" cy="62" r="6" fill="none" stroke="black" stroke-width="1"/>
+    <svg:circle cx="48" cy="14" r="6" fill="none" stroke="black" stroke-width="1"/>
+    <svg:circle cx="48" cy="48" r="6" fill="none" stroke="black" stroke-width="1"/>
+    <svg:circle cx="48" cy="116" r="6" fill="none" stroke="black" stroke-width="1"/>
+    <svg:circle cx="48" cy="96" r="6" fill="none" stroke="black" stroke-width="1"/>
+    <svg:circle cx="62" cy="62" r="6" fill="none" stroke="black" stroke-width="1"/>
+    <svg:circle cx="62" cy="82" r="6" fill="none" stroke="black" stroke-width="1"/>
+    <svg:circle cx="62" cy="96" r="6" fill="none" stroke="black" stroke-width="1"/>
+    <svg:circle cx="82" cy="48" r="6" fill="none" stroke="black" stroke-width="1"/>
+    <svg:circle cx="82" cy="62" r="6" fill="none" stroke="black" stroke-width="1"/>
+    <svg:circle cx="82" cy="82" r="6" fill="none" stroke="black" stroke-width="1"/>
+    <svg:circle cx="96" cy="28" r="6" fill="none" stroke="black" stroke-width="1"/>
+    <svg:circle cx="96" cy="48" r="6" fill="none" stroke="black" stroke-width="1"/>
+    <svg:circle cx="96" cy="96" r="6" fill="none" stroke="black" stroke-width="1"/>
+    <svg:circle cx="96" cy="130" r="6" fill="none" stroke="black" stroke-width="1"/>
+    <svg:circle cx="116" cy="82" r="6" fill="none" stroke="black" stroke-width="1"/>
+    <svg:circle cx="130" cy="62" r="6" fill="none" stroke="black" stroke-width="1"/>
+</svg:svg>
+
+<div class="normal">
+    The CEO of the Meticulous Landscaping Company then suggested,
+    &ldquo;Now construct a building in the top-left plot, because we know which
+    quadrant it has to be in, and we will plant the corresponding gardens in the
+    top-most and left-most plots.&rdquo;
+    After that was done, the map of the estate looked like this:
+</div>
+
+<svg:svg version="1.1"
+    xmlns:svg="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    width="144" height="144"
+    >
+    <svg:path fill="none" stroke="black" stroke-width="1"
+    d="
+       M2,0 v2 h-2
+       M6,0 v2 h132 v-2
+       M142,0 v2 h2
+       M144,6 h-2 v132 h2
+       M144,142 h-2 v2
+       M6,144 v-2 h132 v2
+       M0,142 h2 v2
+       M0,6 h2 v132 h-2
+       M6,6 h30 v30 h-30 z
+       M6,40 h30 v30 h-30 z
+       M6,74 h30 v30 h-30 z
+       M6,108 h30 v30 h-30 z
+       M40,6 h30 v30 h-30 z
+       M40,40 h30 v30 h-30 z
+       M40,74 h30 v30 h-30 z
+       M40,108 h30 v30 h-30 z
+       M74,6 h30 v30 h-30 z
+       M74,40 h30 v30 h-30 z
+       M74,74 h30 v30 h-30 z
+       M74,108 h30 v30 h-30 z
+       M108,6 h30 v30 h-30 z
+       M108,40 h30 v30 h-30 z
+       M108,74 h30 v30 h-30 z
+       M108,108 h30 v30 h-30 z
+     "/>
+     <!-- buildings -->
+    <svg:path fill="black" stroke="none" d="M22,22 h12 v12 h-12 z"/>
+    <svg:path fill="black" stroke="none" d="M42,76 h12 v12 h-12 z"/>
+    <svg:path fill="black" stroke="none" d="M90,56 h12 v12 h-12 z"/>
+     <!-- gardens -->
+    <svg:circle cx="14" cy="14" r="6" fill="none" stroke="black" stroke-width="1"/>
+    <svg:circle cx="14" cy="28" r="6" fill="none" stroke="black" stroke-width="1"/>
+    <svg:circle cx="14" cy="82" r="6" fill="none" stroke="black" stroke-width="1"/>
+    <svg:circle cx="28" cy="14" r="6" fill="none" stroke="black" stroke-width="1"/>
+    <svg:circle cx="28" cy="62" r="6" fill="none" stroke="black" stroke-width="1"/>
+    <svg:circle cx="28" cy="96" r="6" fill="none" stroke="black" stroke-width="1"/>
+    <svg:circle cx="28" cy="130" r="6" fill="none" stroke="black" stroke-width="1"/>
+    <svg:circle cx="48" cy="14" r="6" fill="none" stroke="black" stroke-width="1"/>
+    <svg:circle cx="48" cy="48" r="6" fill="none" stroke="black" stroke-width="1"/>
+    <svg:circle cx="48" cy="116" r="6" fill="none" stroke="black" stroke-width="1"/>
+    <svg:circle cx="48" cy="96" r="6" fill="none" stroke="black" stroke-width="1"/>
+    <svg:circle cx="62" cy="28" r="6" fill="none" stroke="black" stroke-width="1"/>
+    <svg:circle cx="62" cy="62" r="6" fill="none" stroke="black" stroke-width="1"/>
+    <svg:circle cx="62" cy="82" r="6" fill="none" stroke="black" stroke-width="1"/>
+    <svg:circle cx="62" cy="96" r="6" fill="none" stroke="black" stroke-width="1"/>
+    <svg:circle cx="82" cy="48" r="6" fill="none" stroke="black" stroke-width="1"/>
+    <svg:circle cx="82" cy="62" r="6" fill="none" stroke="black" stroke-width="1"/>
+    <svg:circle cx="82" cy="82" r="6" fill="none" stroke="black" stroke-width="1"/>
+    <svg:circle cx="96" cy="28" r="6" fill="none" stroke="black" stroke-width="1"/>
+    <svg:circle cx="96" cy="48" r="6" fill="none" stroke="black" stroke-width="1"/>
+    <svg:circle cx="96" cy="96" r="6" fill="none" stroke="black" stroke-width="1"/>
+    <svg:circle cx="96" cy="130" r="6" fill="none" stroke="black" stroke-width="1"/>
+    <svg:circle cx="116" cy="82" r="6" fill="none" stroke="black" stroke-width="1"/>
+    <svg:circle cx="130" cy="28" r="6" fill="none" stroke="black" stroke-width="1"/>
+    <svg:circle cx="130" cy="62" r="6" fill="none" stroke="black" stroke-width="1"/>
+</svg:svg>
+
+<div class="normal">
+    &ldquo;Now construct buildings in the other corner plots, because we know which
+    quadrants they have to be in, and we will plant the corresponding gardens.&rdquo;
+</div>
+
+<svg:svg version="1.1"
+    xmlns:svg="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    width="144" height="144"
+    >
+    <svg:path fill="none" stroke="black" stroke-width="1"
+    d="
+       M2,0 v2 h-2
+       M6,0 v2 h132 v-2
+       M142,0 v2 h2
+       M144,6 h-2 v132 h2
+       M144,142 h-2 v2
+       M6,144 v-2 h132 v2
+       M0,142 h2 v2
+       M0,6 h2 v132 h-2
+       M6,6 h30 v30 h-30 z
+       M6,40 h30 v30 h-30 z
+       M6,74 h30 v30 h-30 z
+       M6,108 h30 v30 h-30 z
+       M40,6 h30 v30 h-30 z
+       M40,40 h30 v30 h-30 z
+       M40,74 h30 v30 h-30 z
+       M40,108 h30 v30 h-30 z
+       M74,6 h30 v30 h-30 z
+       M74,40 h30 v30 h-30 z
+       M74,74 h30 v30 h-30 z
+       M74,108 h30 v30 h-30 z
+       M108,6 h30 v30 h-30 z
+       M108,40 h30 v30 h-30 z
+       M108,74 h30 v30 h-30 z
+       M108,108 h30 v30 h-30 z
+     "/>
+     <!-- buildings -->
+    <svg:path fill="black" stroke="none" d="M22,22 h12 v12 h-12 z"/>
+    <svg:path fill="black" stroke="none" d="M22,110 h12 v12 h-12 z"/>
+    <svg:path fill="black" stroke="none" d="M42,76 h12 v12 h-12 z"/>
+    <svg:path fill="black" stroke="none" d="M90,56 h12 v12 h-12 z"/>
+    <svg:path fill="black" stroke="none" d="M110,22 h12 v12 h-12 z"/>
+    <svg:path fill="black" stroke="none" d="M110,110 h12 v12 h-12 z"/>
+     <!-- gardens -->
+    <svg:circle cx="14" cy="14" r="6" fill="none" stroke="black" stroke-width="1"/>
+    <svg:circle cx="14" cy="28" r="6" fill="none" stroke="black" stroke-width="1"/>
+    <svg:circle cx="14" cy="82" r="6" fill="none" stroke="black" stroke-width="1"/>
+    <svg:circle cx="14" cy="116" r="6" fill="none" stroke="black" stroke-width="1"/>
+    <svg:circle cx="14" cy="130" r="6" fill="none" stroke="black" stroke-width="1"/>
+    <svg:circle cx="28" cy="14" r="6" fill="none" stroke="black" stroke-width="1"/>
+    <svg:circle cx="28" cy="48" r="6" fill="none" stroke="black" stroke-width="1"/>
+    <svg:circle cx="28" cy="62" r="6" fill="none" stroke="black" stroke-width="1"/>
+    <svg:circle cx="28" cy="82" r="6" fill="none" stroke="black" stroke-width="1"/>
+    <svg:circle cx="28" cy="96" r="6" fill="none" stroke="black" stroke-width="1"/>
+    <svg:circle cx="28" cy="130" r="6" fill="none" stroke="black" stroke-width="1"/>
+    <svg:circle cx="48" cy="14" r="6" fill="none" stroke="black" stroke-width="1"/>
+    <svg:circle cx="48" cy="28" r="6" fill="none" stroke="black" stroke-width="1"/>
+    <svg:circle cx="48" cy="48" r="6" fill="none" stroke="black" stroke-width="1"/>
+    <svg:circle cx="48" cy="116" r="6" fill="none" stroke="black" stroke-width="1"/>
+    <svg:circle cx="48" cy="96" r="6" fill="none" stroke="black" stroke-width="1"/>
+    <svg:circle cx="62" cy="28" r="6" fill="none" stroke="black" stroke-width="1"/>
+    <svg:circle cx="62" cy="62" r="6" fill="none" stroke="black" stroke-width="1"/>
+    <svg:circle cx="62" cy="82" r="6" fill="none" stroke="black" stroke-width="1"/>
+    <svg:circle cx="62" cy="96" r="6" fill="none" stroke="black" stroke-width="1"/>
+    <svg:circle cx="62" cy="116" r="6" fill="none" stroke="black" stroke-width="1"/>
+    <svg:circle cx="82" cy="28" r="6" fill="none" stroke="black" stroke-width="1"/>
+    <svg:circle cx="82" cy="48" r="6" fill="none" stroke="black" stroke-width="1"/>
+    <svg:circle cx="82" cy="62" r="6" fill="none" stroke="black" stroke-width="1"/>
+    <svg:circle cx="82" cy="82" r="6" fill="none" stroke="black" stroke-width="1"/>
+    <svg:circle cx="82" cy="116" r="6" fill="none" stroke="black" stroke-width="1"/>
+    <svg:circle cx="96" cy="28" r="6" fill="none" stroke="black" stroke-width="1"/>
+    <svg:circle cx="96" cy="48" r="6" fill="none" stroke="black" stroke-width="1"/>
+    <svg:circle cx="96" cy="96" r="6" fill="none" stroke="black" stroke-width="1"/>
+    <svg:circle cx="96" cy="116" r="6" fill="none" stroke="black" stroke-width="1"/>
+    <svg:circle cx="96" cy="130" r="6" fill="none" stroke="black" stroke-width="1"/>
+    <svg:circle cx="116" cy="14" r="6" fill="none" stroke="black" stroke-width="1"/>
+    <svg:circle cx="116" cy="48" r="6" fill="none" stroke="black" stroke-width="1"/>
+    <svg:circle cx="116" cy="62" r="6" fill="none" stroke="black" stroke-width="1"/>
+    <svg:circle cx="116" cy="82" r="6" fill="none" stroke="black" stroke-width="1"/>
+    <svg:circle cx="116" cy="96" r="6" fill="none" stroke="black" stroke-width="1"/>
+    <svg:circle cx="116" cy="130" r="6" fill="none" stroke="black" stroke-width="1"/>
+    <svg:circle cx="130" cy="14" r="6" fill="none" stroke="black" stroke-width="1"/>
+    <svg:circle cx="130" cy="28" r="6" fill="none" stroke="black" stroke-width="1"/>
+    <svg:circle cx="130" cy="62" r="6" fill="none" stroke="black" stroke-width="1"/>
+    <svg:circle cx="130" cy="116" r="6" fill="none" stroke="black" stroke-width="1"/>
+    <svg:circle cx="130" cy="130" r="6" fill="none" stroke="black" stroke-width="1"/>
+</svg:svg>
+
+<div class="normal">
+    &ldquo;Now, if a plot has three gardens, then the building must go in the
+    remaining quadrant; and as you build we will plant the corresponding gardens.&rdquo;
+</div>
+
+<div class="normal">
+    You should now be able to complete the puzzle.
+</div>
+
+<h2 id="orchard-puzzle">Puzzle 6 part 2</h2>
+
+<div class="normal">
+    A farmer has a small orchard containing two apples trees (A), a cherry tree (C),
+    a damson tree (D) and a beehive (B).
+</div>
+
+<svg:svg version="1.1"
+    xmlns:svg="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    width="146" height="146"
+    viewBox="-1 -1 146 146"
+    >
+    <svg:path fill="none" stroke="black" stroke-width="1"
+    d="
+       M0,0   h144 M0,0   v144
+       M0,36  h144 M36,0  v144
+       M0,72  h144 M72,0  v144
+       M0,108 h144 M108,0 v144
+       M0,144 h144 M144,0 v144
+    "/>
+    <svg:text class="orchard" x="18"  y="68"  >A</svg:text>
+    <svg:text class="orchard" x="54"  y="140" >D</svg:text>
+    <svg:text class="orchard" x="90"  y="104" >B</svg:text>
+    <svg:text class="orchard" x="126" y="104" >C</svg:text>
+    <svg:text class="orchard" x="126" y="140" >A</svg:text>
+</svg:svg>
+
+<div class="normal">
+    The farmer wants to plant more trees and get more beehives so that:
+    <ol>
+        <li>The orchard has four rows and four columns</li>
+        <li>Each row and each column contains exactly one each of an apple tree, a cherry tree, a damson tree and a beehive.</li>
+    </ol>
+    For each square in the orchard, the farmer makes a mark on the ground
+    to indicate which item <em>can&rsquo;t</em> go there, based on what items
+    are already in the row and column of that square.
+    That is, the farmer is <em>eliminating the impossible</em>.
+    <ul>
+        <li>If the square can&rsquo;t contain an apple tree, make a mark in the top-left quadrant.</li>
+        <li>If the square can&rsquo;t contain a beehive, make a mark in the top-right quadrant.</li>
+        <li>If the square can&rsquo;t contain a cherry tree, make a mark in the bottom-left quadrant.</li>
+        <li>If the square can&rsquo;t contain a damson tree, make a mark in the bottom-right quadrant.</li>
+    </ul>
+    The orchard now looks like this:
+</div>
+
+<svg:svg version="1.1"
+    xmlns:svg="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    width="146" height="146"
+    viewBox="-1 -1 146 146"
+    >
+    <svg:path fill="none" stroke="black" stroke-width="1"
+    d="
+       M0,0   h144 M0,0   v144
+       M0,36  h144 M36,0  v144
+       M0,72  h144 M72,0  v144
+       M0,108 h144 M108,0 v144
+       M0,144 h144 M144,0 v144
+    "/>
+    <svg:text class="orchard" x="18"  y="68"  >A</svg:text>
+    <svg:text class="orchard" x="54"  y="140" >D</svg:text>
+    <svg:text class="orchard" x="90"  y="104" >B</svg:text>
+    <svg:text class="orchard" x="126" y="104" >C</svg:text>
+    <svg:text class="orchard" x="126" y="140" >A</svg:text>
+    <svg:path fill="black" stroke="none" d="M8,8h2v2h-2z" />
+    <svg:path fill="black" stroke="none" d="M8,80h2v2h-2z" />
+    <svg:path fill="black" stroke="none" d="M8,98h2v2h-2z" />
+    <svg:path fill="black" stroke="none" d="M8,116h2v2h-2z" />
+    <svg:path fill="black" stroke="none" d="M26,80h2v2h-2z" />
+    <svg:path fill="black" stroke="none" d="M26,134h2v2h-2z" />
+    <svg:path fill="black" stroke="none" d="M44,44h2v2h-2z" />
+    <svg:path fill="black" stroke="none" d="M44,98h2v2h-2z" />
+    <svg:path fill="black" stroke="none" d="M62,26h2v2h-2z" />
+    <svg:path fill="black" stroke="none" d="M62,62h2v2h-2z" />
+    <svg:path fill="black" stroke="none" d="M62,80h2v2h-2z" />
+    <svg:path fill="black" stroke="none" d="M62,98h2v2h-2z" />
+    <svg:path fill="black" stroke="none" d="M80,44h2v2h-2z" />
+    <svg:path fill="black" stroke="none" d="M80,116h2v2h-2z" />
+    <svg:path fill="black" stroke="none" d="M98,8h2v2h-2z" />
+    <svg:path fill="black" stroke="none" d="M98,44h2v2h-2z" />
+    <svg:path fill="black" stroke="none" d="M98,116h2v2h-2z" />
+    <svg:path fill="black" stroke="none" d="M98,134h2v2h-2z" />
+    <svg:path fill="black" stroke="none" d="M116,8h2v2h-2z" />
+    <svg:path fill="black" stroke="none" d="M116,26h2v2h-2z" />
+    <svg:path fill="black" stroke="none" d="M116,44h2v2h-2z" />
+    <svg:path fill="black" stroke="none" d="M116,62h2v2h-2z" />
+</svg:svg>
+
+<div class="normal">
+    If a square contains three marks,
+    then the farmer knows which item goes there
+    because it is the only one possible.
+    The farmer plants the right tree or places a beehive in that square
+    then marks the other squares in the same row and column with a corresponding
+    mark.
+</div>
+
+<div class="normal">
+    There are three squares on our map with three marks,
+    so let&rsquo;s put the correct letter in that square and
+    mark the other squares in the same row and column.
+</div>
+
+<svg:svg version="1.1"
+    xmlns:svg="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    width="146" height="146"
+    viewBox="-1 -1 146 146"
+    >
+    <svg:path fill="none" stroke="black" stroke-width="1"
+    d="
+       M0,0   h144 M0,0   v144
+       M0,36  h144 M36,0  v144
+       M0,72  h144 M72,0  v144
+       M0,108 h144 M108,0 v144
+       M0,144 h144 M144,0 v144
+    "/>
+    <svg:text class="orchard" x="18"  y="68"  >A</svg:text>
+    <svg:text class="orchard" x="18" y="104" >D</svg:text>
+    <svg:text class="orchard" x="54"  y="104" >A</svg:text>
+    <svg:text class="orchard" x="54"  y="140" >D</svg:text>
+    <svg:text class="orchard" x="90"  y="140" >C</svg:text>
+    <svg:text class="orchard" x="90"  y="104" >B</svg:text>
+    <svg:text class="orchard" x="126" y="104" >C</svg:text>
+    <svg:text class="orchard" x="126" y="140" >A</svg:text>
+    <svg:path fill="black" stroke="none" d="M8,8h2v2h-2z" />
+    <svg:path fill="black" stroke="none" d="M8,116h2v2h-2z" />
+    <svg:path fill="black" stroke="none" d="M8,134h2v2h-2z" />
+    <svg:path fill="black" stroke="none" d="M26,26h2v2h-2z" />
+    <svg:path fill="black" stroke="none" d="M26,134h2v2h-2z" />
+    <svg:path fill="black" stroke="none" d="M44,8h2v2h-2z" />
+    <svg:path fill="black" stroke="none" d="M44,44h2v2h-2z" />
+    <svg:path fill="black" stroke="none" d="M62,26h2v2h-2z" />
+    <svg:path fill="black" stroke="none" d="M62,62h2v2h-2z" />
+    <svg:path fill="black" stroke="none" d="M80,26h2v2h-2z" />
+    <svg:path fill="black" stroke="none" d="M80,44h2v2h-2z" />
+    <svg:path fill="black" stroke="none" d="M80,62h2v2h-2z" />
+    <svg:path fill="black" stroke="none" d="M98,8h2v2h-2z" />
+    <svg:path fill="black" stroke="none" d="M98,44h2v2h-2z" />
+    <svg:path fill="black" stroke="none" d="M116,8h2v2h-2z" />
+    <svg:path fill="black" stroke="none" d="M116,26h2v2h-2z" />
+    <svg:path fill="black" stroke="none" d="M116,44h2v2h-2z" />
+    <svg:path fill="black" stroke="none" d="M116,62h2v2h-2z" />
+</svg:svg>
+
+<div class="normal">
+    There are now two more squares with three marks.
+    Write the correct letter in those squares, mark the corresponding squares
+    in the same row and column, and repeat until you have filled the grid.
+</div>
+
+<div class="normal">
+    This sort of puzzle (where you must place one of each item in every row
+    and column) is known as a Latin Square.
+    The most common variant of this is the sudoku.
+    But all Latin Square puzzles can be solved in the same way &mdash;
+    by <i>marking in the cell which items/numbers can&rsquo;t go there</i>.
+    The marks need only be a small dot placed in a particular location
+    within the cell. Marking the dots is like filling in the dead ends of a
+    maze &ndash; it is all part of the meditative application of some simple
+    rules that frees our brain from having to do any hard thinking.
+</div>
+
+</body>
+</html>

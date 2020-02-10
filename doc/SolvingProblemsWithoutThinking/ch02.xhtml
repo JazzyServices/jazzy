@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1 plus MathML 2.0 plus SVG 1.1//EN"
+    "http://www.w3.org/2002/04/xhtml-math-svg/xhtml-math-svg-flat.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" dir="ltr">
+<head>
+  <title>Puzzle 2</title>
+  <link rel="stylesheet" href="stylesheet.css" type="text/css" />
+</head>
+<body>
+
+<h1>Puzzle 2 part 1</h1>
+
+<div class="normal">
+    Three light switches (left, middle and right) all start in the "off" position.
+    You have to switch them all on.
+    But the circuits are so dodgy that you have to obey certain rules otherwise you&rsquo;ll cause a short-circuit:
+    <ol>
+        <li>You can only flick one switch at a time (either on or off)</li>
+        <li>You can&rsquo;t switch the left one on leaving middle and right off.</li>
+        <li>You can&rsquo;t switch the right one on leaving middle and left off.</li>
+        <li>If the left and middle switches are on, you can&rsquo;t also turn the right switch on.</li>
+        <li>If the right and middle switches are on, you can&rsquo;t also turn the left switch on.</li>
+    </ol>
+</div>
+
+<h2>Lesson 2 - Draw a Map</h2>
+
+<div class="normal">
+    Since we don&rsquo;t have three light switches to hand we have to make a model, or map, of the puzzle
+    to help us see the solution.
+    We only have to represent two states for each switch &mdash;
+    &ldquo;on&rdquo;
+    and
+    &ldquo;off&rdquo;,
+    so we could use a binary notation. Zero for
+    &ldquo;off&rdquo;
+    and one for
+    &ldquo;on&rdquo;.
+    The switches all start in the off position, so that&rsquo;s three zeroes.
+</div>
+
+<div align="center">
+<svg:svg version="1.1"
+    xmlns:svg="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    width="144" height="144" >
+    <svg:rect width="100%" height="100%" fill="#eee"/>
+    <svg:text class="binary" x="72" y="18" >000</svg:text>
+</svg:svg>
+</div>
+
+<div class="normal">
+    In order to obey the first three rules there is
+    only one thing we can do and that is flick the middle switch on.
+</div>
+
+<div align="center">
+<svg:svg version="1.1"
+    xmlns:svg="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    width="144" height="144" >
+    <svg:rect width="100%" height="100%" fill="#eee"/>
+    <svg:text class="binary" x="72" y="18" >000</svg:text>
+    <svg:text class="binary" x="72" y="42" >010</svg:text>
+</svg:svg>
+</div>
+
+<div class="normal">
+    We now have a choice.
+    We can switch on either the left or the right switch.
+    So on our map we will show both possibilities.
+    (The third possibility is to turn the middle switch off
+    again, which would take us back to the beginning
+    &ndash;
+    a state that is already on the map.)
+</div>
+
+<div align="center">
+<svg:svg version="1.1"
+    xmlns:svg="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    width="144" height="144" >
+    <svg:rect width="100%" height="100%" fill="#eee"/>
+    <svg:text class="binary" x="72" y="18" >000</svg:text>
+    <svg:text class="binary" x="72" y="42" >010</svg:text>
+    <svg:text class="binary" x="36" y="66" >110</svg:text>
+    <svg:text class="binary" x="108" y="66" >011</svg:text>
+</svg:svg>
+</div>
+
+<div class="normal">
+    Rule 4 now applies to the left-hand route.
+    So we can&rsquo;t turn on the right switch.
+    Our only choice
+    (apart from going backwards)
+    is to turn off the middle switch.
+    Similarly,
+    rule 5 applies to the right-hand route.
+    So we can&rsquo;t turn on the left switch.
+    Our only choice is to turn off the middle switch.
+</div>
+
+<div align="center">
+<svg:svg version="1.1"
+    xmlns:svg="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    width="144" height="144" >
+    <svg:rect width="100%" height="100%" fill="#eee"/>
+    <svg:text class="binary" x="72" y="18" >000</svg:text>
+    <svg:text class="binary" x="72" y="42" >010</svg:text>
+    <svg:text class="binary" x="36" y="66" >110</svg:text>
+    <svg:text class="binary" x="108" y="66" >011</svg:text>
+    <svg:text class="binary" x="36" y="90" >100</svg:text>
+    <svg:text class="binary" x="108" y="90" >001</svg:text>
+</svg:svg>
+</div>
+
+<div class="normal">
+    On the left-hand route we can only turn on the right switch.
+    On the right-hand route we can only turn on the left switch.
+    This brings us to the same point, whichever route we take.
+</div>
+
+<div align="center">
+<svg:svg version="1.1"
+    xmlns:svg="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    width="144" height="144" >
+    <svg:rect width="100%" height="100%" fill="#eee"/>
+    <svg:text class="binary" x="72" y="18" >000</svg:text>
+    <svg:text class="binary" x="72" y="42" >010</svg:text>
+    <svg:text class="binary" x="36" y="66" >110</svg:text>
+    <svg:text class="binary" x="108" y="66" >011</svg:text>
+    <svg:text class="binary" x="36" y="90" >100</svg:text>
+    <svg:text class="binary" x="108" y="90" >001</svg:text>
+    <svg:text class="binary" x="72" y="114" >101</svg:text>
+</svg:svg>
+</div>
+
+<div class="normal">
+    And finally we can turn on the middle switch to complete the puzzle.
+</div>
+
+<div align="center">
+<svg:svg version="1.1"
+    xmlns:svg="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    width="144" height="144" >
+    <svg:rect width="100%" height="100%" fill="#eee"/>
+    <svg:text class="binary" x="72" y="18" >000</svg:text>
+    <svg:text class="binary" x="72" y="42" >010</svg:text>
+    <svg:text class="binary" x="36" y="66" >110</svg:text>
+    <svg:text class="binary" x="108" y="66" >011</svg:text>
+    <svg:text class="binary" x="36" y="90" >100</svg:text>
+    <svg:text class="binary" x="108" y="90" >001</svg:text>
+    <svg:text class="binary" x="72" y="114" >101</svg:text>
+    <svg:text class="binary" x="72" y="138" >111</svg:text>
+</svg:svg>
+</div>
+
+<h2>Puzzle 2 part 2</h2>
+
+<div class="normal">
+    This way of mapping the puzzle is fine; but it is not the only way.
+    Since we have three switches, we can represent them in 3-dimensional space.
+    We could represent
+    the left-hand switch on the x-axis
+    (&ldquo;on&rdquo; moves to the right and
+     &ldquo;off&rdquo; moves to the left),
+    the middle switch on the y-axis
+    (&ldquo;on&rdquo; moves up and
+     &ldquo;off&rdquo; moves down) and
+    the right-hand switch on the z-axis
+    (&ldquo;on&rdquo; moves away and
+     &ldquo;off&rdquo; moves towards).
+</div>
+
+<div class="normal">
+    Starting with the box that we used for
+    <a href="ch01.xhtml#puzzle-1-part-2">Puzzle 1 part 2</a>,
+    apply the rules of this puzzle, which now become;
+    <ol>
+        <li>You can only move along the edges.</li>
+        <li>You can&rsquo;t go right if you are down and toward.</li>
+        <li>You can&rsquo;t go away if you are down and left.</li>
+        <li>If you are right and up, you can&rsquo;t go away.</li>
+        <li>If you are away and up, you can&rsquo;t go right.</li>
+    </ol>
+    What you should discover is that the two puzzles are identical!
+</div>
+
+</body>
+</html>

@@ -1,0 +1,612 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1 plus MathML 2.0 plus SVG 1.1//EN"
+    "http://www.w3.org/2002/04/xhtml-math-svg/xhtml-math-svg-flat.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" dir="ltr">
+<head>
+  <title>Puzzle 7</title>
+  <link rel="stylesheet" href="stylesheet.css" type="text/css" />
+</head>
+<body>
+
+<h1>Puzzle 7</h1>
+
+<div class="normal">
+    This puzzle (sometimes called Number Blocks) isn&rsquo;t a Latin Square puzzle,
+    but we solve it in the same way
+    (using marks to eliminate the impossible).
+    The rules are defined as following:
+    <ol>
+        <li>The grid is made of blocks (defined by the dark outlines).</li>
+        <li>The blocks are made of between one and five cells.</li>
+        <li>Each cell is to contain a number.</li>
+        <li>A different number must appear in each cell in a block.</li>
+        <li>The number in a cell must not be greater than the number of cells
+        in its block</li>
+        <li>Adjacent cells, even in different blocks and even diagonally must not
+        contain the same number</li>
+    </ol>
+</div>
+
+<div class="svgdiv">
+<svg:svg version="1.1"
+    xmlns:svg="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    width="146" height="146"
+    viewBox="-1 -1 146 146"
+    >
+    <svg:path fill="none" stroke="black" stroke-width="1"
+    d="
+        M0,24 h144 M24,0 v144
+        M0,48 h144 M48,0 v144
+        M0,72 h144 M72,0 v144
+        M0,96 h144 M96,0 v144
+        M0,120 h144 M120,0 v144
+    "/>
+    <svg:path fill="none" stroke="black" stroke-width="3"
+    d=" M96,0 v24 h24 v24 h24
+        M72,0 v48 h24 v24 h48
+        M0,24 h48 v24 h24 v24 h-24 v48 h-24 v24
+        M0,48 h24 v-24
+        M0,72 h24 v24 h48 v24 h24 m0,24 v-48 h24 v-24
+        M0,0 h144 M0,0 v144
+        M0,144 h144 M144,0 v144
+    "/>
+    <svg:text class="suguru" x="12"  y="20" >3</svg:text>
+    <svg:text class="suguru" x="36"  y="116">2</svg:text>
+    <svg:text class="suguru" x="84"  y="20" >5</svg:text>
+    <svg:text class="suguru" x="84"  y="68" >1</svg:text>
+    <svg:text class="suguru" x="108" y="20" >1</svg:text>
+    <svg:text class="suguru" x="108" y="92" >4</svg:text>
+    <svg:text class="suguru" x="132" y="92" >5</svg:text>
+    <svg:text class="suguru" x="132" y="140">3</svg:text>
+</svg:svg>
+</div>
+
+<div class="normal">
+    In a similar way to the
+    <a href="ch06.xhtml#orchard-puzzle">orchard puzzle</a>
+    we mark each cell in a particular way to indicate when a number
+    can&rsquo;t occupy that cell:
+    <ul>
+        <li>If the cell can&rsquo;t contain a 1, make a mark in the top-left quadrant.</li>
+        <li>If the cell can&rsquo;t contain a 2, make a mark in the top-right quadrant.</li>
+        <li>If the cell can&rsquo;t contain a 3, make a mark in the bottom-left quadrant.</li>
+        <li>If the cell can&rsquo;t contain a 4, make a mark in the bottom-right quadrant.</li>
+        <li>If the cell can&rsquo;t contain a 5, make a mark in the middle.</li>
+    </ul>
+</div>
+
+<h2>Puzzle 7 step 1</h2>
+
+<div class="normal">
+    First we apply rule 4
+    (a different number must appear in each cell in a block).
+    So, if a block already contains the number 1, for example,
+    we mark all the other cells in the block in the top-left.
+</div>
+
+<div class="svgdiv">
+<svg:svg version="1.1"
+    xmlns:svg="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    width="146" height="146"
+    viewBox="-1 -1 146 146"
+    >
+    <svg:path fill="none" stroke="black" stroke-width="1"
+    d="
+        M0,24 h144 M24,0 v144
+        M0,48 h144 M48,0 v144
+        M0,72 h144 M72,0 v144
+        M0,96 h144 M96,0 v144
+        M0,120 h144 M120,0 v144
+    "/>
+    <svg:path fill="none" stroke="black" stroke-width="3"
+    d=" M96,0 v24 h24 v24 h24
+        M72,0 v48 h24 v24 h48
+        M0,24 h48 v24 h24 v24 h-24 v48 h-24 v24
+        M0,48 h24 v-24
+        M0,72 h24 v24 h48 v24 h24 m0,24 v-48 h24 v-24
+        M0,0 h144 M0,0 v144
+        M0,144 h144 M144,0 v144
+    "/>
+    <svg:g fill="black" stroke="none" >
+    <svg:path d="M17,77h2v2h-2z"/>
+    <svg:path d="M17,101h2v2h-2z"/>
+    <svg:path d="M17,125h2v2h-2z"/>
+    <svg:path d="M29,17h2v2h-2z"/>
+    <svg:path d="M53,17h2v2h-2z"/>
+    <svg:path d="M53,41h2v2h-2z"/>
+    <svg:path d="M53,77h2v2h-2z"/>
+    <svg:path d="M65,89h2v2h-2z"/>
+    <svg:path d="M77,77h2v2h-2z"/>
+    <svg:path d="M77,101h2v2h-2z"/>
+    <svg:path d="M83,35h2v2h-2z"/>
+    <svg:path d="M89,89h2v2h-2z"/>
+    <svg:path d="M89,113h2v2h-2z"/>
+    <svg:path d="M101,113h2v2h-2z"/>
+    <svg:path d="M101,137h2v2h-2z"/>
+    <svg:path d="M107,35h2v2h-2z"/>
+    <svg:path d="M107,59h2v2h-2z"/>
+    <svg:path d="M107,107h2v2h-2z"/>
+    <svg:path d="M107,131h2v2h-2z"/>
+    <svg:path d="M125,5h2v2h-2z"/>
+    <svg:path d="M125,29h2v2h-2z"/>
+    <svg:path d="M125,113h2v2h-2z"/>
+    <svg:path d="M131,59h2v2h-2z"/>
+    <svg:path d="M131,107h2v2h-2z"/>
+    </svg:g>
+    <svg:text class="suguru" x="12"  y="20" >3</svg:text>
+    <svg:text class="suguru" x="36"  y="116">2</svg:text>
+    <svg:text class="suguru" x="84"  y="20" >5</svg:text>
+    <svg:text class="suguru" x="84"  y="68" >1</svg:text>
+    <svg:text class="suguru" x="108" y="20" >1</svg:text>
+    <svg:text class="suguru" x="108" y="92" >4</svg:text>
+    <svg:text class="suguru" x="132" y="92" >5</svg:text>
+    <svg:text class="suguru" x="132" y="140">3</svg:text>
+</svg:svg>
+</div>
+
+<h2>Puzzle 7 step 2</h2>
+
+<div class="normal">
+    We now apply rule 5
+    (the number in a cell must not be greater than the number of cells in its block).
+    That is, a 4-cell block can not contain the number 5 (so mark all cells in
+    this block in the middle), a 3-cell block can not contain the numbers 4 nor 5,
+    so mark as appropriate; and so on. A 1-cell block can only contain the number 1,
+    so we can write this number directly into the cell without having to mark it.
+</div>
+
+<div class="svgdiv">
+<svg:svg version="1.1"
+    xmlns:svg="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    width="146" height="146"
+    viewBox="-1 -1 146 146"
+    >
+    <svg:path fill="none" stroke="black" stroke-width="1"
+    d="
+        M0,24 h144 M24,0 v144
+        M0,48 h144 M48,0 v144
+        M0,72 h144 M72,0 v144
+        M0,96 h144 M96,0 v144
+        M0,120 h144 M120,0 v144
+    "/>
+    <svg:path fill="none" stroke="black" stroke-width="3"
+    d=" M96,0 v24 h24 v24 h24
+        M72,0 v48 h24 v24 h48
+        M0,24 h48 v24 h24 v24 h-24 v48 h-24 v24
+        M0,48 h24 v-24
+        M0,72 h24 v24 h48 v24 h24 m0,24 v-48 h24 v-24
+        M0,0 h144 M0,0 v144
+        M0,144 h144 M144,0 v144
+    "/>
+    <svg:g fill="black" stroke="none" >
+    <svg:path d="M11,83h2v2h-2z"/>
+    <svg:path d="M11,107h2v2h-2z"/>
+    <svg:path d="M11,131h2v2h-2z"/>
+    <svg:path d="M17,77h2v2h-2z"/>
+    <svg:path d="M17,101h2v2h-2z"/>
+    <svg:path d="M17,125h2v2h-2z"/>
+    <svg:path d="M29,17h2v2h-2z"/>
+    <svg:path d="M35,11h2v2h-2z"/>
+    <svg:path d="M35,131h2v2h-2z"/>
+    <svg:path d="M53,17h2v2h-2z"/>
+    <svg:path d="M53,41h2v2h-2z"/>
+    <svg:path d="M53,77h2v2h-2z"/>
+    <svg:path d="M59,11h2v2h-2z"/>
+    <svg:path d="M59,35h2v2h-2z"/>
+    <svg:path d="M59,107h2v2h-2z"/>
+    <svg:path d="M59,131h2v2h-2z"/>
+    <svg:path d="M65,89h2v2h-2z"/>
+    <svg:path d="M77,77h2v2h-2z"/>
+    <svg:path d="M77,101h2v2h-2z"/>
+    <svg:path d="M83,35h2v2h-2z"/>
+    <svg:path d="M83,131h2v2h-2z"/>
+    <svg:path d="M89,89h2v2h-2z"/>
+    <svg:path d="M89,113h2v2h-2z"/>
+    <svg:path d="M101,113h2v2h-2z"/>
+    <svg:path d="M101,137h2v2h-2z"/>
+    <svg:path d="M107,35h2v2h-2z"/>
+    <svg:path d="M107,59h2v2h-2z"/>
+    <svg:path d="M107,107h2v2h-2z"/>
+    <svg:path d="M107,131h2v2h-2z"/>
+    <svg:path d="M125,5h2v2h-2z"/>
+    <svg:path d="M125,29h2v2h-2z"/>
+    <svg:path d="M125,113h2v2h-2z"/>
+    <svg:path d="M131,11h2v2h-2z"/>
+    <svg:path d="M131,35h2v2h-2z"/>
+    <svg:path d="M131,59h2v2h-2z"/>
+    <svg:path d="M131,107h2v2h-2z"/>
+    <svg:path d="M137,17h2v2h-2z"/>
+    <svg:path d="M137,41h2v2h-2z"/>
+    </svg:g>
+    <svg:text class="suguru" x="12"  y="20" >3</svg:text>
+    <svg:text class="suguru" x="12"  y="44" >1</svg:text>
+    <svg:text class="suguru" x="36"  y="116">2</svg:text>
+    <svg:text class="suguru" x="84"  y="20" >5</svg:text>
+    <svg:text class="suguru" x="84"  y="68" >1</svg:text>
+    <svg:text class="suguru" x="108" y="20" >1</svg:text>
+    <svg:text class="suguru" x="108" y="92" >4</svg:text>
+    <svg:text class="suguru" x="132" y="92" >5</svg:text>
+    <svg:text class="suguru" x="132" y="140">3</svg:text>
+</svg:svg>
+</div>
+
+<h2>Puzzle 7 step 3</h2>
+
+<div class="normal">
+    We now apply rule 6
+    (adjacent cells, even in different blocks and even diagonally must not
+    contain the same number).
+    That is, for each number already in the grid, mark its adjacent cells.
+    Note, a cell may have up to eight neighbours.
+</div>
+
+<div class="svgdiv">
+<svg:svg version="1.1"
+    xmlns:svg="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    width="146" height="146"
+    viewBox="-1 -1 146 146"
+    >
+    <svg:path fill="none" stroke="black" stroke-width="1"
+    d="
+        M0,24 h144 M24,0 v144
+        M0,48 h144 M48,0 v144
+        M0,72 h144 M72,0 v144
+        M0,96 h144 M96,0 v144
+        M0,120 h144 M120,0 v144
+    "/>
+    <svg:path fill="none" stroke="black" stroke-width="3"
+    d=" M96,0 v24 h24 v24 h24
+        M72,0 v48 h24 v24 h48
+        M0,24 h48 v24 h24 v24 h-24 v48 h-24 v24
+        M0,48 h24 v-24
+        M0,72 h24 v24 h48 v24 h24 m0,24 v-48 h24 v-24
+        M0,0 h144 M0,0 v144
+        M0,144 h144 M144,0 v144
+    "/>
+    <svg:g fill="black" stroke="none" >
+        <svg:path d="M5,53   h2v2h-2z"/>
+        <svg:path d="M11,83  h2v2h-2z"/>
+        <svg:path d="M11,107 h2v2h-2z"/>
+        <svg:path d="M11,131 h2v2h-2z"/>
+        <svg:path d="M17,77  h2v2h-2z"/>
+        <svg:path d="M17,101 h2v2h-2z"/>
+        <svg:path d="M17,125 h2v2h-2z"/>
+        <svg:path d="M29,5   h2v2h-2z"/>
+        <svg:path d="M29,17  h2v2h-2z"/>
+        <svg:path d="M29,29  h2v2h-2z"/>
+        <svg:path d="M29,41  h2v2h-2z"/>
+        <svg:path d="M29,53  h2v2h-2z"/>
+        <svg:path d="M35,11  h2v2h-2z"/>
+        <svg:path d="M35,131 h2v2h-2z"/>
+        <svg:path d="M41,77  h2v2h-2z"/>
+        <svg:path d="M41,125 h2v2h-2z"/>
+        <svg:path d="M53,17  h2v2h-2z"/>
+        <svg:path d="M53,29  h2v2h-2z"/>
+        <svg:path d="M53,41  h2v2h-2z"/>
+        <svg:path d="M53,53  h2v2h-2z"/>
+        <svg:path d="M53,77  h2v2h-2z"/>
+        <svg:path d="M59,11  h2v2h-2z"/>
+        <svg:path d="M59,35  h2v2h-2z"/>
+        <svg:path d="M59,107 h2v2h-2z"/>
+        <svg:path d="M59,131 h2v2h-2z"/>
+        <svg:path d="M65,77  h2v2h-2z"/>
+        <svg:path d="M65,89  h2v2h-2z"/>
+        <svg:path d="M65,101 h2v2h-2z"/>
+        <svg:path d="M65,125 h2v2h-2z"/>
+        <svg:path d="M77,29  h2v2h-2z"/>
+        <svg:path d="M77,77  h2v2h-2z"/>
+        <svg:path d="M77,101 h2v2h-2z"/>
+        <svg:path d="M83,35  h2v2h-2z"/>
+        <svg:path d="M83,131 h2v2h-2z"/>
+        <svg:path d="M89,89  h2v2h-2z"/>
+        <svg:path d="M89,113 h2v2h-2z"/>
+        <svg:path d="M101,29 h2v2h-2z"/>
+        <svg:path d="M101,53 h2v2h-2z"/>
+        <svg:path d="M101,113h2v2h-2z"/>
+        <svg:path d="M101,137h2v2h-2z"/>
+        <svg:path d="M107,35 h2v2h-2z"/>
+        <svg:path d="M107,59 h2v2h-2z"/>
+        <svg:path d="M107,107h2v2h-2z"/>
+        <svg:path d="M107,131h2v2h-2z"/>
+        <svg:path d="M113,65 h2v2h-2z"/>
+        <svg:path d="M113,113h2v2h-2z"/>
+        <svg:path d="M125,5  h2v2h-2z"/>
+        <svg:path d="M125,29 h2v2h-2z"/>
+        <svg:path d="M125,113h2v2h-2z"/>
+        <svg:path d="M131,11 h2v2h-2z"/>
+        <svg:path d="M131,35 h2v2h-2z"/>
+        <svg:path d="M131,59 h2v2h-2z"/>
+        <svg:path d="M131,107h2v2h-2z"/>
+        <svg:path d="M137,17 h2v2h-2z"/>
+        <svg:path d="M137,41 h2v2h-2z"/>
+        <svg:path d="M137,65 h2v2h-2z"/>
+        <svg:path d="M137,113 h2v2h-2z"/>
+    </svg:g>
+    <svg:g class="suguru">
+        <svg:text x="12"  y="20" >3</svg:text>
+        <svg:text x="12"  y="44" >1</svg:text>
+        <svg:text x="36"  y="116">2</svg:text>
+        <svg:text x="84"  y="20" >5</svg:text>
+        <svg:text x="84"  y="68" >1</svg:text>
+        <svg:text x="108" y="20" >1</svg:text>
+        <svg:text x="108" y="92" >4</svg:text>
+        <svg:text x="132" y="92" >5</svg:text>
+        <svg:text x="132" y="140">3</svg:text>
+    </svg:g>
+</svg:svg>
+</div>
+
+<div class="normal">
+    We were hoping that some of the cells would contain four marks
+    so that we could insert a number in that cell and move towards
+    a solution. Does that mean we are stuck?
+    Certainly not.
+    Let&rsquo;s look at rule 4 again: a different number must appear in each
+    cell in a block. If all-but-one of the cells in a block contain the same
+    mark, then the other cell must be the number that corresponds to that mark.
+    For example, in the top-left block (containing a 3), two of the three
+    un-numbered cells have a mark top-left indicating that they can&rsquo;t be
+    the number 1. Therefore, the cell without that mark <em>must</em> be a 1.
+</div>
+
+<h2>Puzzle 7 step 4</h2>
+
+<div class="normal">
+    There are five such cells in the grid.
+    Let&rsquo;s enter the correct numbers into those cells and then follow
+    rule 6 to mark adjacent cells.
+</div>
+
+<div class="svgdiv">
+<svg:svg version="1.1"
+    xmlns:svg="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    width="146" height="146"
+    viewBox="-1 -1 146 146"
+    >
+    <svg:path fill="none" stroke="black" stroke-width="1"
+    d="
+        M0,24 h144 M24,0 v144
+        M0,48 h144 M48,0 v144
+        M0,72 h144 M72,0 v144
+        M0,96 h144 M96,0 v144
+        M0,120 h144 M120,0 v144
+    "/>
+    <svg:path fill="none" stroke="black" stroke-width="3"
+    d=" M96,0 v24 h24 v24 h24
+        M72,0 v48 h24 v24 h48
+        M0,24 h48 v24 h24 v24 h-24 v48 h-24 v24
+        M0,48 h24 v-24
+        M0,72 h24 v24 h48 v24 h24 m0,24 v-48 h24 v-24
+        M0,0 h144 M0,0 v144
+        M0,144 h144 M144,0 v144
+    "/>
+    <svg:g fill="black" stroke="none" >
+        <svg:path d="M5,53   h2v2h-2z"/>
+        <svg:path d="M5,77   h2v2h-2z"/>
+        <svg:path d="M5,101  h2v2h-2z"/>
+        <svg:path d="M11,83  h2v2h-2z"/>
+        <svg:path d="M11,107 h2v2h-2z"/>
+        <svg:path d="M11,131 h2v2h-2z"/>
+        <svg:path d="M17,77  h2v2h-2z"/>
+        <svg:path d="M17,101 h2v2h-2z"/>
+        <svg:path d="M17,125 h2v2h-2z"/>
+        <svg:path d="M29,5   h2v2h-2z"/>
+        <svg:path d="M29,17  h2v2h-2z"/>
+        <svg:path d="M29,29  h2v2h-2z"/>
+        <svg:path d="M29,41  h2v2h-2z"/>
+        <svg:path d="M29,53  h2v2h-2z"/>
+        <svg:path d="M35,11  h2v2h-2z"/>
+        <svg:path d="M35,131 h2v2h-2z"/>
+        <svg:path d="M41,125 h2v2h-2z"/>
+        <svg:path d="M53,29  h2v2h-2z"/>
+        <svg:path d="M53,41  h2v2h-2z"/>
+        <svg:path d="M53,53  h2v2h-2z"/>
+        <svg:path d="M53,77  h2v2h-2z"/>
+        <svg:path d="M53,101 h2v2h-2z"/>
+        <svg:path d="M59,35  h2v2h-2z"/>
+        <svg:path d="M59,107 h2v2h-2z"/>
+        <svg:path d="M59,131 h2v2h-2z"/>
+        <svg:path d="M65,77  h2v2h-2z"/>
+        <svg:path d="M65,89  h2v2h-2z"/>
+        <svg:path d="M65,101 h2v2h-2z"/>
+        <svg:path d="M65,125 h2v2h-2z"/>
+        <svg:path d="M77,29  h2v2h-2z"/>
+        <svg:path d="M77,77  h2v2h-2z"/>
+        <svg:path d="M77,101 h2v2h-2z"/>
+        <svg:path d="M83,35  h2v2h-2z"/>
+        <svg:path d="M89,89  h2v2h-2z"/>
+        <svg:path d="M89,101 h2v2h-2z"/>
+        <svg:path d="M89,113 h2v2h-2z"/>
+        <svg:path d="M101,29 h2v2h-2z"/>
+        <svg:path d="M101,53 h2v2h-2z"/>
+        <svg:path d="M101,113h2v2h-2z"/>
+        <svg:path d="M107,35 h2v2h-2z"/>
+        <svg:path d="M107,59 h2v2h-2z"/>
+        <svg:path d="M107,107h2v2h-2z"/>
+        <svg:path d="M113,65 h2v2h-2z"/>
+        <svg:path d="M113,101h2v2h-2z"/>
+        <svg:path d="M113,113h2v2h-2z"/>
+        <svg:path d="M125,5  h2v2h-2z"/>
+        <svg:path d="M125,29 h2v2h-2z"/>
+        <svg:path d="M125,113h2v2h-2z"/>
+        <svg:path d="M131,11 h2v2h-2z"/>
+        <svg:path d="M131,35 h2v2h-2z"/>
+        <svg:path d="M131,107h2v2h-2z"/>
+        <svg:path d="M137,17 h2v2h-2z"/>
+        <svg:path d="M137,41 h2v2h-2z"/>
+        <svg:path d="M137,113 h2v2h-2z"/>
+    </svg:g>
+    <svg:g class="suguru">
+        <svg:text x="12"  y="20" >3</svg:text>
+        <svg:text x="12"  y="44" >1</svg:text>
+        <svg:text x="36"  y="116">2</svg:text>
+        <svg:text x="36"  y="92" >1</svg:text>
+        <svg:text x="60"  y="20" >1</svg:text>
+        <svg:text x="84"  y="20" >5</svg:text>
+        <svg:text x="84"  y="68" >1</svg:text>
+        <svg:text x="84"  y="140">2</svg:text>
+        <svg:text x="108" y="20" >1</svg:text>
+        <svg:text x="108" y="92" >4</svg:text>
+        <svg:text x="108" y="140">4</svg:text>
+        <svg:text x="132" y="68" >1</svg:text>
+        <svg:text x="132" y="92" >5</svg:text>
+        <svg:text x="132" y="140">3</svg:text>
+    </svg:g>
+</svg:svg>
+</div>
+
+<h2>Puzzle 7 step 5</h2>
+
+<div class="normal">
+    Now we have a cell with four marks.
+    So we write in the correct number and mark cells in the same block (rule 4)
+    and all adjacent cells (rule 6).
+    This will give us another 4-mark cell, so we complete that one also.
+</div>
+
+<div class="svgdiv">
+<svg:svg version="1.1"
+    xmlns:svg="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    width="146" height="146"
+    viewBox="-1 -1 146 146"
+    >
+    <svg:path fill="none" stroke="black" stroke-width="1"
+    d="
+        M0,24 h144 M24,0 v144
+        M0,48 h144 M48,0 v144
+        M0,72 h144 M72,0 v144
+        M0,96 h144 M96,0 v144
+        M0,120 h144 M120,0 v144
+    "/>
+    <svg:path fill="none" stroke="black" stroke-width="3"
+    d=" M96,0 v24 h24 v24 h24
+        M72,0 v48 h24 v24 h48
+        M0,24 h48 v24 h24 v24 h-24 v48 h-24 v24
+        M0,48 h24 v-24
+        M0,72 h24 v24 h48 v24 h24 m0,24 v-48 h24 v-24
+        M0,0 h144 M0,0 v144
+        M0,144 h144 M144,0 v144
+    "/>
+    <svg:g fill="black" stroke="none" >
+        <svg:path d="M5,53   h2v2h-2z"/>
+        <svg:path d="M5,77   h2v2h-2z"/>
+        <svg:path d="M5,101  h2v2h-2z"/>
+        <svg:path d="M11,83  h2v2h-2z"/>
+        <svg:path d="M11,107 h2v2h-2z"/>
+        <svg:path d="M11,131 h2v2h-2z"/>
+        <svg:path d="M17,77  h2v2h-2z"/>
+        <svg:path d="M17,101 h2v2h-2z"/>
+        <svg:path d="M17,125 h2v2h-2z"/>
+        <svg:path d="M29,5   h2v2h-2z"/>
+        <svg:path d="M29,17  h2v2h-2z"/>
+        <svg:path d="M29,29  h2v2h-2z"/>
+        <svg:path d="M29,41  h2v2h-2z"/>
+        <svg:path d="M29,53  h2v2h-2z"/>
+        <svg:path d="M35,11  h2v2h-2z"/>
+        <svg:path d="M35,131 h2v2h-2z"/>
+        <svg:path d="M41,125 h2v2h-2z"/>
+        <svg:path d="M53,29  h2v2h-2z"/>
+        <svg:path d="M53,41  h2v2h-2z"/>
+        <svg:path d="M53,53  h2v2h-2z"/>
+        <svg:path d="M53,77  h2v2h-2z"/>
+        <svg:path d="M53,101 h2v2h-2z"/>
+        <svg:path d="M59,35  h2v2h-2z"/>
+        <svg:path d="M59,107 h2v2h-2z"/>
+        <svg:path d="M59,131 h2v2h-2z"/>
+        <svg:path d="M65,77  h2v2h-2z"/>
+        <svg:path d="M65,89  h2v2h-2z"/>
+        <svg:path d="M65,101 h2v2h-2z"/>
+        <svg:path d="M65,125 h2v2h-2z"/>
+        <svg:path d="M77,29  h2v2h-2z"/>
+        <svg:path d="M77,77  h2v2h-2z"/>
+        <svg:path d="M77,101 h2v2h-2z"/>
+        <svg:path d="M83,35  h2v2h-2z"/>
+        <svg:path d="M89,89  h2v2h-2z"/>
+        <svg:path d="M89,101 h2v2h-2z"/>
+        <svg:path d="M89,113 h2v2h-2z"/>
+        <svg:path d="M101,29 h2v2h-2z"/>
+        <svg:path d="M101,53 h2v2h-2z"/>
+        <svg:path d="M107,35 h2v2h-2z"/>
+        <svg:path d="M107,59 h2v2h-2z"/>
+        <svg:path d="M113,65 h2v2h-2z"/>
+        <svg:path d="M125,5  h2v2h-2z"/>
+        <svg:path d="M125,29 h2v2h-2z"/>
+        <svg:path d="M131,11 h2v2h-2z"/>
+        <svg:path d="M131,35 h2v2h-2z"/>
+        <svg:path d="M137,17 h2v2h-2z"/>
+        <svg:path d="M137,41 h2v2h-2z"/>
+    </svg:g>
+    <svg:g class="suguru">
+        <svg:text x="12"  y="20" >3</svg:text>
+        <svg:text x="12"  y="44" >1</svg:text>
+        <svg:text x="36"  y="116">2</svg:text>
+        <svg:text x="36"  y="92" >1</svg:text>
+        <svg:text x="60"  y="20" >1</svg:text>
+        <svg:text x="84"  y="20" >5</svg:text>
+        <svg:text x="84"  y="68" >1</svg:text>
+        <svg:text x="84"  y="140">2</svg:text>
+        <svg:text x="108" y="20" >1</svg:text>
+        <svg:text x="108" y="92" >4</svg:text>
+        <svg:text x="108" y="116">1</svg:text>
+        <svg:text x="108" y="140">4</svg:text>
+        <svg:text x="132" y="68" >1</svg:text>
+        <svg:text x="132" y="92" >5</svg:text>
+        <svg:text x="132" y="116">2</svg:text>
+        <svg:text x="132" y="140">3</svg:text>
+    </svg:g>
+</svg:svg>
+</div>
+
+<h2>Puzzle 7 step 6</h2>
+
+<div class="normal">
+    Now we have no more 4-mark cells but we do have blocks that have a single
+    cell without a particular mark (as we had in step 4).
+    Complete these cells, make the marks and repeat.
+    If you have correctly eliminated the impossibles (using marks) and spotted
+    the only-one-possibles, then you should be able to complete the grid.
+</div>
+
+<div class="svgdiv">
+<svg:svg version="1.1"
+    xmlns:svg="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    width="146" height="146"
+    viewBox="-1 -1 146 146"
+    >
+    <svg:path fill="none" stroke="black" stroke-width="1"
+    d="
+        M0,24 h144 M24,0 v144
+        M0,48 h144 M48,0 v144
+        M0,72 h144 M72,0 v144
+        M0,96 h144 M96,0 v144
+        M0,120 h144 M120,0 v144
+    "/>
+    <svg:path fill="none" stroke="black" stroke-width="3"
+    d=" M96,0 v24 h24 v24 h24
+        M72,0 v48 h24 v24 h48
+        M0,24 h48 v24 h24 v24 h-24 v48 h-24 v24
+        M0,48 h24 v-24
+        M0,72 h24 v24 h48 v24 h24 m0,24 v-48 h24 v-24
+        M0,0 h144 M0,0 v144
+        M0,144 h144 M144,0 v144
+    "/>
+    <svg:g class="suguru">
+        <svg:text y="20"  x="12,36,60,84,108,132" >321513</svg:text>
+        <svg:text y="44"  x="12,36,60,84,108,132" >154242</svg:text>
+        <svg:text y="68"  x="12,36,60,84,108,132" >423131</svg:text>
+        <svg:text y="92"  x="12,36,60,84,108,132" >315245</svg:text>
+        <svg:text y="116" x="12,36,60,84,108,132" >424312</svg:text>
+        <svg:text y="140" x="12,36,60,84,108,132" >131243</svg:text>
+    </svg:g>
+</svg:svg>
+</div>
+
+</body>
+</html>
