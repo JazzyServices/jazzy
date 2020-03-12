@@ -1,6 +1,6 @@
 # The *str()* built-in.
 
-The `str` built-in is not a function but a type.
+The `str()` built-in is not a function but a type.
 Its initialiser can take up to three arguments (`object`, `encoding`, `errors`),
 which, like normal Python functions, can be specified as positional or keyword arguments.
 

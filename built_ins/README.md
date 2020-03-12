@@ -12,7 +12,12 @@ each of which is discussed in a separate document:
    - [The `hex()` built-in and friends](hexetc.md)
    - [The `print()` built-in](print.md)
    - [The `format()` built-in](format.md)
-- [Numbers](numbers.md)
+- Numbers
+    - [The `int()` built-in](int.md)
+    - [The `bool()` built-in](bool.md)
+    - [The `float()` built-in](float.md)
+    - [The `complex()` built-in](complex.md)
+    - [Built-in numerical functions](numbers.md)
 - [Iterable Types](iterables.md)
 - [Files](files.md)
 - [General objects and types](objects.md)
@@ -27,3 +32,6 @@ which means that there are many things that you can do in it.
 However, with this power comes some responsibility.
 > Just because you *can* do it,
 > doesn't mean you *should* do it.
+
+Some of the examples in this document contain some very funky, but legal,
+Python syntax. The reader is warned *not to try this at ~~home~~ work*
