@@ -16,7 +16,7 @@ each of which is discussed in a separate document:
     - [The `int()` built-in](int.md)
     - [The `bool()` built-in](bool.md)
     - [The `float()` built-in](float.md)
-    - [The `complex()` built-in](complex.md)
+    - The `complex()` built-in
     - [Built-in numerical functions](numbers.md)
 - [Iterable Types](iterables.md)
 - [Files](files.md)
