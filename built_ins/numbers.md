@@ -11,6 +11,7 @@ that take numerical arguments:
 The `min`, `max`, `sum`, `any`, and `all` functions take a *sequence of* numbers
 and are dealt with in a later section.
 
+
 ## The *abs()* built-in.
 
 Returns the absolute value of the given argument;
@@ -334,6 +335,18 @@ doesn't propogate a NaN.
 >>>
 ```
 
+If `base` is zero and `exp` is negative,
+an exception is raised.
+
+```python
+>>> pow(0, -1)
+Traceback (most recent call last):
+  File "<pyshell#1>", line 1, in <module>
+    pow(0, -1)
+ZeroDivisionError: 0.0 cannot be raised to a negative power
+>>>
+```
+
 ### The *pow()* built-in with boolean arguments
 
 Since a `bool` is an `int`, the `pow()` built-in can take boolean arguments.
@@ -373,6 +386,19 @@ If `exp` is negative, the return value is a float.
 
 If both arguments are float (or one is float and the other int)
 then the result is usually a float.
+
+```python
+>>> pow(1, 1.0)
+1.0
+>>> pow(1.0, 1)
+1.0
+>>> pow(2, 0.5)
+1.4142135623730951
+>>> pow(3.0, -1)
+0.3333333333333333
+>>>
+```
+
 However, if `base` is negative and `exp` is fractional, a complex number is returned.
 
 ```python
@@ -385,3 +411,230 @@ However, if `base` is negative and `exp` is fractional, a complex number is retu
 
 Note the rounding error.
 The expected answer is `0+1j'
+
+### The *pow()* built-in with one Decimal argument.
+
+Mixing int and `Decimal` arguments returns a `Decimal`.
+
+```python
+>>> pow(decimal.Decimal('2.0'), 4)
+Decimal('16.0000')
+>>> pow(decimal.Decimal('2'), 4)
+Decimal('16')
+>>> pow(4, decimal.Decimal(2))
+Decimal('16')
+>>> pow(16, decimal.Decimal('0.5'))
+Decimal('4.000000000000000000000000000')
+>>>
+```
+
+Mixing float and `Decimal` arguments is not supported.
+
+```python
+>>> pow(2.0, decimal.Decimal(4))
+Traceback (most recent call last):
+  File "<pyshell#1>", line 1, in <module>
+    pow(2.0, decimal.Decimal(4))
+TypeError: unsupported operand type(s) for ** or pow(): 'float' and 'decimal.Decimal'
+>>> pow(decimal.Decimal('2.0'), 4.0)
+Traceback (most recent call last):
+  File "<pyshell#2>", line 1, in <module>
+    pow(decimal.Decimal('2.0'), 4.0)
+TypeError: unsupported operand type(s) for ** or pow(): 'decimal.Decimal' and 'float'
+>>>
+```
+
+### The *pow()* built-in with one Fraction argument.
+
+If `base` is a `Fraction` and `exp` is int, a `Fraction` is returned.
+
+```python
+>>> pow(fractions.Fraction(5,2), -2)
+Fraction(4, 25)
+>>> pow(fractions.Fraction(5,2), 3)
+Fraction(125, 8)
+>>>
+```
+
+If `base` is an int and `exp` is an integral `Fraction`, an int is returned.
+
+```python
+>>> pow(2, fractions.Fraction(2,1))
+4
+>>>
+```
+
+If either argument is a float or `exp` is a proper `Fraction`, a float is returned.
+
+```python
+>>> pow(2, fractions.Fraction(1,2))
+1.4142135623730951
+>>> pow(fractions.Fraction(2,1), fractions.Fraction(1,2))
+1.4142135623730951
+>>> pow(2.0, fractions.Fraction(4,1))
+16.0
+>>> pow(fractions.Fraction(2,1), 4.0)
+16.0
+>>>
+```
+
+### The *pow()* built-in with one complex argument.
+
+Calling the `pow()` built-in with at least one complex argument
+returns a complex number.
+
+```python
+>>> pow(math.e, 1j * math.pi)
+(-1+1.2246467991473532e-16j)
+>>> pow(1j, 2)
+(-1+0j)
+>>>
+```
+
+
+## The *pow()* built-in with three arguments.
+
+The three-argument form of the `pow()` built-in
+returns `pow(base, exp) % mod`
+and is generally used in cryptographic algorithms.
+All three arguments must be integers or integral `Decimal`.
+
+```python
+>>> pow(2,4,5)
+1
+>>> pow(decimal.Decimal(2),4,5)
+Decimal('1')
+>>> pow(decimal.Decimal('2'), decimal.Decimal('4'), 5)
+Decimal('1')
+>>> pow(decimal.Decimal('2'), decimal.Decimal('4'), decimal.Decimal('5'))
+Decimal('1')
+>>>
+```
+
+If `exp` is negative, the `pow()` built-in returns the *modular inverse*
+of `base ** exp % mod`.
+Given, `inv = pow(base, -exp, mod)`
+then `(inv * pow(base, exp)) % mod == 1`
+
+```python
+>>> base, exp, mod = 79, 27, 256
+>>> inv = pow(base, -exp, mod)
+>>> inv
+143
+>>> inv * pow(base, exp) % mod
+1
+>>>
+```
+
+A restriction on this equation is that
+`base` must be relatively prime to `mod`
+(in many cryptographic algorithms `base` will be a prime number).
+
+```python
+>>> pow(26, -1, 22)
+Traceback (most recent call last):
+  File "<pyshell#1>", line 1, in <module>
+    pow(26, -1, 22)
+ValueError: base is not invertible for the given modulus
+>>>
+```
+
+
+## The *round()* built-in.
+
+The `round()` built-in can take one or two positional or keyword arguments.
+- `round(number, ndigits=None)`.
+
+It rounds a number to the given number of *decimal* places.
+If `ndigits` is given, it must be an integer.
+
+```python
+>>> round(273.15, 2)
+273.15
+>>> round(273.15, 1)
+273.1
+>>> round(273.15, 0)
+273.0
+>>>
+```
+
+If `ndigits` is negative, the return value is the number rounded to
+the nearest  `10 ** -ndigits`
+
+```python
+>>> round(273.15, -1)
+270.0
+>>> round(273.15, -2)
+300.0
+>>> round(273.15, -3)
+0.0
+>>>
+```
+
+If `ndigits` is missing or `None`, the return value is an integer.
+
+```python
+>>> round(273.15)
+273
+>>> round(273.15, None)
+273
+>>>
+```
+
+When `number` is midway between two rounding choices
+the number is rounded toward the even choice.
+
+```python
+>>> round(decimal.Decimal('273.15'), 1)
+Decimal('273.2')
+>>> round(decimal.Decimal('273.25'), 1)
+Decimal('273.2')
+>>> round(decimal.Decimal('273.35'), 1)
+Decimal('273.4')
+>>> round(decimal.Decimal('273.45'), 1)
+Decimal('273.4')
+>>>
+```
+
+
+### When *ndigits* is given (and is not None).
+
+If `number` is an int, the return value will be an int.
+
+```python
+>>> round(299792458, -4)
+299790000
+>>> round(299792458, -5)
+299800000
+>>> round(299792458, -6)
+300000000
+>>>
+```
+
+If `number` is a `Decimal`, the return value will be a `Decimal`,
+and the number of decimal places in the `Decimal` will match `ndigits`.
+
+```python
+>>> round(decimal.Decimal('273.15'), 1)
+Decimal('273.2')
+>>> round(decimal.Decimal('273.15'), 3)
+Decimal('273.150')
+>>> round(decimal.Decimal('273.15'), -1)
+Decimal('2.7E+2')
+>>>
+```
+
+If `number` is a `Fraction`, the return value will be a `Fraction`.
+
+```python
+>>> zdeg = fractions.Fraction(5463, 20)
+>>> float(zdeg)
+273.15
+>>> round(zdeg, 1)
+Fraction(1366, 5)
+>>> float(_)
+273.2
+>>> round(fractions.Fraction(1, 3), 3)
+Fraction(333, 1000)
+>>>
+```
