@@ -18,7 +18,9 @@ each of which is discussed in a separate document:
     - [The `float()` built-in](float.md)
     - The `complex()` built-in
     - [Built-in numerical functions](numbers.md)
-- [Iterable Types](iterables.md)
+- Iterables
+    - [Iterable Types](iterables.md)
+    - [Functions Processing Iterable Types](iterfuncs.md)
 - [Files](files.md)
 - [General objects and types](objects.md)
 - [Attributes of objects](attributes.md)

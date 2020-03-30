@@ -6,6 +6,11 @@ Python defines several built-in iterable types:
 - memoryview
 - range
 - slice
+- enumerate
+- map
+- filter
+- reversed
+- zip
 - dict
 - list
 - tuple
@@ -408,6 +413,187 @@ slice(1, None, 2) => ACEGIKMO
 slice(8, 5, -1) => HGF
 >>>
 ```
+
+
+# The *enumerate()* built-in.
+
+The `enumerate()` built-in is not a function but a type.
+It takes one or two arguments (`iterable`, `start`) that can be given as
+positional or keyword arguments.
+If `start` is not given it defaults to zero.
+If `start` is given it must be an integer.
+
+```python
+>>> enumerate('cauliflower', start=False)
+<enumerate object at 0x1088389c0>
+>>> enumerate('cauliflower', start=bytes(1)[0])
+<enumerate object at 0x10880c980>
+>>> enumerate('cauliflower', start=type('A', (), dict(__index__=lambda _:4))())
+<enumerate object at 0x10882eec0>
+>>>
+```
+
+An `enumerate` object is an iterator so each call to `next()` consumes
+one item; and once it is exhausted it will continue
+to raise `StopIteration`.
+
+```python
+>>> e = enumerate(start=10, iterable='King Arthur')
+>>> for idx, letter in e:
+        if letter.isspace():
+            break
+        print(f'{idx}{letter}')
+
+10K
+11i
+12n
+13g
+>>> print(*e)
+(15, 'A') (16, 'r') (17, 't') (18, 'h') (19, 'u') (20, 'r')
+>>> print(*e)
+
+>>>
+```
+
+
+# The *filter()* built-in.
+
+The `filter()` built-in is not a function but a type.
+It does not accept keyword arguments, but
+takes exactly two positional arguments:
+- the first argument is either None or a callable that takes one argument
+- the second argument is an iterable
+
+The `filter()` built-in returns an iterator that contains only those items
+in the iterable for which `callable(item)` returns True.
+If None is given in place of the callable it behaves like `bool(item)`.
+
+```python
+>>> iterable = ['', '', 'spam', '', 'and', '', 'eggs', '', '']
+>>> filt = filter(None, iterable)
+>>> list(filt)
+['spam', 'and', 'eggs']
+>>> filt = filter(bool, iterable)
+>>> list(filt)
+['spam', 'and', 'eggs']
+>>>
+```
+
+The following example defines a callable, `nospam`, that literally filters out spam.
+
+```python
+>>> iterable = 'Spam', 'egg', 'Spam', 'Spam', 'bacon', 'and', 'Spam'
+>>> nospam = lambda x:x.lower() != 'spam'
+>>> list(filter(nospam, iterable))
+['egg', 'bacon', 'and']
+>>>
+```
+
+
+# The *zip()* built-in.
+
+The `zip()` built-in is not a function but a type.
+It takes zero or more positional arguments,
+each of which must be an iterable.
+It does not accept keyword arguments.
+It returns an iterator (a `zip` object) whose items are tuples containing the
+next item from each of the arguments.
+That is, if there are N arguments, the items will be N-tuples.
+
+```python
+>>> months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'July', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+>>> days = [31, 28] + 2 * [31, 30, 31, 30, 31]
+>>> ordinals = ['st', 'nd', 'rd'] + 9 * ['th']
+>>> for tup in zip(range(1,13), ordinals, months, days):
+        print('%d%s month is %s, it has %d days' % tup)
+
+1st month is Jan, it has 31 days
+2nd month is Feb, it has 28 days
+3rd month is Mar, it has 31 days
+4th month is Apr, it has 30 days
+5th month is May, it has 31 days
+6th month is Jun, it has 30 days
+7th month is July, it has 31 days
+8th month is Aug, it has 31 days
+9th month is Sep, it has 30 days
+10th month is Oct, it has 31 days
+11th month is Nov, it has 30 days
+12th month is Dec, it has 31 days
+>>>
+```
+
+The zip object iterator will stop iterating as soon as one of the iterable
+arguments is exhausted.
+This can be illustrated by using a short iterable sandwiched between two longer
+iterables.
+
+```python
+>>> left = iter('abcdefg')
+>>> short = 'ABC'
+>>> right = iter('1234567')
+>>> list(zip(left, short, right))
+[('a', 'A', '1'), ('b', 'B', '2'), ('c', 'C', '3')]
+>>> next(left)
+'e'
+>>> next(right)
+'4'
+>>>
+```
+
+In the example above, the zip object stopped iterating when the `short` iterable
+raised `StopIteration`; by that time the `left` iterable had yielded four items,
+but since `zip` hadn't asked the `right` iterable for its next item,
+the `right` iterable had only yielded 3 items.
+
+This demonstrates not only that `zip` stops iterating when one of its
+iterators stops, but that the iterables are processed in strict order.
+This means that an iterator can be passed as an argument to the `zip()` built-in
+several times and it will be consumed in an expected order.
+For example, to break a sequence into chunks.
+
+```python
+>>> digits = iter('123456789*0#')
+>>> for line in zip(digits, digits, digits):
+        print(*line)
+
+1 2 3
+4 5 6
+7 8 9
+* 0 #
+>>>
+```
+
+Note, however, that this only works if the sequence can be broken into an
+exact multiple of chunks. Any items at the end of the sequence that don't fill
+a chunk will be lost.
+
+```python
+>>> msg = iter('MESSAGETOALLKNIGHTSOFTHEROUNDTABLE')
+>>> for line in zip(*(5 * [msg])):
+        print(*line)
+
+M E S S A
+G E T O A
+L L K N I
+G H T S O
+F T H E R
+O U N D T
+>>>
+```
+
+
+# The *map()* built-in.
+
+The `map()` built-in is not a function but a type.
+
+**TODO**
+
+
+# The *reversed()* built-in.
+
+The `reversed()` built-in is not a function but a type.
+
+**TODO**
 
 
 # The *dict()* built-in.
