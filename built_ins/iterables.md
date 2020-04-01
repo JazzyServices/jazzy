@@ -585,15 +585,96 @@ O U N D T
 # The *map()* built-in.
 
 The `map()` built-in is not a function but a type.
+It does not accept keyword arguments, but takes two or more positional
+arguments.
+The first argument must be a callable that takes one or more arguments.
+The remaining arguments to the `map()` built-in must be iterables,
+and there must be as many iterables as there are parameters expected by the
+callable.
+For example, if the callable expects 3 arguments, the `map()` built-in must
+be passed 4 arguments: the callable plus 3 iterables.
 
-**TODO**
+As we can see, the `map()` built-in is like the `zip()` built-in but
+with an additional argument.
+It returns an iterator (a `map` object).
+
+```python
+>>> days = [31, 28] + 2 * [31, 30, 31, 30, 31]
+>>> ordinals = ['st', 'nd', 'rd'] + 9 * ['th']
+>>> func = lambda *args: print('%d%s month is %s, it has %d days' % args)
+>>> m = map(func, range(1,13), ordinals, months, days)
+>>> any(m) or None
+1st month is Jan, it has 31 days
+2nd month is Feb, it has 28 days
+3rd month is Mar, it has 31 days
+4th month is Apr, it has 30 days
+5th month is May, it has 31 days
+6th month is Jun, it has 30 days
+7th month is July, it has 31 days
+8th month is Aug, it has 31 days
+9th month is Sep, it has 30 days
+10th month is Oct, it has 31 days
+11th month is Nov, it has 30 days
+12th month is Dec, it has 31 days
+>>>
+```
+
+The `map()` built-in has the same semantics as the `zip()` built-in
+with regard to:
+- stopping when one of the iterables is exhausted
+- processing an iterator passed multiple times
+
+```python
+>>> it = iter('ABCDEFG')
+>>> brackets = iter('()[]{}<>')
+>>> list(map(lambda *a:''.join(a), brackets, it, it, brackets))
+['(AB)', '[CD]', '{EF}']
+>>>
+```
+
+The behaviour of the `zip()` built-in can be simulated by the
+`map()` built-in by passing a "tuple-iser" as the first argument.
+
+```python
+>>> tupliser = lambda *args:args
+>>> list(map(tupliser, 'ABC', '---', 'ZYX'))
+[('A', '-', 'Z'), ('B', '-', 'Y'), ('C', '-', 'X')]
+>>>
+```
 
 
 # The *reversed()* built-in.
 
 The `reversed()` built-in is not a function but a type.
+It does not accept keyword arguments, but takes one positional argument
+which is a sequence having:
+- a `__reversed__` method (*e.g.* `dict`, `list`, `range`)
+- or, a `__len__` and `__getitem__` method (*e.g.* `str`, `bytes`, `tuple`)
 
-**TODO**
+It returns an iterator (a `reversed` object).
+
+```python
+>>> ''.join(reversed('satan oscillate my metallic sonatas'))
+'satanos cillatem ym etallicso natas'
+>>> Anon = type('Anon', (), dict(__len__=lambda _:10, __getitem__=lambda _,x:x+1))
+>>> list(reversed(Anon()))
+[10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
+>>>
+```
+
+Note that a `reversed(range(x, y))` differs from a `range(y, x, -1)`.
+Sometimes the former is more natural than the latter since it doesn't involve
+subtracting one from both the `start` and `stop` arguments.
+
+```python
+>>> list(reversed(range(10)))
+[9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
+>>> list(range(10,0,-1))
+[10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
+>>> list(range(9,-1,-1))
+[9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
+>>>
+```
 
 
 # The *dict()* built-in.
