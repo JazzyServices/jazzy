@@ -21,7 +21,7 @@ each of which is discussed in a separate document:
 - Iterables
     - [Iterable Types](iterables.md)
     - [Functions Processing Iterable Types](iterfuncs.md)
-- [Files](files.md)
+- [The `open()` built-in](files.md)
 - [General objects and types](objects.md)
 - [Attributes of objects](attributes.md)
 - [Methods](methods.md)
